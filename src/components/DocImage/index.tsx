@@ -1,16 +1,18 @@
 import React from 'react';
+import styles from './Image.module.css';
 
 interface ImageProps {
   src: string;
   alt: string;
   hideLegend?: boolean;
+  width?: number;
 }
 
-const Image = ({ src, alt, hideLegend }: ImageProps) => {
+const Image = ({ src, alt, hideLegend, width }: ImageProps) => {
   return (
-    <div style={{ textAlign: 'center', maxWidth: 600 + 'px', marginInline: 'auto' }}>
-      <img src={src} alt={alt} />
-      {!hideLegend && <span style={{ fontSize: 12 + 'px' }}>{alt}</span>}
+    <div className={styles.wrapper}>
+      <img src={src} alt={alt} className={styles.img} style={{ width: width ? width + 'px' : 'unset' }} />
+      {!hideLegend && <span className={styles.legend}>{alt}</span>}
     </div>
   );
 };

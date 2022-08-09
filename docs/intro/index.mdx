@@ -3,24 +3,7 @@ title: 'Tutorial de documentação'
 sidebar_position: 1
 ---
 
-<!--
-    ISSO É UM COMENTÁRIO
-
-    pessoal, algumas dicas pra fazer os documentos
-
-    na primeira linha do documento, sempre vão ficar as propriedades dele
-    sidebar_label é o título do documento que você tá escrevendo na sidebar
-    essa é a única que importa, por enquanto
-
-    escrevam o documento com a sintaxe comum de markdown
-    se tiverem dúvidas, usem de referência:
-    https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open
-
-    as imagens estão em um formato diferente pra ter uma formatação melhor no documento
-    vocês têm DUAS opções:
-        - colocar como imagem mesmo: ![Alt](src)
-        - copiar o código que eu já fiz
- -->
+import img from './img/pato.jpg';
 
 # Introdução
 
@@ -89,15 +72,29 @@ import imgX from './img/imagem.png';
 <image src={imgX} alt='Legenda' />;
 ```
 
+<image src={img} alt='Exemplo da imagem simples usando a tag image' />
+
 Mais fácil, né?
 
-Além disso, a tag `image` suporta, por enquanto, uma prop, que é o `hideLegend`. Caso a imagem usada não precise de uma legenda embaixo da imagem (por exemplo, no caso do fluxograma), basta incluir essa opção dentro da tag.
+Além disso, a tag `image` suporta, por enquanto, duas props, que são o `hideLegend` e o `width`. Quanto ao `hideLegend`, caso a imagem usada não precise de uma legenda embaixo da imagem (por exemplo, no caso do fluxograma), basta incluir essa opção dentro da tag.
 
 ```jsx
 import imgX from './img/imagem.png';
 
 <image src={imgX} alt='Legenda' hideLegend />;
 ```
+
+<image src={img} alt='Imagem sem legenda' hideLegend />
+
+E quanto ao `width`, é bem auto explicativo: vai definir a largura da imagem em pixels.
+
+```jsx
+import imgX from './img/imagem.png';
+
+<image src={imgX} alt='Legenda' width={400} />;
+```
+
+<image src={img} alt='Imagem com width={400}' width={400} />
 
 Pronto! Muito simples!
 
