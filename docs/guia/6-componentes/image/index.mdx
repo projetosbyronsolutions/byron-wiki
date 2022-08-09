@@ -1,0 +1,54 @@
+---
+title: 'image'
+---
+
+import img from './img/pato.jpg';
+
+# image
+
+A tag `<image />` é uma extensão feita pra facilitar o uso das imagens e colocar legendas nelas sem muitas dificuldades.
+
+Ao invés de você, toda vez que for incluir uma imagem, ter que lidar com o seguinte código:
+
+```html
+<div style="text-align: center; max-width: 600px; margin-inline: auto;">
+  <img src="./caminho/da/imagem" alt="Legenda" />
+  <span style="font-size: 12px;">Legenda</span>
+</div>
+```
+
+Você só tem que fazer o seguinte uso:
+
+```jsx
+import imgX from './img/imagem.png';
+
+<image src={imgX} alt='Legenda' />;
+```
+
+<image src={img} alt='Exemplo da imagem simples usando a tag image' />
+
+Mais fácil, né?
+
+Além disso, a tag `image` suporta, por enquanto, duas props, que são o `hideLegend` e o `width`. Quanto ao `hideLegend`, caso a imagem usada não precise de uma legenda embaixo da imagem (por exemplo, no caso do fluxograma), basta incluir essa opção dentro da tag.
+
+```jsx
+import imgX from './img/imagem.png';
+
+<image src={imgX} alt='Legenda' hideLegend />;
+```
+
+<image src={img} alt='Imagem sem legenda' hideLegend />
+
+E quanto ao `width`, é bem auto explicativo: vai definir a largura da imagem em pixels.
+
+```jsx
+import imgX from './img/imagem.png';
+
+<image src={imgX} alt='Legenda' width={400} />;
+```
+
+<image src={img} alt='Imagem com width={400}' width={400} />
+
+Pronto! Muito simples!
+
+Outra recomendação que faço é: mantenha todos os imports no início do arquivo, mas NUNCA antes da seção de [configurações do arquivo](#configurações-do-documento).

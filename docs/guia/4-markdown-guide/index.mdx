@@ -1,0 +1,130 @@
+---
+title: 'Guia de Markdown'
+sidebar_position: 4
+---
+
+# Guia de Markdown
+
+Você, caro byroniano capacitado em Git, já deve estar familiarizado com a linguagem de marcação **Markdown**, que é a usada nos arquivos `README.md`. Contudo, segue um breve guia rápido para você usar de referência.
+
+## Headings
+
+São os títulos, basicamente. No HTML, seriam as tags `h1`, `h2`, `h3`, `h4`, `h5` e `h6`. No Markdown, seguimos a mesma lógica, mas fazendo o uso de `#`:
+
+```md
+# H1
+
+## H2
+
+### H3
+
+#### H4
+
+##### H5
+
+###### H6
+```
+
+<h1>H1</h1>
+<h2>H2</h2>
+<h3>H3</h3>
+<h4>H4</h4>
+<h5>H5</h5>
+<h6>H6</h6>
+
+## Modificadores de texto
+
+No Markdown, temos alguns modificadores de texto, como o **negrito**, o _itálico_, e o `código`.
+
+> Além, disso, temos o block-quote
+>
+> > Que, por sinal, pode ser aninhado
+
+O texto acima foi escrito assim:
+
+```md
+No Markdown, temos alguns modificadores de texto, como o **negrito**, o _itálico_, e o `código`.
+
+> Além, disso, temos o block-quote
+>
+> > Que, por sinal, pode ser aninhado
+```
+
+Além disso, porções de código em bloco também são válidas:
+
+````
+```
+código aqui
+```
+````
+
+E caso o código seja de alguma linguagem, basta inserir a linguagem dela assim:
+
+````
+```js
+console.log("Olá!");
+```
+````
+
+Para ter uma saída com formatação e cores.
+
+```cpp
+#include <iostream>
+
+using std::cout;
+using std::endl;
+
+int main() {
+    cout << "Olá, byron!" << endl;
+
+    return 0;
+}
+```
+
+## Links e imagens
+
+Hiperlinks e imagens, obviamente, também são suportados pelo Markdown. Basta escrever:
+
+`[texto do link](http://byronsolutions.com/)`
+
+E você terá [um link](https://youtu.be/dQw4w9WgXcQ)!
+
+Quanto às imagens, basta inserir um ponto de exclamação antes. Além disso, o texto entre colchetes será o `alt` da imagem:
+
+`![alt da imagem](http://url.com)`
+
+E você terá uma imagem:
+
+![patinho fofo](https://t1.ea.ltmcdn.com/pt/posts/5/2/6/nome_para_pato_de_estimacao_20625_6_600.jpg)
+
+No caso de uma imagem localizada direto no repositório (o ideal), referencie-a localmente:
+
+`![alt da imagem](./img/img.png)`
+
+## Listas
+
+Temos, também, as listas ordenadas e não-ordenadas.
+
+```md
+- Item 1
+- Item 2
+- Item 3
+
+1. Item 1
+2. Item 2
+3. Item 3
+```
+
+- Item 1
+- Item 2
+- Item 3
+
+1. Item 1
+2. Item 2
+3. Item 3
+
+## Considerações finais
+
+Esse é o **básico** do Markdown. Existem outros recursos e você pode pesquisar sobre eles usando nosso amiguinho [Google](http://google.com/)!
+
+Por fim, saiba que o Markdown suporta qualquer elemento em HTML e, no nosso caso, o Markdown Extendido (`.mdx`) suporta qualquer elemento em JSX (usado em React).
