@@ -1,6 +1,5 @@
 ---
 sidebar_label: 'One to One'
-sidebar_position: 1
 ---
 
 # Guia de One-to-one
@@ -101,13 +100,15 @@ Juntamente com as diretrizes descritas acima, há uma ferramenta conhecida como 
    O último passo se refere a explicar como as ações que necessitam de um feedback corretivo afetam o time e a empresa.
    Por fim, é necessário reforçar que há diferença entre ser firme e tratar mal alguém. Preste atenção nesse limite e cuidado com a escolha de palavras. É essencial exercitar a empatia e se colocar no lugar da pessoa que está recebendo o feedback. Lembre-se: seu objetivo não é desmotivar o membro do seu time, e sim ajudá-lo a crescer. Para tornar o processo de feedback ainda mais natural e confortável, seja claro a respeito desse papel como líder e de sua responsabilidade e comprometimento em auxiliar em seu processo de desenvolvimento.
 
-> "People have a habit of becoming what you encourage them to be, not what you nag them to be.", Scudder N. Parker
-
-> "As pessoas têm o hábito de se tornarem o que você as encoraja a serem, e não o que você as importuna a serem.", Scudder N. Parker
+> "People have a habit of becoming what you encourage them to be, not what you nag them to be."
+>
+> "As pessoas têm o hábito de se tornarem o que você as encoraja a serem, e não o que você as importuna a serem."
+>
+> **_Scudder N. Parker_**
 
 ## SEGUNDA PARTE O2O - ACOMPANHAMENTO
 
-    O O2O é um acompanhamento contínuo, ou seja, não se limita a uma reunião. As respostas coletadas no último O2O são retomadas na próxima, de forma indireta, fazendo perguntas similares às feitas anteriormente. Assim, com o acúmulo de O2Os, você consegue comparar o crescimento do membro.
+O O2O é um acompanhamento contínuo, ou seja, não se limita a uma reunião. As respostas coletadas no último O2O são retomadas na próxima, de forma indireta, fazendo perguntas similares às feitas anteriormente. Assim, com o acúmulo de O2Os, você consegue comparar o crescimento do membro.
 
 ## REFERÊNCIAS
 

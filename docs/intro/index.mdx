@@ -45,7 +45,11 @@ sidebar_label: 'Título da página na sidebar'
 Seu markdown aqui.
 ```
 
+Basicamente, são uma série de metadados contendo informações sobre o próprio documento.
+
+:::danger ATENÇÃO
 Essas configurações devem, **SEMPRE**, ser a primeira coisa no documento. Caso contrário, não vão ser aplicadas e vocês vão ficar lelé da cuca tentando entender o que rolou.
+:::
 
 ## Recursos Extra
 
@@ -99,3 +103,92 @@ import imgX from './img/imagem.png';
 Pronto! Muito simples!
 
 Outra recomendação que faço é: mantenham todos os imports no início do arquivo, mas NUNCA antes da seção de [configurações do arquivo](#configurações-do-documento).
+
+### Admonições
+
+Outra coisa mais nova suportada pelo Docusaurus são as admonições (sim, o nome é bizarro), que são "avisos" customizáveis. Usá-los é muito simples:
+
+```md
+:::note
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+
+:::tip
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+
+:::info
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+
+:::caution
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+
+:::danger
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+```
+
+:::note
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+
+:::tip
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+
+:::info
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+
+:::caution
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+
+:::danger
+
+Um pouco de **conteúdo** em _Markdown_ com `sintaxe` de admonições.
+
+:::
+
+Note que os nomes estão todos em inglês, mas não se preocupe: podemos trocar os nomes! Para customizar o nome de qualquer admonição, basta colocar o nome personalizado depois de sua tag:
+
+```md
+:::tip dica
+
+Vá tomar água. Faz bem. :)
+
+:::
+```
+
+:::tip DICA
+
+Vá tomar água. Faz bem. :)
+
+:::
+
+<iframe
+  style={{ border: 'none' }}
+  width='800'
+  height='450'
+  src='https://whimsical.com/embed/7FgQQMAp6TsBrEXGLPtM7B'
+></iframe>
