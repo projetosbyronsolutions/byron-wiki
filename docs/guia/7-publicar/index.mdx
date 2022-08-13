@@ -12,10 +12,26 @@ Essa página ainda está em progresso. Preciso conferir como será feita a publi
 
 Por fim, depois de você enriquecer nossa querida documentação com mais conhecimento que não será perdido, o último passo é de publicar todas as mudanças!
 
-Para isso, você fará um `commit` de todas as alterações e um `push`. Feito isso, o mantenedor da Wiki lerá as suas alterações e, caso sejam aprovadas, será feito um merge à `main`. O site será recompilado automaticamente (viva a modernidade!).
+Por questões de segurança, visto que a Wiki está num repositório público no GitHub, todas as alterações devem ser aprovadas por um mantenedor da byron. Você deverá ser adicionado como colaborador do repositório. Para isso, entre em contato com o responsável.
+
+Depois de ser adicionado como colaborador, faça uma nova branch com as suas alterações.
+
+```bash
+git checkout -b nome_da_branch
+```
+
+O nome recomendado para a branch é `diretoria/processo`. Por exemplo, no caso da inclusão do processo de Fluxo de caixa para DVP, o nome da branch seria `dvp/fluxo-de-caixa`. Então, o comando seria:
+
+```bash
+git checkout -b dvp/fluxo-de-caixa
+```
+
+Feito isso, faça um _commit_ e um _push_ de suas alterações:
 
 ```bash
 git commit -m "descreva quais documentos foram alterados/inseridos"
 
 git push
 ```
+
+Por fim, navegue até o [repositório da wiki](http://github.com/fabioavf/byron-wiki) e faça um _pull request_ para fazer o _merge_ da sua nova _branch_ para a _main_.
