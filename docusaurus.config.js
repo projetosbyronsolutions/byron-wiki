@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'byron.wiki',
-  url: 'https://byron-wiki.vercel.app',
+  url: 'https://portal.byronsolutions.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -35,15 +35,13 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/fabioavf/byron-wiki/blob/main',
+          editUrl: 'https://github.com/fabioavf/byron-wiki/blob/main',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/fabioavf/byron-wiki/blob/main',
+          editUrl: 'https://github.com/fabioavf/byron-wiki/blob/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
