@@ -1,0 +1,64 @@
+---
+title: 'Mapeamento de Processos'
+sidebar_label: 'Mapeamento de Processos'
+---
+
+import fluxograma from './img/fluxograma.png';
+import img1 from './img/1.png';
+
+## Fluxograma
+
+<image src={fluxograma} hideLegend width={700} />
+
+## Etapas do Processo
+
+### Obter dados do cliente e do projeto na PTEC
+
+** Quem: ** Membro de DVP
+
+** Como: ** A pessoa encarregada deve ler toda a PTEC e extrair os dados do cliente, o prazo para conclusão do projeto, o preço, o escopo e todos os demais detalhes que deverão ser incluídos no contrato.
+
+### Elaborar contrato seguindo o template
+
+** Quem: ** Membro de DVP
+
+** Como: ** Para a elaboração do contrato, você deverá seguir o [template do contrato](https://docs.google.com/document/d/1OpZmZJRO-FkWPyc9qT6WAZXP8pTlyUuB/edit). Basta substituir as linhas marcadas em azul pelos dados correspondentes obtidos na PTEC no passo anterior. 
+
+### Revisar Contrato
+
+** Quem: ** Membro de DVP
+
+** Como: ** Após o contrato ser finalizado, ele deve ser enviado a outro membro da diretoria junto com o template de [revisão de contrato](https://docs.google.com/spreadsheets/d/1_EACioPdu-ZlOlT7eSPLFQ-Y76sEbIDALM1vq5sFXbQ/edit#gid=1082580143) preenchido com o nome do projeto, o link da PTEC e se tiver alguma informação adicional. O outro membro preenche a tabela à medida que revisa o contrato.
+
+Caso encontrado algum erro, o revisor deverá notificar o encarregado de fazer o contrato, que, por sua vez, irá corrigir o contrato. Daí, o processo será repetido até que não sejam encontrados erros.
+
+### Enviar o contrato para o cliente
+
+** Quem: ** Membro de DC
+
+** Como: ** Para assinar o contrato, o documento deverá ser upado ou no [Zapsign](https://app.zapsign.com.br/acesso/entrar) ou no [Autentique](https://www.autentique.com.br) por DVP e um membro de DC deve avisar o cliente que o contrato pode ser assinado caso ele concorde com todas as cláusulas, assim como o Diretor de Projetos e do Diretor Presidente da byron.
+Caso o cliente peça alguma alteração, esse pedido deve ser encaminhado a DVP para que as alterações sejam analisadas e feitas. O contrato deverá ser revisado novamente.
+:::info Senhas
+As senhas das contas do Autentique e do Zapsign utilizadas pela byron estão salvas no Mattermost de DVP.
+:::
+
+### Armazenar no Drive
+
+** Quem: ** Membro de DVP
+
+** Como: ** Após o contrato ter sido devidamente assinado, ele deverá ser armazenado na pasta [`Geral b.sol > Projetos > [AnoDoProjeto] > [NomeDaEmpresa]`](https://drive.google.com/drive/u/2/folders/1blgYPjLC1FPqoElna-Wb9sbmXRqX5-rc) , assim como sua planilha de [revisão de contrato](https://docs.google.com/spreadsheets/d/1_EACioPdu-ZlOlT7eSPLFQ-Y76sEbIDALM1vq5sFXbQ/edit#gid=1082580143).
+
+### Criar Atalho para pasta geral por projeto
+
+** Quem: ** Membro de DVP
+
+** Como: ** Para melhorar e agilizar o processo de busca de arquivos,  DVP decidiu adotar o sistema de atalho do Google Drive para os contratos. Então, para criar o atalho é necessário clicar com o botão direito do mouse no arquivo de contrato, ou na pasta de contrato localizada em [`Geral b.sol > Projetos > ano do projeto> nome da empresa`](https://docs.google.com/spreadsheets/d/1_EACioPdu-ZlOlT7eSPLFQ-Y76sEbIDALM1vq5sFXbQ/edit#gid=1082580143) e, depois  clicar em gerar atalho. As opções serão estas:
+<image src={img1} alt='Aba do Google Drive para gerar atalho' />
+
+Agora, basta clicar em “Adicionar atalho ao Google Drive” e selecionar a pasta [`DVP > Administrativo-Financeiro > Financeiro > Contratos > [Ano Atual] > [Nome da Contratante]`](https://drive.google.com/drive/u/2/folders/1ecq-sg5_aDISrFSy17svmEGcc0M8rEld).
+
+:::tip Coletar dados do cliente
+Para coletar os dados do cliente, foi criado um [forms para o processo de elaboração de PTEC](https://docs.google.com/forms/u/2/d/1QzwLkThGcJ_hsY3z6MAuUtmztTOBn8d7Clwx5iaOKjQ/edit?usp=drive_web), que possui as informações básicas do cliente como nome, cpf, endereço, etc. 
+
+O forms se encontra na pasta [`DVP/Administrativo-Financeiro/Financeiro/Contratos/[Ano Atual]/[Nome da Contratante]`](https://drive.google.com/drive/u/2/folders/1ecq-sg5_aDISrFSy17svmEGcc0M8rEld).
+:::
