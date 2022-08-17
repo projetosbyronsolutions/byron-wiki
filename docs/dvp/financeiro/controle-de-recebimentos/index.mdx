@@ -1,0 +1,66 @@
+---
+title: "Controle de Recebimentos"
+sidebar_label: "Controle de Recebimentos"
+---
+
+import fluxograma from './img/fluxograma.png';
+import img1 from './img/1.png';
+import img2 from './img/2.png';
+import img3 from './img/3.png';
+import img4 from './img/4.png';
+
+## Fluxograma
+
+<image src={fluxograma} hideLegend />
+
+## Criar planilha
+
+**Quem:** Membro da Diretoria de Vice-Presidência.
+
+**Quando:** No início do ano, quando não ainda houver nenhuma planilha de controle de recebimentos.
+
+**Por que:** Iniciar o processo de controle de recebimento no ano.
+
+**Como:** Para criar a planilha de controle de recebimentos do ano atual, basta criar uma cópia da [planilha template](https://docs.google.com/spreadsheets/d/1hy4nA9KXfdDWI6pMnYvRhHIf7O5driXBxj8BiKXnUTc/edit?pli=1#gid=1393697693) e trocar "20XX" pelo ano atual. Para criar uma cópia da planilha, você deve clicar em Arquivo -> Fazer uma cópia e definir o local da cópia para: /Diretorias/DVP/Administrativo-Financeiro/Financeiro/Controle e Acompanhamento Financeiro/(ANO ATUAL)/
+
+## Comparar com os projetos em andamento e concluídos do ano
+
+**Quem:** Membro da Diretoria de Vice-Presidência.
+
+**Quando:** Após a criação da planilha ou 15 dias após a última verificação.
+
+**Por que:** Para verificar se a planilha ainda está válida ou se está desatualizada.
+
+**Como:** Verifique a planilha de fluxo de caixa, o DPJ ULTRA FACILITATOR, contratos, notas fiscais, termos de fechamento e quaisquer outros documentos que indiquem a existência de projetos. Faça a comparação com os já presentes no controle de recebimentos. Verifique se as parcelas estão corretas, se as datas estão corretas, se as parcelas foram pagas e todos os demais campos presentes na planilha.
+
+Essa etapa do processo consiste em trabalho repetitivo de busca e, geralmente, também não é um trabalho linear. Para entendermos melhor como fazer essa busca, um projeto fictício foi criado.
+
+A byron.solutions fechou um contrato para um e-commerce com a empresa "Birão Camisetas" no dia 15/04/2021 no valor de R$5.000,00, com uma entrada de R$1.000,00 e duas parcelas subsequentes de R$2.000,00. O estado inicial da planilha após o fechamento seria:
+
+<image src={img1} alt='Exemplo planilha "Birão Camisetas"' hidelegend width={600} />
+
+Note que, como são 3 parcelas, foram usadas 3 linhas da planilha. As colunas de "Contratante", "Valor Total", "Status Projeto", "P.O.", "Status NF-e", "Termo de Fechamento" e "Detalhes Adicionais" foram mescladas e as demais foram adequadas às suas respectivas parcelas. Para calcular o valor total, é preferível que digite "=Soma(**<Células contendo os valores das parcelas>**)" para automatizar o cálculo.
+
+Após três ciclos de verificação da planilha (45 dias), o verificador notou que uma parcela foi paga. Portanto, a atualizou como paga.
+
+<image src={img2} alt="Atualização parcela paga" hidelegend width={600} />
+
+Após outro ciclo (15 dias), o verificador notou, ao conferir a planilha de fluxo de caixa, que a última parcela estava pendente, e, portanto, marcou-a assim.
+
+<image src={img3} alt="Atualização parcela pendente" hidelegend width={600} />
+
+Após mais um ciclo (15 dias), o verificador conferiu que todas as parcelas foram pagas, que o projeto fora concluído e que tanto a nota fiscal quanto o termo de fechamento estavam presentes no Drive. Portanto, fez as devidas correções.
+
+<image src={img4} alt="Atualização finalização e armazenamento totais do projeto" hidelegend width={600} />
+
+De modo geral, um projeto deve prosseguir desse modo na planilha de controle de recebimentos. Poderão haver discrepâncias e, portanto, cabe ao julgamento do verificador alterar a planilha de forma condizente com a situação de um projeto.
+
+## Atualizar os dados desatualizados ou inexistentes na planilha
+
+**Quem:** Membro da Diretoria de Vice-Presidência.
+
+**Quando:** Após a verificação dos dados.
+
+**Por que:** Para manter a planilha correta e atualizada.
+
+**Como:** Após verificados os dados, a planilha deve ser preenchida com os dados faltantes e os dados incorretos devem ser atualizados.
