@@ -1,13 +1,13 @@
 module.exports = {
-  plugins: ["@docusaurus"],
-  extends: ["plugin:@docusaurus/recommended"],
+  plugins: ['@docusaurus'],
+  extends: ['plugin:@docusaurus/recommended'],
   rules: {
-    '@docusaurus/no-untranslated-text': [
-      'warn',
-      { ignoredStrings: ['·', '—', '×'] },
-    ],
+    '@docusaurus/no-untranslated-text': ['warn', { ignoredStrings: ['·', '—', '×'] }],
   },
-  "env": {
-    "es6": true
-  }
-}
+  parserOptions: {
+    sourceType: 'module',
+  },
+  env: {
+    es6: true,
+  },
+};

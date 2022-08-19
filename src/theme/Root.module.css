@@ -1,0 +1,77 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: min(100%, 16rem);
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formItem > label {
+  font-size: 0.75rem;
+}
+
+.formItem > input {
+  padding: 0.5rem 0.75rem;
+}
+
+.loginButton {
+  width: 100%;
+  --ifm-button-size-multiplier: 1.35;
+
+  font-size: calc(0.875rem * var(--ifm-button-size-multiplier));
+  font-weight: var(--ifm-button-font-weight);
+  line-height: 1.5;
+  padding: calc(var(--ifm-button-padding-vertical) * var(--ifm-button-size-multiplier))
+    calc(var(--ifm-button-padding-horizontal) * var(--ifm-button-size-multiplier));
+  text-align: center;
+  color: var(--ifm-link-color);
+
+  background-color: transparent;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-button-border-radius);
+
+  transition-property: color, background, border-color;
+  transition-duration: var(--ifm-button-transition-duration);
+  transition-timing-function: var(--ifm-transition-timing-default);
+
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  border-color: var(--ifm-pagination-nav-color-hover);
+}
+
+.switchButton {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  text-decoration: underline;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
