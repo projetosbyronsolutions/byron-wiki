@@ -3,6 +3,7 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+require('dotenv').config();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -12,6 +13,10 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+  customFields: {
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -25,6 +30,15 @@ const config = {
     defaultLocale: 'pt-br',
     locales: ['pt-br'],
   },
+
+  plugins: [
+    [
+      'docusaurus2-dotenv',
+      {
+        path: './.env',
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -65,6 +79,13 @@ const config = {
             docId: 'guia/index',
             position: 'left',
             label: 'Documentação',
+          },
+          {
+            href: 'http://mattermost.byronsolutions.com/',
+            label: 'Mattermost',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'Mattermost',
           },
         ],
       },
