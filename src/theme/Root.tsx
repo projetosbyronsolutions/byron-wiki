@@ -1,23 +1,44 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { AuthError, createClient, Session } from '@supabase/supabase-js';
+import { AuthError, AuthResponse, createClient, Session } from '@supabase/supabase-js';
 import React, { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import styles from './Root.module.css';
-// import { supabase } from '../api/supabaseClient';
+import 'react-toastify/dist/ReactToastify.css';
+
+interface ISession {
+  data: {
+    session: Session | null;
+  };
+  error: AuthError | null;
+}
 
 const Root = ({ children }) => {
-  const { siteConfig } = useDocusaurusContext();
-  const supabase = createClient(
-    'https://cqtgrkfilefcjwlhtfzc.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNxdGdya2ZpbGVmY2p3bGh0ZnpjIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjA5MTIxNTAsImV4cCI6MTk3NjQ4ODE1MH0.p_QYPX5aLQg02Y1fHz7w037d9BPjIffoZ56-B7qi3LU'
-  );
-  // const supabase = createClient(siteConfig.supabaseUrl, siteConfig.supabaseAnonKey);
+  const { siteConfig }: any = useDocusaurusContext();
+  const supabase = createClient(siteConfig.customFields.supabaseUrl, siteConfig.customFields.supabaseAnonKey);
 
   const [success, setSuccess] = useState(false); // When true, will unlock the site
   const [loading, setLoading] = useState(false); // Used to display a loading when handling requisitions
   const [showSignup, setShowSignup] = useState(false); // Controls if login or signup form shows up
 
-  const [loginData, setLoginData] = useState({ email: '', password: '' });
-  const [signupData, setSignupData] = useState({ email: '', password: '' });
+  const [loginData, setLoginData] = useState({ email: '', password: '' }); // Stores form data to be later validated
+
+  useEffect(() => {
+    const getSession = async () => {
+      console.log('getSession');
+
+      try {
+        const { data, error }: ISession = await supabase.auth.getSession();
+
+        if (error) throw error;
+
+        if (data.session !== null) setSuccess(true);
+      } catch (error) {
+        throw error.message;
+      }
+    };
+
+    getSession();
+  }, [loading]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -27,15 +48,14 @@ const Root = ({ children }) => {
     const password = loginData.password;
 
     try {
-      let { error } = await supabase.auth.signInWithOtp({ email });
+      let { error } = await supabase.auth.signInWithPassword({ email, password });
 
       if (error) {
+        toast.error(error.message);
         throw error;
-      } else {
-        setSuccess(true);
       }
-    } catch (err) {
-      throw err.error_description || err.message;
+    } catch (error) {
+      throw error.message;
     } finally {
       setLoading(false);
     }
@@ -49,22 +69,24 @@ const Root = ({ children }) => {
     const password = loginData.password;
 
     try {
-      let { error } = await supabase.auth.signUp({ email, password });
+      let { error }: AuthResponse = await supabase.auth.signUp({ email, password });
 
       if (error) {
         throw error;
-      } else {
-        setSuccess(true);
       }
-    } catch (err) {
-      throw err.error_description || err.message;
+    } catch (error) {
+      toast.error(error.message);
+      throw error.message;
     } finally {
       setLoading(false);
+      toast.success('Confirme seu email para finalizar seu cadastro!');
     }
   };
 
   return (
     <React.Fragment>
+      <ToastContainer />
+
       {success ? (
         <>{children}</>
       ) : (
