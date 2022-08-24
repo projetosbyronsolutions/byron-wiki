@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import styles from './Root.module.css';
 import 'react-toastify/dist/ReactToastify.css';
+import LoginForm from '../components/LoginForm';
 
 interface ISession {
   data: {
@@ -21,6 +22,7 @@ const Root = ({ children }) => {
   const [showSignup, setShowSignup] = useState(false); // Controls if login or signup form shows up
 
   const [loginData, setLoginData] = useState({ email: '', password: '' }); // Stores form data to be later validated
+  const [signupData, setSignupData] = useState({ email: '', password: '', passwordConfirm: '' }); // Stores form data to be later validated
 
   useEffect(() => {
     const getSession = async () => {
@@ -40,33 +42,12 @@ const Root = ({ children }) => {
     getSession();
   }, [loading]);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    const email = loginData.email;
-    const password = loginData.password;
-
-    try {
-      let { error } = await supabase.auth.signInWithPassword({ email, password });
-
-      if (error) {
-        toast.error(error.message);
-        throw error;
-      }
-    } catch (error) {
-      throw error.message;
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const email = loginData.email;
-    const password = loginData.password;
+    const email = signupData.email;
+    const password = signupData.password;
 
     try {
       let { error }: AuthResponse = await supabase.auth.signUp({ email, password });
@@ -95,7 +76,18 @@ const Root = ({ children }) => {
             'loading...'
           ) : (
             <>
-              <form onSubmit={showSignup ? handleSignup : handleLogin} className={styles.form}>
+              {/* LOGIN FORM */}
+
+              <LoginForm
+                setLoading={setLoading}
+                loginData={loginData}
+                setLoginData={setLoginData}
+                showSignup={showSignup}
+                setShowSignup={setShowSignup}
+              />
+
+              {/* SIGNUP FORM */}
+              <form onSubmit={handleSignup} className={styles.form} style={{ display: showSignup ? 'flex' : 'none' }}>
                 <div className={styles.inputWrapper}>
                   <div className={styles.formItem}>
                     <label htmlFor='email'>email</label>
@@ -104,9 +96,9 @@ const Root = ({ children }) => {
                       name='Email'
                       id='email'
                       placeholder='Email'
-                      value={loginData.email}
+                      value={signupData.email}
                       onChange={(e) =>
-                        setLoginData((prev) => {
+                        setSignupData((prev) => {
                           return {
                             ...prev,
                             email: e.target.value,
@@ -122,12 +114,30 @@ const Root = ({ children }) => {
                       name='Password'
                       id='password'
                       placeholder='Senha'
-                      value={loginData.password}
+                      value={signupData.password}
                       onChange={(e) =>
-                        setLoginData((prev) => {
+                        setSignupData((prev) => {
                           return {
                             ...prev,
                             password: e.target.value,
+                          };
+                        })
+                      }
+                    />
+                  </div>
+                  <div className={styles.formItem}>
+                    <label htmlFor='password'>confirmar senha</label>
+                    <input
+                      type='password'
+                      name='Confirm Password'
+                      id='passwordConfirm'
+                      placeholder='Senha'
+                      value={signupData.passwordConfirm}
+                      onChange={(e) =>
+                        setSignupData((prev) => {
+                          return {
+                            ...prev,
+                            passwordConfirm: e.target.value,
                           };
                         })
                       }
