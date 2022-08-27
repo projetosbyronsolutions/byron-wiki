@@ -1,27 +1,28 @@
+import { ISignupData } from '@site/src/interface/ISignupData';
 import React, { useState } from 'react';
 import { ILoginData } from '../../interface/ILoginData';
 import styles from './styles.module.css';
 
 interface IProps {
-  loginData: ILoginData;
-  setLoginData: React.Dispatch<React.SetStateAction<ILoginData>>;
+  data: ILoginData | ISignupData;
+  setData: React.Dispatch<React.SetStateAction<ILoginData>> | React.Dispatch<React.SetStateAction<ISignupData>>;
 }
 
-const EmailInput = ({ loginData, setLoginData }: IProps) => {
+const EmailInput = ({ data, setData }: IProps) => {
   const [emailValue, setEmailValue] = useState('');
   const [focus, setFocus] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Checks if email contains '@' substring. If so, sets loginData to the target value. Elsewise, appends @byronsolutions.com to the string
     if (e.target.value.includes('@')) {
-      setLoginData((prev) => {
+      setData((prev) => {
         return {
           ...prev,
           email: e.target.value,
         };
       });
     } else {
-      setLoginData((prev) => {
+      setData((prev) => {
         return {
           ...prev,
           email: e.target.value + '@byronsolutions.com',
@@ -43,7 +44,7 @@ const EmailInput = ({ loginData, setLoginData }: IProps) => {
         type='email'
         name='Email'
         id='email'
-        placeholder='Email'
+        placeholder='email'
         value={emailValue}
         onChange={handleChange}
         onFocus={() => setFocus(true)}

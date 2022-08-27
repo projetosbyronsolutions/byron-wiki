@@ -1,7 +1,7 @@
 import { ILoginData } from '../../interface/ILoginData';
 import React from 'react';
 import styles from './styles.module.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { createClient } from '@supabase/supabase-js';
 import EmailInput from '../EmailInput/index';
@@ -40,18 +40,18 @@ const LoginForm = ({ setLoading, loginData, setLoginData, showSignup, setShowSig
   };
 
   return (
-    <form onSubmit={handleLogin} className={styles.form} style={{ display: showSignup ? 'none' : 'flex' }} noValidate>
+    <form onSubmit={handleLogin} className={styles.form} noValidate>
       <div className={styles.inputWrapper}>
         <div className={styles.formItem}>
           <label htmlFor='email'>email</label>
-          <EmailInput loginData={loginData} setLoginData={setLoginData} />
+          <EmailInput data={loginData} setData={setLoginData} />
         </div>
         <div className={styles.formItem}>
           <label htmlFor='password'>senha</label>
           <input
             type='password'
             name='Password'
-            id='password'
+            id='loginPassword'
             placeholder='Senha'
             value={loginData.password}
             onChange={(e) =>

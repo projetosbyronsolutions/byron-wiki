@@ -1,6 +1,6 @@
 .input {
   width: 100%;
-  /* padding: 0.5rem 0.75rem; */
+  padding-block: 0.5rem;
   border: none;
   border-radius: 2px;
   background: transparent;
@@ -23,9 +23,10 @@
   flex-direction: row;
   align-items: center;
 
-  border: 1px solid rgb(133, 133, 133);
+  outline: none;
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 4px;
-  padding: 0.5rem 0.75rem;
+  padding-inline: 0.75rem;
 }
 
 .emailPreset {
