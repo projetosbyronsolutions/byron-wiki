@@ -12,6 +12,10 @@ import figura6 from "./img/figura6.png";
 import figura7 from "./img/figura7.png";
 import figura8 from "./img/figura8.png";
 import figura9 from "./img/figura9.png";
+import figura10 from "./img/figura10.png";
+import figura11 from "./img/figura11.png";
+import figura12 from "./img/figura12.png";
+import figura13 from "./img/figura13.png";
 
 # Planejamento Estratégico
 
@@ -21,9 +25,15 @@ Esse mapeamento está com o desenvolvimento em progresso.
 
 :::
 
+## Revisando o MVV
+
+Todo início de ano, os membros da byron devem revisar o MVV para alinhá-lo à realidade da empresa.
+
+Caso alguma inconsistência for encontrada, deve-se fazer as modificações necessárias para que tudo o que foi definido esteja em sintonia.
+
 ## Definindo as metas do Portal
 
-No início do ano, todos os membros devem se reunir para estabelecer as metas da byron para o trimestre.
+Agora, todos os membros devem se reunir para estabelecer as metas da byron para o trimestre.
 
 De acordo com o Portal Brasil Júnior, os objetivos da empresa devem ser definidos de acordo com as seguintes metas:
 
@@ -68,7 +78,7 @@ Abaixo, segue um exemplo dos desdobramentos:
 <image
   src={figura1}
   alt="Figura 1 - Exemplo de desdobramento de objetivo"
-  width={600}
+  width={1000}
 />
 
 ## Criando/Atualizando modelo de quadro Kanban
@@ -85,7 +95,11 @@ Pule para o passo 6 caso o modelo já exista.
 
 - Passo 1: Inicialmente deve ser acessado o [Mattermost da byron](http://mattermost.byronsolutions.com/). Após entrar nesse link, a seguinte tela aparecerá:
 
-<image src={figura2} alt="Figura 2 - Tela de login do Mattermost" width={600} />
+<image
+  src={figura2}
+  alt="Figura 2 - Tela de login do Mattermost"
+  width={1000}
+/>
 
 - Passo 2: Caso o membro responsável possua uma conta, continue para o Passo 3. Caso o membro responsável não possua uma conta no Mattermost, crie uma conta utilizando o e-mail institucional da byron (usuário@byronsolutions.com).
 
@@ -94,7 +108,7 @@ Pule para o passo 6 caso o modelo já exista.
 <image
   src={figura3}
   alt="Figura 3 - Página de channels do Mattermost"
-  width={600}
+  width={1000}
 />
 
 - Passo 4: Caso exista um canal (channel), continue para o passo 5. Caso não exista um canal (channel) para a respectiva diretoria do membro, deverá ser criado um. Para criar um canal clique no “+” (Figura 4) e selecione a opção “Criar Novo Canal” (Figura 5). Selecione o tipo como “privado”, e o nome deve ser “PE - sigla da respectiva diretoria”.
@@ -102,13 +116,13 @@ Pule para o passo 6 caso o modelo já exista.
 <image
   src={figura4}
   alt="Figura 4 - Dropdown para criar um novo canal"
-  width={600}
+  width={1000}
 />
 
 <image
   src={figura5}
   alt="Figura 5 - Tela para criar um novo canal"
-  width={600}
+  width={1000}
 />
 
 - Passo 5: Caso já exista um board no canal siga para o passo 6. Caso não exista, deverá ser criado um novo board. Para criá-lo, o membro deve selecionar “channels” (Figura 6), em seguida selecionar “boards” (Figura 7), selecionar então o canal da respectiva diretoria e por último escolher o template do PE (Figura 8).
@@ -116,15 +130,15 @@ Pule para o passo 6 caso o modelo já exista.
 <image
   src={figura6}
   alt="Figura 6 - Dropdown para criar um novo board"
-  width={600}
+  width={1000}
 />
 
-<image src={figura7} alt="Figura 7 - Tela de todos os boards" width={600} />
+<image src={figura7} alt="Figura 7 - Tela de todos os boards" width={1000} />
 
 <image
   src={figura8}
   alt="Figura 8 - Tela de criação de board individual"
-  width={600}
+  width={1000}
 />
 
 - Passo 6: No board (Figura 9), caso já tenham sido adicionadas as informações sobre o planejamento estratégico do respectivo ano, o membro deve atualizar o mesmo com as novas informações do atual momento. Caso não existam as informações iniciais sobre o planejamento estratégico, as mesmas devem ser adicionadas.
@@ -132,10 +146,10 @@ Pule para o passo 6 caso o modelo já exista.
 <image
   src={figura9}
   alt="Figura 9 - Tela do board em modelo Kanban"
-  width={600}
+  width={1000}
 />
 
-:::note
+:::note scrum
 
 Scrum é uma metodologia ágil, que se baseia em passos com o objetivo de acompanhar diariamente o andamento do projeto, detectando erros mais facilmente. Para isso, existe um cronograma a ser seguido e nele existem algumas etapas que serão listadas.
 Para mais informações acesse a página sobre o [Scrum](https://www.google.com.br).
@@ -144,4 +158,54 @@ Para mais informações acesse a página sobre o [Scrum](https://www.google.com.
 
 ## Acompanhando as metas
 
-Mensalmente ou quinzenalmente, as metas devem ser acompanhadas seguindo-se os passos apresentados na página do [Acompanhamento do Planejamento Estratégico](https://www.google.com.br).
+Mensalmente ou quinzenalmente, as metas devem ser acompanhadas de acordo com o seguinte passo a passo:
+
+### Construção das metas
+
+Uma vez listados os objetivos prioritários, o próximo passo é analisar cada um deles separadamente.
+
+Para isso, recomenda-se utilizar o site [Whimsical](https://whimsical.com). Pode-se criar um card para cada objetivo crítico e, a partir dele, criar uma seta direcionada para os caminhos e outra para os obstáculos daquele objetivo.
+
+A partir de "caminhos", a ideia é listar tudo o que pode ser feito para concluir o objetivo crítico. Se o objetivo for, por exemplo, "Ser uma empresa com mais responsabilidade fiscal", um dos caminhos pode ser "Contratar um serviço de contabilidade".
+
+Já em "obstáculos", deve ser listado tudo o que está atrapalhando a conclusão desse objetivo. Então, utilizando o mesmo exemplo anterior, um dos obstáculos pode ser "Falta de organização".
+
+Um exemplo de como se fazer essa construção no Whimsical pode ser vista na figura 10.
+
+<image
+  src={figura10}
+  alt="Figura 10 - Caminhos e obstáculos listados no Whimsical"
+  width={1000}
+/>
+
+Enumerados todos os caminhos e obstáculos encontrados para o objetivo crítico, agora é necessário elencar as Causas Raízes. Para tal, deve-se analisar o que foi escrito como obstáculo.
+
+Ainda seguindo o exemplo de responsabilidade fiscal, uma linha de raciocínio pode ser "Por que há essa falta de organização?", o que leva a uma causa raiz: "Não nos organizamos para lidar com muito fluxo de caixa em períodos curtos de tempo".
+
+:::tip dica
+
+Para chegar às causas raízes, um bom início é se perguntar "Por que isso acontece?" para cada obstáculo encontrado, separadamente.
+
+:::
+
+<image src={figura11} alt="Figura 11 - Exemplo de causas raízes" width={600} />
+
+Agora, como última etapa antes de se chegar no modelo Kanban de fato, deve-se seguir o seguinte gráfico de quadrantes:
+
+<image src={figura12} alt="Figura 12 - Gráfico de quadrantes" width={600} />
+
+- As tarefas de alto impacto e baixo esforço devem ficar no quadrante superior esquerdo, a serem priorizadas e feitas primeiro;
+
+- As tarefas de baixo impacto e baixo esforço devem ficar no quadrante inferior esquerdo, a serem postergadas e feitas quando houver tempo livre na diretoria;
+
+- As tarefas de alto impacto e alto esforço devem ficar no quadrante superior direito, a serem planejadas com mais atenção;
+
+- As tarefas de baixo impacto e alto esforço devem ficar no quadrante inferior direito, a serem descartadas, uma vez que não valem a pena.
+
+Segue um exemplo do gráfico de quadrantes preenchido:
+
+<image
+  src={figura13}
+  alt="Figura 13 - Exemplo de quadrantes preenchidos"
+  width={600}
+/>
