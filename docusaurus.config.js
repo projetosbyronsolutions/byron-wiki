@@ -76,9 +76,15 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'guia/index',
+            docId: 'byron-docs/guia/index',
             position: 'left',
             label: 'Documentação',
+          },
+          {
+            type: 'doc',
+            docId: 'byron-courses/basico/web-fundamentos/index',
+            position: 'left',
+            label: 'Capacitações',
           },
           {
             href: 'http://mattermost.byronsolutions.com/',
