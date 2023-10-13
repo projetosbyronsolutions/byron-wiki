@@ -1,235 +1,112 @@
 ---
-title: 'Nota fiscal eletrônica'
-sidebar_label: 'Nota fiscal eletrônica'
+title: "Nota Fiscal eletrônica - NFe"
+sidebar_label: "Nota Fiscal eletrônica - NFe"
 ---
 
-import fluxograma from './img/fluxograma.png';
-import img1 from './img/1.png';
-import img2 from './img/2.png';
-import img3 from './img/3.png';
-import img4 from './img/4.png';
-import img5 from './img/5.png';
-import img6 from './img/6.png';
-import img7 from './img/7.png';
-import img8 from './img/8.png';
+import img1 from "./img/img1.png";
+import img2 from "./img/img2.png";
+import img3 from "./img/img3.png";
+import img4 from "./img/img4.png";
+
+A NFe é uma nota fiscal que emitimos no fim de um projeto(geralmente) para documentar e poder pagar os impostos de serviços ao município. Esse documento é importante para a empresa sempre estar em dia com seus deveres legais.
+
+## Links Úteis
+
+[Site NFe](https://www.nfe-cidades.com.br/landing-page)
+[Drive de projetos](https://drive.google.com/drive/folders/1blgYPjLC1FPqoElna-Wb9sbmXRqX5-rc?usp=drive_link)
 
 ## Fluxograma
 
-<image src={fluxograma} hidelegend />
+<iframe
+  width="100%"
+  height="450"
+  src="https://whimsical.com/embed/NiE6oWaDgZqxxAJJeNwtS1"
+></iframe>
 
-## Contrato de prestação de serviços
+## Etapas do processo
 
-**Quem:** Membro da diretoria Vice-Presidência.
+### Fazer login no site da NFe-cidades:
 
-**Quando:** Assim que a Proposta Técnica de um projeto for aceita pelo cliente.
+** Como **:  
+a) Acesse o site da NFe-cidades.
+b) Insira suas credenciais de login.
+c) Autentique-se no site.
 
-**Por que:** Regularizar a prestação de serviços.
+<image
+  src={img1}
+  alt="Tela inicial do site NFe-cidades, com destaque na área de login"
+  width={250}
+/>
 
-**Como:** O processo deve ocorrer de acordo com o Mapeamento da Elaboração do Contrato de Prestação de Serviços.
+### Reunir as informações necessárias:
 
-## Atualizar a planilha de contratos
+** Como **:
 
-**Quem:** Diretor(a) Vice-Presidência.
+a)Procure pelo contrato do projeto no drive da empresa exemplo: DPR-Financeiro>Contratos>ano e mês correspondentes.
+b)Obtenha as informações relevantes do contrato.
 
-**Quando:** Assim que um projeto for finalizado.
+### Preencher o CNPJ e os demais campos do cliente
 
-**Por que:** A nota somente pode ser emitida caso o projeto a que ela se refira esteja entregue e finalizado.
+** Como **:
 
-**Como:** Na Planilha de Controle de Contratos e NF-e devem ser atualizadas algumas colunas específicas nesse momento. São elas:
+a) No site da NFe-cidades, localize o campo de preenchimento do CNPJ.
+b) Insira o CNPJ do cliente.
+c) Preencha os demais campos do cliente conforme as informações obtidas no contrato.
 
-- Data de encerramento do projeto. A data de encerramento do projeto deve ser a mesma que está contida no Relatório de Fechamento, emitido pela Diretoria de Projetos;
-- Houve Termo Aditivo? Essa coluna deve ser atualizada caso algum projeto tenha tido algum Termo Aditivo ao fim do projeto;
-- Status do Projeto. Essa coluna deve ser atualizado com a opção "Finalizado", caso tenha sido finalizado e entregue, "Cancelado", caso o projeto tenha sido interrompido e o dinheiro do cliente seja ressarcido;
-- Valor Final do Projeto/Atual Recebido. Quando o projeto for finalizado e entregue, espera-se que o valor completo do projeto seja recebido, portanto esse campo deve ser atualizado com o valor total recebido. Será esse valor que irá ser informado no sistema da Prefeitura de Itajubá para a emissão da nota fiscal. Caso o valor não tenha sido pago totalmente, é necessário que o Gerente do projeto cobre o cliente para que se possa emitir a nota fiscal;
-- NF-e. Essa coluna deverá ter o campo preenchido com os valores "Não Emitida" ou "Esperando o Projeto ser Finalizado". Caso seja esse último e o projeto já está entregue, o preenchimento do campo deve ser atualizado para "Não Emitida".
+<image
+  src={img2}
+  alt="Campos do cliente, incluindo CNPJ/CPF, Nome, Insc Est, Insc Mun, Email, Cep, Logradouro, Número, Complemento, Bairro, Município, País e Telefone"
+  width={250}
+/>
 
-## Coletar informações do cliente no contrato de prestação de serviços
+### Está faltando alguma informação? (Escolha, sim ou não):
 
-**Quem:** Membro da Vice-Presidência.
+** Como **:
 
-**Quando:** Após atualizar a Planilha de Controle de Contratos e NF-e.
+a) Verifique se há alguma informação faltando no preenchimento.
+b) Se sim, pergunte aos seus colegas ou pesquise o CNPJ no Google e retorne para a etapa III.
+c) Se não, prossiga para a próxima etapa.
 
-**Por que:** Para emissão da nota fiscal deve ser identificado o cliente para quem executamos o projeto, seja ele pessoa física ou jurídica.
+### Gerar uma simulação para checar se está correta:
 
-**Como:** Para realizar a coleta de informações, deve-se consultar o Contrato de Prestação de Serviços do projeto em questão. As principais informações necessárias para a emissão da nota irão depender da Classificação da Pessoa. Para o caso de uma Pessoa Jurídica, seja de direito privado ou público, é o CNPJ da empresa. Para uma Pessoa Física, o mais importante é o CPF.
+** Como **:
 
-As informações para uma Pessoa Jurídica são:
+a) Utilize a função de simulação no site da NFe-cidades.
+b) Verifique se há erros ou inconsistências na simulação.
 
-- CNPJ;
-- Razão Social;
-- Inscrição Municipal;
-- CEP;
-- Cidade; 
-- Estado;
-- Logradouro;
-- Número;
-- Bairro;
-- Complemento;
-- Email;
-- Telefone.
+<image
+  src={img3}
+  alt="Imagem com os botões Pré Visualizar e Emitir"
+  width={250}
+/>
 
-As informações para uma Pessoa Física são:
+### Tem algum erro? (Escolha, sim ou não):
 
-- CPF;
-- Nome;
-- CEP;
-- Cidade; 
-- Estado;
-- Logradouro;
-- Número;
-- Bairro;
-- Complemento;
-- Email;
-- Telefone.
+** Como **:
 
-Além das informações da pessoa, são necessárias informações do projeto em questão, que são:
+a) Verifique se há erros na simulação.
+b) Se sim, retorne para a etapa V e faça as correções necessárias.
+c) Se não, prossiga para a próxima etapa.
 
-- Data, composta por dia, mês e ano em que o projeto foi finalizado. A data em que o projeto foi finalizado está presente tanto na Planilha de Controle de Contratos quanto no Termo de Fechamento do projeto.
-- Local em que foi prestado, sendo por padrão os valores Itajubá e Minas Gerais;
-- Código de Serviço/Atividade, sendo o dado da coluna "Código do Serviço/Atividade" da Planilha de Controle de Contratos;
-- Descrição do serviço. Essa descrição pode ser utilizada a que está presente em contrato, com adaptações para que o texto especifique bem o projeto que foi executado;
-- Valor do serviço. O valor está presente na coluna "Valor Final do Projeto/Atual Recebido" da Planilha de Controle de Contratos.
+### Clique em “emitir” a NFe e faça o download:
 
-Obs: Os valores que podem ser utilizados atualmente no sistema de emissão de notas fiscais são:
+** Como **:
 
-- 1.04/6201501 - Desenvolvimento de sistemas de computador sob encomenda;
-- 1.06/6204000 - Consultoria em TI;
-- 1.07/6209100 - Suporte técnico, manutenção e outros serviços em tecnologia da informação;
-- 8.02/8550302 - Serviços de apoio à educação, exceto caixas escolares.
+a) No site da NFe-cidades, localize o botão “emitir”.
+b) Clique no botão “emitir” para gerar a Nota Fiscal eletrônica.
+c) Faça o download da NFe gerada.
 
-Esses códigos variam conforme o tipo de serviço que será prestado. Caso seja o desenvolvimento do zero de um site, aplicativo ou sistema WEB, será o código 1.04/6201501. Caso seja a manutenção de um site, aplicativo ou sistema previamente existente, o código da atividade é 1.07/6209100. Caso seja uma consultoria, 1.06/6204000.
+<image
+  src={img3}
+  alt="Imagem com os botões Pré Visualizar e Emitir"
+  width={250}
+/>
 
-## Coletar informações faltantes
+## Perguntas Frequentes
 
-**Quem:** Membro Vice-Presidência..
+I. **Quanto tempo tenho para cancelar uma NFe?** Depende do município que recolhe o imposto, para Itajubá é somente 3 dias após gerada a nota.
+II. **Consigo cancelar uma NFe emitida errada?** Sim, acesse o site NFe-cidades faça o login e vá em Solicitações e clique em Cancelamento de NF-e, nesta página procure pela NFe que deseja cancelar e a selecione, revise os campos e clique em cancelar. Pronto a NFe foi cancelada.
 
-**Quando:** Quando alguma informação não estiver presente no contrato ou na Planilha de Controle de Contratos.
+## Exemplo
 
-**Por que:** Para que se tenha todas as informações necessárias para a emissão da nota fiscal.
-
-**Como:** Geralmente as informações que podem faltar são:
-
-- Razão Social. Para o caso da Razão Social, que é o nome da empresa, basta consultar no cartão CNPJ da empresa cliente. Isso é feito através do [site da Receita Federal, na seção de consulta do CNPJ](http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp). No site deverá ser informado o número do CNPJ do cliente sem formatação, como visto na Figura 01, clicado sobre o CAPTCHA e, também, clicar sobre o botão de "Consultar";
-
-<image src={img1} alt='Informando o CNPJ no site.' width={400} />
-
-O "Nome Empresarial" presente no cartão CNPJ, como visto na Figura 02, é a Razão Social da empresa.
-
-<image src={img2} alt='Parte do cartão CNPJ.' width={500} />
-
-- Inscrição Municipal. Existem alguns sites em que é possível consultar a Inscrição Municipal de uma empresa, como o Governo Digital, porém não são todas as cidades suportadas e nem todas as empresas da referida cidade. A exemplo, a byron mesmo não se encontra cadastrada nesse site. O que pode ser feito, caso não se encontre nesse site é consultar o cliente e perguntar pelo número da inscrição.
-- Email;
-- Telefone.
-
-## Acessar o sistema
-
-**Quem:** Membro da Vice-Presidência.
-
-**Quando:** Após todos os dados necessários terem sido coletados.
-
-**Por que:** Para que a nota fiscal seja emitida, é necessário que o sistema seja acessado inicialmente.
-
-**Como:** O sistema é acessado através do [site da Prefeitura de Itajubá, na seção correspondente as notas fiscais](https://itajuba.ginfes.com.br). Quando acessado o site da prefeitura, será visualizada a tela representada pela Figura abaixo.
-
-<image src={img3} alt='Tela inicial do site.' width={600} />
-
-Para o acesso ao sistema, deve ser clicado sobre a opção de "Acesso Exclusivo - Prestador", área essa destinada aos prestadores de serviço que irão fazer a emissão da nota fiscal eletrônica por alguma atividade desempenhada.
-
-Após clicar sobre a opção de acesso do prestador de serviços, deve-se informar os dados de acesso da byron no sistema, sendo o seu CNPJ (28.940.817/0001-69) e a senha de acesso NFe28.940 e, ao fim, clicar sobre o botão "Entrar", como visto na Figura 04. Após clicado sobre esse botão, o sistema será acessado.
-
-<image src={img4} alt='Tela de login do sistema.' width={600} />
-
-## Inserir dados do cliente
-
-**Quem:** Membro Vice-Presidência..
-
-**Quando:** Assim que os dados estiverem sido coletados.
-
-**Por que:** A nota fiscal necessita ser "endereçada" ao cliente, portanto seus dados precisam ser inseridos no sistema.
-
-**Como:** Para que os dados do cliente, e após os dados do projeto, inicialmente é necessário acessar a opção de "Emitir NF-e" no sistema. Para que isso seja feito, deve-se clicar sobre o botão de emissão de notas, "Emitir NF-e", na área de acesso rápido do próprio sistema como visto na abaixo.
-
-<image src={img5} alt='Tela inicial do sistema.' width={550} />
-
-Após acessar a página de emissão de notas, deve-se, inicialmente, informar ao sistema o tipo da pessoa, podendo ser pessoa física e pessoa jurídica de direito privado ou público. Informado neste campo, o sistema deve ser alimentado com o CPF, para o caso de uma pessoa física, ou com o CNPJ, para o caso de uma pessoa jurídica.
-
-Após preencher este campo, deve ser clicado sobre o botão "Pesquisar". Caso o cliente já esteja previamente cadastrado no sistema, todos os dados dos campos a serem preenchidos serão, automaticamente, completados. Se o cliente não estiver cadastrado, todos os dados deverão ser inseridos manualmente.
-
-A Figura abaixo apresenta a tela de preenchimento dos dados do cliente.
-
-<image src={img6} alt='Campos de inserção dos dados do cliente.' width={400} />
-
-:::info
-
-Após informado todos os dados, o botão "Próximo Passo >>" deve ser acionado.
-
-:::
-
-## Inserir dados do projeto
-
-**Quem:** Membro da Vice-Presidência.
-
-**Quando:** Assim que os dados do cliente estiverem sido informados no sistema.
-
-**Por que:** A nota fiscal necessita ter um serviço prestado, portanto, é necessário que os dados do projeto também sejam informados na nota fiscal. 
-
-**Como:** As informações do projeto necessárias são:
-
-- Data de encerramento do projeto;
-- O local de prestação do serviço;
-- O código do serviço;
-- A descrição do serviço;
-- O valor do projeto
-
-Todos esses dados, com exceção do local de prestação do serviço, que é autopreenchido com a cidade de Itajubá (e assim deve permanecer para todos os projetos realizados, a não ser que seja realizado um projeto de consultoria em uma outra cidade e que precise deslocamento até o local), estão no Contrato de Prestação de Serviços ou na Planilha de Controle de Contratos. 
-
-A data de encerramento presente na planilha deve ser a mesma data presente no Termo de Fechamento, elaborado pela Diretoria de Projetos. 
-
-Como mencionado anteriormente, o local de prestação do serviço deve manter como está no próprio sistema, salvo na situação descrita acima.
-
-O código do serviço e o valor final do projeto deve ser o mesmo presente na Planilha de Controle de Contratos e NF-e.
-
-A descrição do serviço pode ser utilizada a mesma encontrada no contrato, com as devidas alterações para que a formulação do texto faça sentido. Além do texto, é encorajado que seja feita uma descrição mais detalhada, caso a presente no contrato não esteja tão específica.
-
-Na tela de preenchimento dos dados do projeto, apenas as informações apresentadas devem ser inseridas. Nessa tela há diversos outros campos de preenchimento, porém os demais devem permanecer em branco. Todos os campos de preenchimento estão dispostos na Figura abaixo.
-
-<image src={img7} alt='Campos de inserção dos dados do cliente.' width={400} />
-
-Os campos das áreas "Construção Civil" e "Impostos Federais" devem permanecer todos em branco e na área "Valores", apenas o campo "Valor do serviço prestado" deve ser informado. Após inseridos todos as informações, na área "Totalizador", apresentada na Figura abaixo, será mostrado o valor do projeto e dos impostos a serem pagos.
-
-<image src={img8} alt='Totalizador.' width={600} />
-
-# Emitir nota fiscal
-
-**Quem:** Membro Vice-Presidência.
-
-**Quando:** Após inseridos todos os dados obrigatórios do cliente e do projeto.
-
-**Por que:** Para que a nota seja emitida, realmente, deve-se solicitar ao sistema essa operação.
-
-**Como:** Para que a nota seja realmente emitida, basta clicar sobre o botão "Emitir Nfse", como mostra a Figura anterior. Após esse momento, se tudo foi preenchido de forma correta, o sistema irá apresentar o número de identificação da nota fiscal. Esse número deve ser anotado para que seja atualizada a Planilha de Controle de Contratos e NF-e. Recomenda-se que o valor seja copiado e no mesmo momento, colado no planilha para evitar que se anote o número de forma errônea.
-
-Após esse momento, o sistema irá questionar ao usuário se este deseja visualizar o arquivo PDF da nota fiscal. Isso deve ser realizado para que seja possível realizar o download do arquivo da nota.
-
-## Atualizar planilha de contratos
-
-**Quem:**  Membro Vice-Presidência.
-
-**Quando:** Assim que a nota for emitida.
-
-**Por que:** Para que as informações sobre a nota recém emitida não sejam perdidas.
-
-**Como:** As colunas que deverão ser atualizadas são:
-
-NF-e. Na coluna deve-se atualizada com o novo valor, passando de "Não emitida" para "Emitida";
-Código de Verificação da NF-e. Na coluna deve ser informado o número de identificação emitido pelo sistema na etapa anterior.
-
-## Documentação de arquivos no Drive
-
-**Quem:** Membros da Diretoria de Vice-presidência ou responsáveis pela revisão de documentos.
-
-**Quando:** Assim que o PDF da nota fiscal ser emitido.
-
-**Por que:** Para garantir a gestão do conhecimento e das notas emitidas.
-
-**Como:** Assim que o PDF for emitido pelo sistema, deve-se encaminhar o documento a um membro responsável e informar o local onde esses arquivos devem ser armazenados. O local onde as notas devem ser arquivados é a pasta "Notas Fiscais Eletrônicas" presente no Drive da DEXEC.
+<image src={img4} alt="Exemplo de rascunho de NFe" width={250} />
