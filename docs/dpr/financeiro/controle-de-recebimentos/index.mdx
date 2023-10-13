@@ -1,66 +1,128 @@
 ---
-title: "Controle de Recebimentos"
-sidebar_label: "Controle de Recebimentos"
+title: "Controle de Recebimentos/Pagamentos"
+sidebar_label: "Controle de Recebimentos/Pagamentos"
 ---
 
-import fluxograma from './img/fluxograma.png';
-import img1 from './img/1.png';
-import img2 from './img/2.png';
-import img3 from './img/3.png';
-import img4 from './img/4.png';
+import img1 from "./img/img1.png";
+import img2 from "./img/img2.png";
+import img3 from "./img/img3.png";
+
+Esse processo refere-se à planilha “Controle de Recebimentos”, que possui uma tabela com informações sobre as entradas de projetos da empresa, e outra sobre os pagamentos mensais que a empresa realiza.
+
+## Links Úteis
+
+[Template da planilha](https://docs.google.com/spreadsheets/d/1zhWTLthpJjtwGTTOUROPpHNRvnALmeVC/edit#gid=565388481)
+[Pasta da planilha de Controle de Recebimentos](https://drive.google.com/drive/u/1/folders/1g6UKf8gOomUZO5kddBf2iv0ET7tunkPk)
+[Pasta dos Contratos](https://drive.google.com/drive/u/1/folders/1lwzVYm9CMrBbAWdm3JpjZR5QVm8ZAAN8)
+[Painel de Projetos no Mattermost](https://mattermost.byronsolutions.com/boards/team/79brbr9pqpbj8gs85a19pdpyya/bnnjqae155ib4b8n9tfqksmm8ca/v1gb9h9ohqjn6pm8bo41y6gsibh)
+[Pasta do Fluxo de Caixa](https://drive.google.com/drive/u/1/folders/1BUJ-FJsyk3b7GG0AKwk54axFBxI_LIw1)
+[Pasta de Notas Fiscais](https://drive.google.com/drive/u/1/folders/1anmSrNUY6AZtyfTM1s-LYRyyQlP8Axr2)
+[Pasta de Projetos](https://drive.google.com/drive/u/1/folders/1blgYPjLC1FPqoElna-Wb9sbmXRqX5-rc)
 
 ## Fluxograma
 
-<image src={fluxograma} hideLegend />
+<iframe
+  width="100%"
+  height="450"
+  src="https://whimsical.com/embed/DtTnfsLFVJMMGLbAwrauZ2"
+></iframe>
 
-## Criar planilha
+## Etapas do processo
 
-**Quem:** Membro da Diretoria de Vice-Presidência.
+### Criar a Planilha a partir do template
 
-**Quando:** No início do ano, quando não ainda houver nenhuma planilha de controle de recebimentos.
+** Quando **: No início do ano.
+** Por quê **: Como as planilhas são separadas por anos, é necessário criar uma nova planilha quando um novo ano se inicia.
+** Como **:
+a) Criar uma pasta para a planilha em DPR > Financeiro > Controle de Recebimentos. O nome da pasta será o ano em questão.
+b) Acessar o template da planilha, que é o arquivo “Controle de Recebimento - Template” em DPR > Financeiro > .Templates.
+c) Selecionar a opção Arquivo > Fazer uma cópia.
 
-**Por que:** Iniciar o processo de controle de recebimento no ano.
+<image
+  src={img1}
+  alt="Indicação da opção Arquivo > Fazer uma cópia"
+  width={250}
+/>
 
-**Como:** Para criar a planilha de controle de recebimentos do ano atual, basta criar uma cópia da [planilha template](https://docs.google.com/spreadsheets/d/1hy4nA9KXfdDWI6pMnYvRhHIf7O5driXBxj8BiKXnUTc/edit?pli=1#gid=1393697693) e trocar "20XX" pelo ano atual. Para criar uma cópia da planilha, você deve clicar em Arquivo -> Fazer uma cópia e definir o local da cópia para: /Diretorias/DVP/Administrativo-Financeiro/Financeiro/Controle e Acompanhamento Financeiro/(ANO ATUAL)/
+d) Mudar o nome para “Controle de Recebimento [ano]”
+e) Selecionar a pasta criada no item a.
 
-## Comparar com os projetos em andamento e concluídos do ano
+<image
+  src={img2}
+  alt="Nome do documento e pasta onde irá o documento"
+  width={250}
+/>
 
-**Quem:** Membro da Diretoria de Vice-Presidência.
+f) Deletar os projetos do template na página de Controle de Recebimentos.
+g) Ajustar o controle de pagamentos na página de Controle de Pagamentos.
+h) Atualizar os links do Acesso Rápido para os arquivos do ano correspondente.
 
-**Quando:** Após a criação da planilha ou 15 dias após a última verificação.
+### Criar um novo Pagamento
 
-**Por que:** Para verificar se a planilha ainda está válida ou se está desatualizada.
+** Quando **: Um novo pagamento é feito se a diretoria conversa entre si sobre fazê-lo, então não há um momento específico para que ele seja feito.
+** Por quê **: Para manter o acompanhamento e registro de pagamentos que são feitos mensalmente ou em outro período definido.
+** Como **:
+a) Colocar o nome do novo contratante na página “Controle de Pagamentos” na coluna “Contratante” da planilha de Controle de Recebimento.
+b) Preencher o número de parcelas na coluna “Parcela”.
+c) Preencher a data das parcelas na coluna “Data Parcela”.
+d) Preencher o valor de cada parcela na coluna “Valor Parcela”.
+e) Preencher todas as células de “Status Parcela” como “Não pago”.
+f) Utilizar a função SOMA do Google Sheets para fazer a soma total do valor das parcelas na coluna “Valor Total”.
+g) Preencher qualquer tipo de detalhe adicional na coluna “Detalhes Adicionais”, como por exemplo, a chave PIX do contratante.
 
-**Como:** Verifique a planilha de fluxo de caixa, o DPJ ULTRA FACILITATOR, contratos, notas fiscais, termos de fechamento e quaisquer outros documentos que indiquem a existência de projetos. Faça a comparação com os já presentes no controle de recebimentos. Verifique se as parcelas estão corretas, se as datas estão corretas, se as parcelas foram pagas e todos os demais campos presentes na planilha.
+### Criar um novo Recebimento
 
-Essa etapa do processo consiste em trabalho repetitivo de busca e, geralmente, também não é um trabalho linear. Para entendermos melhor como fazer essa busca, um projeto fictício foi criado.
+** Quando **: No início de um novo projeto.
+** Por quê **: Toda vez que um novo projeto da byron é iniciado, ele deve ser adicionado à planilha de Controle de Recebimentos para que seja feito o acompanhamento do seu progresso.
+** Como **:
+a) Encontrar, na pasta de contratos, o contrato referente ao novo projeto que foi iniciado.
+b) Preencher a coluna Contratante de acordo com o nome do projeto.
+c) Encontrar na Cláusula 24, na seção do pagamento, a quantidade de parcelas, a data de pagamento de cada uma, o valor de cada parcela e o valor total de remuneração. Essas informações serão colocadas nas colunas “Parcela”, “Data Parcela”, “Valor Parcela” e “Valor Total”, respectivamente.
 
-A byron.solutions fechou um contrato para um e-commerce com a empresa "Birão Camisetas" no dia 15/04/2021 no valor de R$5.000,00, com uma entrada de R$1.000,00 e duas parcelas subsequentes de R$2.000,00. O estado inicial da planilha após o fechamento seria:
+<image
+  src={img3}
+  alt="A planilha com suas colunas de Parcela, Data Parcela, Valor Parcela, Status Parcela e Valor Total"
+  width={250}
+/>
 
-<image src={img1} alt='Exemplo planilha "Birão Camisetas"' hidelegend width={600} />
+d) Definir o Status do Projeto como “Em Andamento”, o Status da NFe como “Não Emitida”, e o Termo de Fechamento como “Não Feito”.
+e) Na aba “Boards” do servidor da byron no Mattermost, verificar o nome do P.O. do projeto em questão no painel de projetos. Esse nome será preenchido na coluna P.O.
+f) Preencher a coluna de detalhes adicionais, caso haja algum.
 
-Note que, como são 3 parcelas, foram usadas 3 linhas da planilha. As colunas de "Contratante", "Valor Total", "Status Projeto", "P.O.", "Status NF-e", "Termo de Fechamento" e "Detalhes Adicionais" foram mescladas e as demais foram adequadas às suas respectivas parcelas. Para calcular o valor total, é preferível que digite "=Soma(**<Células contendo os valores das parcelas>**)" para automatizar o cálculo.
+### Atualizar o Status das Parcelas de Pagamentos
 
-Após três ciclos de verificação da planilha (45 dias), o verificador notou que uma parcela foi paga. Portanto, a atualizou como paga.
+** Quando **: Ao realizar um pagamento mensal.
+** Como **:
+a) Verificar se os pagamentos da página Controle de Pagamentos estão em dia, de acordo com a data da parcela e seu status.
+b) Caso não estejam em dia, verificar no Fluxo de Caixa se o pagamento foi realizado. Se ele tiver sido realizado, apenas mudar o Status da Parcela para “Pago”. Obs: Como alternativa, é possível verificar o estado dos pagamentos no extrato do aplicativo do banco Cora.
 
-<image src={img2} alt="Atualização parcela paga" hidelegend width={600} />
+### Atualizar o Status das Parcelas de Recebimentos
 
-Após outro ciclo (15 dias), o verificador notou, ao conferir a planilha de fluxo de caixa, que a última parcela estava pendente, e, portanto, marcou-a assim.
+** Quando **: Ao receber o valor de uma nova parcela em um projeto.
+** Como **:
+a) Verificar se os recebimentos dos projetos na página Controle de Recebimentos estão em dia, de acordo com a data da parcela e seu status.
+b) Caso não estejam em dia, verificar no Fluxo de Caixa se o pagamento foi realizado. Obs: Como alternativa, é possível verificar o estado dos pagamentos no extrato do aplicativo do banco Cora.
+c) Se ele tiver sido realizado, apenas mudar o Status da Parcela para “Pago”.
+d) Se ele não tiver sido realizado, mas já tiver passado da data, o status da parcela deve ser dado como “Pendente”.
 
-<image src={img3} alt="Atualização parcela pendente" hidelegend width={600} />
+### Verificar se o projeto já foi concluído
 
-Após mais um ciclo (15 dias), o verificador conferiu que todas as parcelas foram pagas, que o projeto fora concluído e que tanto a nota fiscal quanto o termo de fechamento estavam presentes no Drive. Portanto, fez as devidas correções.
+** Como **:
+a) Para saber se um projeto foi concluído, é preciso olhar seu estado no painel de projetos na aba “Boards” do servidor da byron no Mattermost. O processo do projeto estará na coluna “Status”.
+b) Caso esteja concluído, é necessário mudar na coluna “Status Projeto” da planilha de Controle de Recebimentos para “Concluído”.
 
-<image src={img4} alt="Atualização finalização e armazenamento totais do projeto" hidelegend width={600} />
+### Verificar se a NFe foi emitida
 
-De modo geral, um projeto deve prosseguir desse modo na planilha de controle de recebimentos. Poderão haver discrepâncias e, portanto, cabe ao julgamento do verificador alterar a planilha de forma condizente com a situação de um projeto.
+** Quando **: Quando um projeto for concluído
+** Como **:
+a) Abrir a pasta de NFes em DPR > Financeiro > Comprovantes > Notas Fiscais.
+b) Procurar a Nota Fiscal referente ao projeto.
+c) Como alternativa, é possível verificar no Fluxo de Caixa se a nota fiscal foi emitida, caso haja um link para ela na coluna “Nota Fiscal”, na linha referente à última parcela do projeto.
+d) Se a Nota Fiscal for encontrada, atualizar a coluna “Status NFe” da planilha de Controle de Recebimentos para “Emitida”.
 
-## Atualizar os dados desatualizados ou inexistentes na planilha
+### Verificar se o Termo de Fechamento foi feito
 
-**Quem:** Membro da Diretoria de Vice-Presidência.
-
-**Quando:** Após a verificação dos dados.
-
-**Por que:** Para manter a planilha correta e atualizada.
-
-**Como:** Após verificados os dados, a planilha deve ser preenchida com os dados faltantes e os dados incorretos devem ser atualizados.
+** Quando **: Quando um projeto for concluído
+** Como **:
+a) Encontrar o projeto na pasta Geral b.sol > Projetos.
+b) Verificar se o Termo de Fechamento foi assinado por todos os envolvidos. Se tiver sido, marcar na planilha como assinado.
