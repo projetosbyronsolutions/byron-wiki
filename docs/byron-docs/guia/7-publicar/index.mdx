@@ -1,18 +1,13 @@
 ---
-title: 'Publicando alterações'
+title: "Publicando alterações"
 ---
 
 # Publicando alterações
 
-:::caution wip
-
-Essa página ainda está em progresso. Preciso conferir como será feita a publicação por não-administradores.
-
-:::
-
 Por fim, depois de você enriquecer nossa querida documentação com mais conhecimento que não será perdido, o último passo é de publicar todas as mudanças!
 
-Por questões de segurança, visto que a Wiki está num repositório público no GitHub, todas as alterações devem ser aprovadas por um mantenedor da byron. Você deverá ser adicionado como colaborador do repositório. Para isso, entre em contato com o responsável.
+Por questões de organização e civilidade, todas as alterações devem ser aprovadas por um dos diretores da byron. Você deverá ser adicionado como colaborador do repositório. Para isso, entre em contato com
+o(a) atual diretor(a) de projetos.
 
 Depois de ser adicionado como colaborador, faça uma nova branch com as suas alterações.
 
@@ -20,7 +15,7 @@ Depois de ser adicionado como colaborador, faça uma nova branch com as suas alt
 git checkout -b nome_da_branch
 ```
 
-O nome recomendado para a branch é `diretoria/processo`. Por exemplo, no caso da inclusão do processo de Fluxo de caixa para DVP, o nome da branch seria `dvp/fluxo-de-caixa`. Então, o comando seria:
+O nome para a branch deverá ser `diretoria/processo`. Por exemplo, no caso da inclusão do processo de Fluxo de caixa para DVP, o nome da branch seria `dvp/fluxo-de-caixa`. Então, o comando seria:
 
 ```bash
 git checkout -b dvp/fluxo-de-caixa
@@ -31,7 +26,9 @@ Feito isso, faça um _commit_ e um _push_ de suas alterações:
 ```bash
 git commit -m "descreva quais documentos foram alterados/inseridos"
 
-git push
+git push --set-upstream origin <nome_da_branch>
 ```
 
-Por fim, navegue até o [repositório da wiki](http://github.com/fabioavf/byron-wiki) e faça um _pull request_ para fazer o _merge_ da sua nova _branch_ para a _main_.
+Por fim, navegue até o [repositório da wiki](https://github.com/projetosbyronsolutions/byron-wiki) e faça um _pull request_ requisitando o _code review_ do seu/sua diretor(a) para fazer o _merge_ da sua nova _branch_ para a _main_.
+
+E... feito! Você acaba de contribuir para que a byron seja mais organizada e preparada para os desafios futuros. Parabéns! 🥳 🥳
