@@ -14,10 +14,12 @@ interface ISession {
 
 const Root = ({ children }) => {
   const { siteConfig }: any = useDocusaurusContext();
+
+  const supabase = createClient(siteConfig.customFields.supabaseUrl, siteConfig.customFields.supabaseAnonKey);
+
   const [success, setSuccess] = useState(false); // When true, will unlock the site
   const [loading, setLoading] = useState(false); // Used to display a loading when handling requisitions
   const [showSignup, setShowSignup] = useState(false); // Controls if login or signup form shows up
-
   const [loginData, setLoginData] = useState({ email: '', password: '' }); // Stores form data to be later validated
 
 
@@ -27,7 +29,6 @@ const Root = ({ children }) => {
       setSuccess(true);
       return;
     }
-     const supabase = createClient(siteConfig.customFields.supabaseUrl, siteConfig.customFields.supabaseAnonKey);
 
 
     const getSession = async () => {
@@ -71,6 +72,7 @@ const Root = ({ children }) => {
       throw error.message;
     } finally {
       setLoading(false);
+      setSuccess(true);
     }
   };
 
