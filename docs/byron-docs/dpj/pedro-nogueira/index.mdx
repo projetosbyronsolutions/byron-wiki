@@ -1,15 +1,15 @@
 ---
 title: 'Problema 05'
-sidebar_label: 'Problema de Gerência 05'
+sidebar_label: 'Problema de Gerenciamento 05'
 ---
 
-Problema: "Cliente decide mudar algo importante no projeto perto do prazo final"
+### Problema: "Cliente decide mudar algo importante no projeto perto do prazo final"
 
-Resolução: 
+### Resolução: 
 
-- Bem, primeiramente é preciso averiguar dois casos que poderiam acontecer diante da situação:
+Dado esse caso, devemos analisar as seguintes possibilidades que podem ocorrer dependendo do projeto:
 
-1. O Cliente não pode estender o prazo de entrega:
+### 1. O Cliente não pode estender o prazo de entrega:
 
 <center>
 
@@ -17,9 +17,9 @@ Resolução:
 
 </center>
 
-Nesse caso, é preciso averiguar o projeto com e sem a mudança, ou seja, avaliar a verdadeira necessidade de implementar a mudança desejada pelo cliente. Caso for uma mudança que não fará muita diferença na usabilidade do projeto apresente os aspectos positivos e negativos que trará e o porquê dessa alteração pode não ser atrativa para o cliente final, tente o convencer que essa não é a melhor opção para o projeto. Se for uma mudança indispensável e que afeta no funcionamento base do projeto, é preciso ter uma transparência com o cliente de que essa alteração impacta a maioria das funcionalidades já existentes, o que implica na reestruturação de grande parte do código. Se for uma muança que é possível dentro do prazo converse com toda equipe para elaborar uma nova divisão de tarefas e organize de forma que não os afete muito.
+Nesse caso, é preciso averiguar o projeto com e sem a mudança, ou seja, avaliar a verdadeira necessidade de implementar a mudança desejada pelo cliente. Se for uma mudança que não fará muita diferença na usabilidade do projeto, apresente os aspectos positivos e negativos que trará e o porquê dessa alteração pode não ser atrativa para o cliente final, tente o convencer que essa não é a melhor opção para o projeto. Se for uma mudança indispensável e que afeta no funcionamento base do projeto, é preciso ter uma transparência com o cliente de que essa alteração impacta a maioria das funcionalidades já existentes, o que implica na reestruturação de grande parte do código. Se for uma mudança que é possível dentro do prazo converse com toda equipe para elaborar uma nova divisão de tarefas e organize de forma que não os afete muito.
 
-2. O Cliente pode estender o prazo de entrega:
+### 2. O Cliente pode estender o prazo de entrega:
 
 <center>
 
@@ -27,5 +27,42 @@ Nesse caso, é preciso averiguar o projeto com e sem a mudança, ou seja, avalia
 
 </center>
 Nesse caso, só é preciso contatar a equipe sobre a nova exigência do cliente e reorganizar o planejamento de entrega com base na nova funcionalidade e no novo prazo pedido.
+
+### 3. Estudo de Casos de Uso
+
+A seguir são apresentados alguns casos de uso para entendermos quais foram boas ou más decisões:
+
+- **Estudo de caso 01:** Uma empresa de desenvolvimento de software recebeu uma solicitação de mudança de um cliente importante, que queria adicionar uma nova funcionalidade ao sistema que estava sendo desenvolvido. O cliente não podia estender o prazo de entrega, que era de apenas duas semanas. A empresa aceitou a mudança sem questionar o cliente ou analisar o impacto da mudança no projeto. A empresa tentou implementar a mudança às pressas, sem revisar a arquitetura do sistema, nem realizar testes adequados ou documentação. A empresa entregou o sistema no prazo, mas com muitos erros e falhas de segurança. O cliente ficou insatisfeito com a qualidade do sistema e exigiu uma correção imediata. A empresa teve que gastar mais tempo e recursos para consertar o sistema, além de perder a confiança e a reputação do cliente. 
+
+> Ilustra a importância de não aceitar mudanças sem avaliar os riscos e custos envolvidos, e de não comprometer a qualidade do projeto por causa de prazos apertados.
+
+- **Estudo de caso 02:** Uma empresa de consultoria ambiental foi contratada por um cliente para realizar um estudo de impacto ambiental de um projeto de construção de uma usina hidrelétrica. O cliente podia estender o prazo de entrega, mas queria que o estudo fosse o mais abrangente e detalhado possível. A empresa iniciou o projeto com uma equipe multidisciplinar, que incluía biólogos, geólogos, engenheiros e sociólogos. Durante o desenvolvimento do projeto, o cliente solicitou uma mudança significativa no escopo, que era incluir uma análise de viabilidade econômica e social do projeto, além dos aspectos ambientais. A empresa recusou a mudança, alegando que isso fugia da sua área de especialização e que não tinha tempo nem recursos para realizar a nova análise. A empresa entregou o estudo apenas com os aspectos ambientais, sem considerar os outros fatores que influenciavam a decisão do cliente. O cliente ficou insatisfeito com o resultado e contratou outra empresa para fazer a análise completa. A empresa perdeu a oportunidade de ampliar o seu escopo de serviço e de fidelizar o cliente. 
+
+> É destacada a importância de gerenciar as expectativas do cliente e adaptar o projeto às novas demandas, sem perder a qualidade ou a rentabilidade do serviço.
+
+- **Estudo de caso 03:** Uma empresa de design gráfico foi contratada por um cliente para criar a identidade visual de uma nova marca de cosméticos. O cliente tinha um prazo de entrega flexível, mas queria que o projeto fosse original e inovador. A empresa iniciou o projeto com uma pesquisa de mercado e de tendências, e apresentou ao cliente três propostas de conceito para a marca. O cliente gostou de uma das propostas, mas pediu uma mudança significativa no design do logotipo, que era usar uma fonte diferente e uma cor mais vibrante. A empresa concordou com a mudança, mas explicou ao cliente que isso afetaria a harmonia e a coerência do conjunto da identidade visual. A empresa sugeriu ao cliente que fizesse um teste de mercado com a proposta original e a proposta modificada, para verificar qual delas teria uma melhor aceitação do público-alvo. O cliente aceitou a sugestão e realizou o teste, que revelou que a proposta original era mais atraente e memorável para os consumidores. O cliente decidiu manter a proposta original e a empresa finalizou o projeto com sucesso. 
+
+> Isso demonstra a relevância de validar as ideias com o mercado e de defender o trabalho criativo com argumentos técnicos e estratégicos.
+
+
+### 4. Agora, qual foi a melhor decisão desses casos e quais foram as piores ?
+
+:::danger Caso de Uso 01
+
+O estudo de caso 1 foi uma má decisão porque a empresa de desenvolvimento de software não soube gerenciar o escopo do projeto e aceitou uma mudança que era inviável dentro do prazo e do orçamento estabelecidos. A empresa não comunicou ao cliente os riscos e custos envolvidos na mudança, nem negociou uma alternativa mais simples e viável. A empresa também não revisou a arquitetura do sistema, nem realizou testes adequados ou documentação. Isso resultou em um sistema com muitos erros e falhas de segurança, que não atendeu às expectativas do cliente e prejudicou a reputação da empresa. A empresa poderia ter evitado esse problema se tivesse analisado o impacto da mudança no projeto, e se tivesse proposto ao cliente soluções criativas que fossem compatíveis com o escopo, o tempo e o orçamento do projeto.
+
+:::
+
+:::danger Caso de Uso 02
+
+O estudo de caso 2 foi uma decisão ruim porque a empresa de consultoria ambiental não soube gerenciar as expectativas do cliente e recusou uma mudança que era relevante para a decisão do cliente. A empresa não aceitou a mudança, alegando que isso fugia da sua área de especialização e que não tinha tempo nem recursos para realizar a nova análise. A empresa também não considerou os outros fatores que influenciavam a decisão do cliente, além dos aspectos ambientais. Isso resultou em um estudo incompleto e insatisfatório, que não atendeu às necessidades do cliente e fez com que ele contratasse outra empresa para fazer a análise completa. A empresa perdeu a oportunidade de ampliar o seu escopo de serviço e de fidelizar o cliente. A empresa poderia ter evitado esse problema se tivesse aceitado a mudança, mas negociado um aumento no valor do contrato e um prazo adicional para a entrega do estudo. A empresa também poderia ter contratado especialistas em economia e desenvolvimento sustentável para integrar a equipe e realizar a nova análise.
+
+:::
+
+:::tip Caso de Uso 03
+
+O estudo de caso 3 foi uma boa decisão porque a empresa de design gráfico soube gerenciar a criatividade do projeto e aceitou uma mudança que era razoável e possível de ser implementada. A empresa concordou com a mudança, mas explicou ao cliente que isso afetaria a harmonia e a coerência do conjunto da identidade visual. A empresa também sugeriu ao cliente que fizesse um teste de mercado com a proposta original e a proposta modificada, para verificar qual delas teria uma melhor aceitação do público-alvo. Isso resultou em uma validação das ideias com o mercado e em uma defesa do trabalho criativo com argumentos técnicos e estratégicos. O cliente decidiu manter a proposta original e a empresa finalizou o projeto com sucesso. A empresa demonstrou a importância de negociar com o cliente e oferecer soluções que sejam originais e inovadoras, mas também adequadas ao contexto e ao objetivo do projeto.
+
+:::
 
 
