@@ -69,7 +69,6 @@ const Root = ({ children }) => {
       throw error.message;
     } finally {
       setLoading(false);
-      setSuccess(true);
     }
   };
 
