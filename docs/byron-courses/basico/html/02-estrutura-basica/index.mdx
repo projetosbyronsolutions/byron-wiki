@@ -3,6 +3,8 @@ title: "Estrutura básica"
 sidebar_position: 2
 ---
 
+## Estrutura
+
 A estrutura básica do HTML é composta da seguinte forma:
 
 ```html
@@ -23,26 +25,42 @@ Mas não se preocupe, você não vai precisar memorizar isso. Toda vez que for c
 
 Ufaa! Mas o que significa cada coisa do que esta aí?
 
-### < !DOCTYPE html >
+## Tags
+
+### `<!DOCTYPE html>`
 
 Informa ao navegador que esse documento é do tipo HTML e indica sua versão. Quando está escrito apenas html, indica que é a mais recente
 
-### < html >
+### [`<html>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/html)
 
 Representa a raiz do documento, serve com um container que engloba todos os outros elementos HTML.
 
-### < head >
+### [`<head>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/head)
 
 Compreende as informações do documento que serão interpretadas pelo navegador (metadados). Como, por exemplo, título do documento, links para folhas de estilo, etc.
 
-### < meta >
+### [`<meta>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/meta)
 
 Define metadados, ou seja, informações sobre dados de um documento HTML. As tags vão dentro do elemento e são usadas para especificar o conjunto de caracteres, o autor ou autora do documento, as configurações da janela de visualização, etc.
 
-### < title >
+### [`<title>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/title)
 
 Define o título que aparece na aba do navegador.
 
-### < body >
+### [`<body>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/body)
 
 É onde fica todo o conteúdo de texto, imagem e vídeos, em que o usuário ou usuária vê e interage, nele os conteúdos são estruturados pelas demais tags do HTML.
+
+### [`<script>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/script)
+
+Esse elemento contém instruções de script ou aponta para um arquivo de script externo por meio do atributo src.
+
+### [`<style>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/style)
+
+Essa tag é usada para declarar estilos (CSS) para um documento.
+
+### [`<link>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/link)
+
+É uma tag vazia, que contém apenas atributos e faz a relação do documento HTML com recursos externos.
+
+É comumente usado para vincular uma folha de estilo externa, também é usada para definir o favicon da página (ícone da aba do navegador), como outros recursos.
