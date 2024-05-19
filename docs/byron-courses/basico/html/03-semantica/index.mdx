@@ -1,0 +1,108 @@
+---
+title: "Tags semânticas e não semânticas"
+sidebar_position: 3
+---
+
+Agora vou te mostrar outro tipo de caracterização das tags, a semântica.
+
+## Tags semânticas
+
+As tags **semânticas** são aquelas que dão sentido e significado para a informação que você quer passar. Voltando ao exemplo do jornal, seriam tags que definiriam o que é uma sessão, o rodapé, o cabeçalho, um artigo, uma lista, entre outros.
+
+Algumas das principais tags utilizadas são:
+
+### [`<header>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/header)
+
+Representa o **cabeçalho**, geralmente contém um título, subtítulo ou alguma informação relacionada à algum conteúdo.
+
+### [`<main>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/main)
+
+Define o **conteúdo principal** dentro do `<body>`. Representa o conteúdo principal daquela página.
+
+### [`<footer>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/footer)
+
+Representa o **rodapé** da página, normalmente contém informações sobre o autor da seção de dados, direitos autorais, links para documentos relacionados ou redes sociais.
+
+### [`<section>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/section)
+
+Representa uma **seção genérica** da página. Um container que **contribui para a semântica** do documento.
+
+### [`<article>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/article)
+
+Representa um **artigo** dentro do site, geralmente pode ser um post de um fórum, um artigo de revista ou jornal, um post de um blog, um comentário enviado por um usuário, um gadget ou widget interativos, ou qualquer outra forma de **conteúdo independente**.
+
+### [`<aside>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/aside)
+
+Representa uma **seção lateral** na página, com alguma informação relacionada ao tema principal da página. Pode ser visto como a definição de um glossário; conteúdo vagamente relacionado, como avisos; a biografia do autor; ou, em aplicações web, informações de perfil ou links de blogs relacionados.
+
+### [`<nav>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/nav)
+
+Representa a seção de **navegação** de uma página, em que redireciona o usuário para alguma seção da própria página ou para outras páginas.
+
+### [`<a>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/a)
+
+Cria um link que redireciona o usuário para alguma seção da própria página ou para outro link.
+
+### [`<ol>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/ol)
+
+Representa uma **lista de itens ordenados**, ou seja, cada item da lista é precedido de alguma contagem.
+
+### [`<ul>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/ul)
+
+Representa uma **lista de itens não ordenados**, ou seja, a posição de cada item da lista é irrelevante.
+
+### [`<li>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/li)
+
+Representa um **item** que faz parte de uma lista.
+
+### [`<h1>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Heading_Elements), [`<h2>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Heading_Elements), [`<h3>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Heading_Elements), ..., [`<h6>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Heading_Elements)
+
+Representam seis níveis de **título** de seção. `<h1>` é o nível de seção mais alto e `<h6>` é o mais baixo. São de acordo com essas tags que são organizadas o nível de importância de cada informação e o que faz parte do que, por exemplo, nessa página o título "Tags semânticas e não semânticas" seria o `<h1>`, o "Tags semânticas" e "Tags sem semântica" seriam os `<h2>` e cada tag seria o `<h3>`
+
+:::note
+
+A tag `<h1>` só deve ser utilizada uma vez por página, visto que só deve ter um título principal.
+
+:::
+
+### [`<label>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/label)
+
+Representa uma legenda para um item em uma interface de usuário.
+
+### [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
+
+Representa uma seção que contém controles interativos para enviar informações.
+
+### [`<input>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/input)
+
+Representa um controle interativo para formulários.
+
+### Exemplo de página semântica
+
+Segue um exemplo de como uma página web pode ser organizada com algumas das tags vistas acima:
+
+![Exemplo de página utilizando tags semânticas](../img/pagTagSemantica.png)
+
+Caso tenha curiosidade de entender melhor como estrutura seu site, leia o conteúdo a respeito desse tema no [mozilla](https://developer.mozilla.org/pt-BR/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure).
+
+## Tags sem semântica
+
+As tags **não semânticas** são aquelas que não definem um significado para aquela informação, geralmente são usados para organização de tags em divisões ou para estilização.
+
+Algumas das principais tags utilizadas são:
+
+### [`<div>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/div)
+
+É um **container genérico** que agrupa elementos mas que **não representa nada**. Geralmente são usados para fins de estilos, ou porque eles compartilham valores de atributos.
+
+### [`<span>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/span)
+
+É um **container genérico em linha** para conteúdo fraseado que **não representa nada**. `<span>` é muito parecido com o elemento `<div>` , entretanto `<div>` é um elemento block-level enquanto `<span>` é um elemento inline.
+
+### [`<b>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/b)
+
+Representa um intervalo de texto em que você quer destacar, sendo exibida em **negrito**.
+
+### [`<i>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/i)
+
+Representa um intervalo de texto em que você quer destacar, sendo exibida em **itálico**.
