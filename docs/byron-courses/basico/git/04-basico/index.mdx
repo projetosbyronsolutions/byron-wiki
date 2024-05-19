@@ -1,0 +1,297 @@
+---
+title: 'Conceitos e comandos básicos'
+sidebar_position: 4
+---
+
+# Conceitos e comandos básicos
+
+Seu ambiente está configurado, agora é hora de colocar a mão na massa.
+
+Mas antes, um pouco de teoria não faz mal.
+
+## O modelo mental do Git
+
+Até aqui você já deve ter entendido que o Git é uma ferramenta de versionamento de código e também já sabe o que uma ferramenta desse tipo deve fazer.
+
+Agora, quero te introduzir a uma ideia sobre como a principal característica do Git funciona. Estou falando do **desenvolvimento não linear**.
+
+O Git possui dois conceitos diretamente relacionados com essa característica, o conceito de ramo (galho, ou  ***branch***) e o conceito de ***merge***.
+
+### Branch
+
+Todo **repositório** Git começa com a branch principal, chamada de **main** ou **master**.
+
+Se fizermos alterações no código de maneira linear, a branch main cresce linearmente.
+
+![](./assets/Pasted%20image%2020240519103057.png)
+
+Isso é uma limitação. 
+
+Se as alterações feitas no código só avançam de maneira linear, a contribuição entre desenvolvedores, trabalhando em partes distintas de um código, é dificultada por conta da dependência direta entre as alterações.
+
+> No Git, chamamos uma alteração, ou uma dessas bolinhas da imagem acima, de ***commit***.
+
+Por esse motivo, o Git permite a criação de outras ***branches***.
+
+A partir de um commit, é possível "puxar" uma nova branch, na qual um desenvolvedor pode trabalhar individualmente.
+
+![](./assets/Pasted%20image%2020240519103512.png)
+
+Observe como um desenvolvedor poderia estar trabalhando na branch com as bolinhas laranjas, outro na branch com as bolinhas verdes e outro na branch principal, com as bolinhas azuis. 
+
+Gosto de pensar nessas branches como linhas temporais e os commits como eventos que ocorreram na história.
+
+Na linha temporal laranja, eu poderia ter me tornado um pintor, em vez de um desenvolvedor de software. Na verde eu poderia ter desistido da programação e ido viver no campo.
+
+> Perceba como as branches são praticamente independentes. Elas só dependem do que aconteceu antes do momento, do commit, do qual elas partiram.
+
+### Merge
+
+Se todos os desenvolvedores continuarem trabalhando independentemente, cada um na sua branch, pra sempre, o software nunca será finalizado.
+
+Por isso, é necessário juntar as branches em algum momento, para que as alterações em uma se fazem presentes na outra. Essa junção, ou mesclagem, é chamada de **merge**.
+
+![](./assets/Pasted%20image%2020240519104130.png)
+
+Preste atenção na quarta bolinha verde da esquerda para a direita na imagem acima.
+
+Esse commit depende das alterações que ocorreram tanto na branch principal (nesse caso chamada de master) tanto na branch azul. Esse commit, é o **merge commit**, um commit que representa a junção das duas branches.
+
+Na quinta bolinha verde, foi feito o merge do trabalho realizado na branch laranja, ela é outro merge commit. 
+
+> Agora, considerando a imagem acima, estamos na linha do tempo principal e todos os eventos que ocorreram nas linhas do tempo alternativas fazem parte da história da linha do tempo principal: por um tempo eu fui pintor e desenvolvedor de software, até que eu desisti e fui morar no campo.
+
+## Comandos básicos
+
+Se você chegou até aqui, vou considerar que você entendeu o modelo mental do Git que apresentei logo acima. 
+
+Se tiver dúvidas quanto a isso, não hesite em me perguntar mas também não se preocupe, agora nós vamos desenvolver melhor essas ideias na prática.
+
+### Criando um repositório
+
+"Repositório" é só outra palavra para codebase, é o onde seu código mora, junto do histórico de alterações.
+
+Para criar um repositório com o Git, primeiro crie uma pasta (no vídeo de auxílio 1 criamos a pasta byron, pode pular essa etapa se você já tiver feito).
+
+```bash
+mkdir byron
+```
+
+Entre na pasta criada com o comando `cd` e rode (digite e aperte enter) o seguinte comando:
+
+```bash
+git init
+```
+
+Pronto, você criou um repositório!
+
+### Se identificando pro Git
+
+Com o repositório criado, agora você pode começar a programar o seu software, fazer alterações (commits), criar branches e fazer merges. Mas antes você precisa se identificar para o Git.
+
+O Git precisa saber quem fez as alterações, assim outras pessoas trabalhando no mesmo repositório saberão disso também.
+
+```bash
+git config --global user.name Joel
+
+git config --global user.email joeltorres@byronsolutions.com
+```
+
+Rode os comandos acima separadamente (obviamente substituindo meu nome pelo seu, assim como o email).
+
+Escolha um email que você usa, preferencialmente aquele que você vai usar para criar uma conta no Github mais tarde.
+
+Se você rodou o comando sem considerar o que eu acabei de falar, não se preocupe, você pode rodar esses comandos quantas vezes for necessário para alterar essas configurações.
+
+Você pode, inclusive, visualizar as configurações em vigor por meio do comando `git config --list`.
+
+![](./assets/Pasted%20image%2020240519105723.png)
+
+(Para sair dessa tela basta digitar `q`).
+
+> Eu pedi para você rodar o comando com a flag (lembra desse conceito?) `--global` mas você poderia usar a flag `--local` no lugar dela. 
+> 
+> A diferença é que as configurações feitas com a flag `--local` valem só para o repositório no qual você se encontra.
+
+### Criando um arquivo e registrando uma alteração
+
+Você pode criar um arquivo qualquer agora, para fins de demonstração.
+
+Rode o comando abaixo para criar um arquivo `README.md`.
+
+```bash
+echo "# Hello world!" > README.md
+```
+
+Você pode ver o conteúdo do arquivo usando um comando de terminal chamado `cat` (é um trocadilho com a palavra "catch").
+
+![](./assets/Pasted%20image%2020240519110251.png)
+
+Você criou um arquivo, mas o Git ainda não sabe disso, ele não registrou a alteração. Você pode verificar isso com o comando `git status`.
+
+![](./assets/Pasted%20image%2020240519110356.png)
+
+Observe algumas coisas: 
+
+- O comando diz que você se encontra na branch principal (main)
+- Ele informa que não há commits ainda.
+- Ele ainda diz que um arquivo `README.md` não está sendo rastreado
+- E por fim diz que você pode rastrear os arquivos que serão "***commited***" usando o comando `git add <file>` (onde `<file>` é o caminho até o arquivo desejado, sem os caracteres  `< >`).
+
+Façamos isso.
+
+![](./assets/Pasted%20image%2020240519110643.png)
+
+Agora sim, o Git sabe do arquivo que criamos. Porém ainda informa que não há commits.
+
+Um commit não é só um arquivo criado ou alterado, é uma alteração com uma **mensagem curta e descritiva** a respeito dela.
+
+Vamos fazer um commit dessa alteração.
+
+![](./assets/Pasted%20image%2020240519110908.png)
+
+Rodei o comando `git commit -m "adiciona o arquivo README.md"`.
+
+Note que o comando é `git commit` mas passamos uma flag `-m` seguida de uma mensagem curta e descritiva sobre a nossa alteração.
+
+Todo commit precisa de uma mensagem, então o uso da flag `-m` é obrigatório.
+
+Se você não usa a flag, o Git vai abrir o editor de texto da sua preferência (no nosso caso, o Nano) para você escrever uma mensagem.
+
+![](./assets/Pasted%20image%2020240519111413.png)
+
+Essa é interface de terminal do editor Nano. Você pode escrever a mensagem como fiz na imagem, apertar `Ctrl + o` para salvar, dar enter, e `Ctrl + x` para sair, finalizando a edição da mensagem de commit e assim o commit.
+
+![](./assets/Pasted%20image%2020240519111621.png)
+
+Depois de salvar e fechar o nano a operação é completa.
+
+Enfim, prefira rodar o comando com a flag `-m` que é mais simples. Mas é isso que você terá de fazer se esquecer.
+
+Rode `git status` para se situar (note que esse comando é bem útil).
+
+![](./assets/Pasted%20image%2020240519111733.png)
+
+Agora ele diz que não há nada para **commitar** e que ***working tree*** está limpa, o que é verdade, o que tínhamos para commitar já commitamos.
+
+O comando `git log` é útil para visualizar os commits feitos.
+
+![](./assets/Pasted%20image%2020240519111927.png)
+
+(para sair dessa tela basta digitar `q`).
+
+Observe que temos algumas informações novas.
+
+Primeiro um conjunto de caracteres meio aleatório `commit e102208e82a76930c2bc2a68dbb466fb96423b29` (que no seu caso será diferente do meu).
+
+Essa sequência de caracteres é o que identifica um commit, ela é única. É chamada de **hash** ou **sha-1** (que é o algoritmo usado para gerar essa hash).
+
+Ao lado temos `(HEAD -> main)` que indica que a `HEAD` (que digamos que nos representa) está nesse commit, na branch main.
+
+Abaixo temos o autor (você) e a data do commit, seguido da mensagem atrelada a ele.
+
+> Você fez seu primeiro commit! Isso é o equivalente a uma bolinha naquelas imagens do começo e a um evento na história, se pensarmos na metáfora da máquina do tempo.
+
+### Criando uma branch
+
+Até aqui fizemos um commit na branch principal. Você pode repetir as ações do passo anterior para criar mais arquivos, mostrá-los para o Git (com o `git add`) e criar um commit com eles.
+
+A ordem de execução dos comandos para registrar uma alteração é quase sempre:
+
+```bash
+# cria um arquivo
+
+git add arquivo
+
+git commit -m "mensagem"
+```
+
+> Um adendo, você pode usar `git add .` (com um ponto) para contar pro Git sobre todos os novos arquivos ou alterações no diretório atual.
+> 
+> Apesar disso ser útil e ser usado frequentemente, tente adicionar os arquivos que deseja registrar em um commit manualmente.
+> 
+> `git add arquivo1.txt arquivo2.txt pasta/arquivo3.txt` adiciona 3 arquivos ao **staging** (onde o Git passa a vê-los).
+
+Depois de criar mais alguns arquivos e fazer alguns commits, vamos criar uma nova branch.
+
+```bash
+git checkout -b nova-branch
+```
+
+O comando `git checkout` é usado para "visitar" um commit. Quando usado com a flag `-b` estamos dizendo para criar uma nova branch.
+
+![](./assets/Pasted%20image%2020240519113247.png)
+
+Se você rodar o `git status` verá uma mensagem familiar, agora informando que você está na branch "nova-branch".
+
+Se você rodar o `git log` verá o histórico de commits no seu repositório até aqui, mesmo que na branch principal.
+
+![](./assets/Pasted%20image%2020240519113406.png)
+
+Observe que a `HEAD` agora está apontando para a `nova-branch` assim como para a `main` e está ao lado do último commit (o mais acima) realizado.
+
+Isso indica que estamos no último commit, que é "conhecido" por ambas as branches, faz parte das duas linhas do tempo.
+
+Podemos fazer alguns commits nessa nova linha do tempo.
+
+![](./assets/Pasted%20image%2020240519113712.png)
+
+Rodei vários comandos já conhecidos para criar dois arquivos e criar dois commits, um para cada.
+
+Podemos ver o novo histórico com o `git log` mas passando duas flags `--graph` e `--oneline`.
+
+![](./assets/Pasted%20image%2020240519113905.png)
+
+A flag `--graph` tenta criar algo parecido como aqueles desenhos, onde as bolinhas de lá são os `*` daqui.
+
+A flag `--oneline` mostra um pedaço da hash e a mensagem do commit.
+
+Note que a `HEAD` agora aponta pra `nova-branch` mas deixou a branch principal pra trás.  Isso significa que os dois últimos commits (os mais acima) não são mais conhecidos pela branch `main` que só conhece os commits abaixo de `f7b28b8` (no caso da imagem a cima).
+
+Criamos uma branch e divergimos da branch principal.
+
+Vamos voltar para branch principal e fazer um commit.
+
+Use `git checkout` novamente, mas passando a branch `main`.
+
+![](./assets/Pasted%20image%2020240519114321.png)
+
+Já fui em frente e fiz mais uma alteração, ao criar um novo arquivo e fazer um commit.
+
+Use o `git log --graph --oneline` novamente.
+
+![](./assets/Pasted%20image%2020240519114447.png)
+
+Observe que agora nem vemos mais a branch `nova-branch`, apenas o histórico conhecido pela branch `main`.
+
+### Fazendo um merge
+
+Agora vamos juntar as alterações da branch `nova-branch` com a branch `main`.
+
+Use o comando `git merge`.
+
+![](./assets/Pasted%20image%2020240519114749.png)
+
+O Git vai abrir o Nano para você definir a mensagem de commit do merge. Use `Ctrl + x` para sair com a mensagem padrão.
+
+As duas branches foram mescladas (você pode ouvir algumas pessoas falando "mergeadas").
+
+Rode o `git log --graph --oneline` agora.
+
+![](./assets/Pasted%20image%2020240519114931.png)
+
+Agora sim vemos algo semelhante aos desenhos.
+
+Observe que o merge gerou um commit, isso é uma característica dessa operação.
+
+## Conclusão
+
+Te apresentei o modelo mental do Git, bem como uma metáfora que pessoalmente gosto muito.
+
+Também mostrei alguns comandos que, na prática, implementam o modelo mental.
+
+Não mostrei todos os comandos e suas variações, isso você vai pegar com um tempo.
+
+Talvez você também perceba que pode errar em algum momento e deseja saber como reverter um commit errado, ou coisa do tipo, logo veremos sobre isso também.
+
+Por enquanto, revise esse texto e faça o Quiz 2 que te espera a seguir.

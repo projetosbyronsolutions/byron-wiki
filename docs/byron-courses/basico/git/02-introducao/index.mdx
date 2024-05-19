@@ -1,0 +1,100 @@
+---
+title: 'Introdução - A história do Git'
+sidebar_position: 2
+---
+
+# Introdução - A história do Git
+
+No contexto de engenharia e desenvolvimento de software, existe uma necessidade:
+versionamento de código.
+
+**Versionamento de código**, ou controle de versão, é a prática que consiste em
+mapear todas as alterações em uma **base de código (_codebase_)** ao longo do
+tempo, de modo a construir um **histórico de versões**.
+
+Algumas das funções de uma **ferramenta de versionamento de código**, além de
+mapear o histórico da codebase, são: permitir a transição do estado atual da
+codebase para estados anteriores (_**rollback**_), auxiliar na colaboração entre
+desenvolvedores e definir as versões (_**tags**_ e _**releases**_) do software
+que está sendo desenvolvido.
+
+Pense na ferramenta de versionamento como uma evolução da prática de criar
+pastas com nomes como "Versão final", "Versão final 2", "Versão final 3 agora
+vai", só que ainda mais poderosa. Não queremos ter o trabalho de gerenciar
+versões dessa maneira manual e trabalhosa, por isso utilizamos ferramentas de
+versionamento.
+
+Uma dessas ferramentas é o Git.
+
+![](./assets/Pasted%20image%2020240518181855.png)
+
+A criação do Git surgiu de uma necessidade dos desenvolvedores do kernel do
+sistema operacional Linux. Na época, os desenvolvedores do kernel desistiram de
+continuar utilizando o BitKeeper, um sistema de versionamento de código que
+havia se tornado software proprietário (o tipo que você tem que pagar para
+usar).
+
+Linus Torvalds, criador do Linux e um dos seus principais mantenedores, queria
+um sistema de versionamento distribuído e eficiente o qual pudesse usar como
+fazia com o BitKeeper, porém nenhum software livre disponível na época atendia
+seus requisitos, principalmente os de performance.
+
+Então, em 3 de abril de 2005, começou o desenvolvimento do Git, que, feito com
+as próprias mãos, atenderia seus requisitos.
+
+Torvalds tinha 4 critérios pro projeto:
+
+1. Tomar o CVS (um sistema de controle de versão da época) como um exemplo do
+   que não fazer
+   - Torvalds odiava o CVS e odiava ainda mais o Subversion, que tinha o slogan
+     "CVS do jeito certo", sendo que, segundo ele, "não tinha como fazer o CVS
+     do jeito certo"
+2. Suportar fluxo distribuído, assim como o BitKeeper
+3. Garantir proteção contra corrompimento de arquivos de maneira acidental ou
+   maliciosa
+4. Performance
+
+No dia 6 de abril, 3 dias depois, o projeto foi anunciado, sendo que um dia
+depois o Git se tornou auto-hospedeiro, ou seja, começou a ser usado para
+controlar as versões de si mesmo!
+
+> Curiosidade: mais tarde na capacitação vou mostrar pra você como visualizar o
+> primeiro _commit_ do Git, feito com o próprio Git pelo Linus Torvalds no dia 7
+> de abril de 2005.
+
+Falando de algumas das características desse novo sistema de controle de versão,
+inspirado no BitKeeper:
+
+- Desenvolvimento não linear: o histórico não consiste de uma única "linha do
+  tempo" mas sim de uma linha principal de onde podem partir ramos (ou
+  _**branches**_) que depois podem voltar para a linha principal por meio de uma
+  mesclagem (_**merge**_).
+- Distribuído: uma cópia completa do histórico da base de código se encontra na
+  máquina de cada desenvolvedor.
+- Modelo de ferramentas
+- Suporte a protocolos existentes na época
+- Histórico com validade criptográfica
+- Possui um coletor de lixo
+
+Não é importante entender tudo que o Git faz e como ele faz, mas você deve saber
+que ele se trata de uma ferramenta poderosa, criada para satisfazer as
+necessidades dos desenvolvedores de um dos maiores, se não o maior, projeto de
+código aberto da história (o Kernel do Linux).
+
+Por enquanto se preocupe em lembrar que o Git é um **sistema distribuído de
+versionamento de código que suporta o desenvolvimento não linear do histórico da
+codebase**.
+
+---
+
+Ao longo da capacitação, eu deixei pra você alguns quizes.
+
+Esses quizes são propositalmente fáceis. A resposta de uma pergunta deve vir
+imediatamente à sua cabeça, deve ser óbvia.
+
+Isso é uma forma de você mesmo acompanhar seu progresso e seu nível de
+compreensão das aulas em texto ou vídeo.
+
+Se perceber que as respostas não estão óbvias para você, dê uma pausa, releia o
+material com paciência e tente responder novamente. As respostas de um quiz se
+encontram no final da aula em texto seguinte.
