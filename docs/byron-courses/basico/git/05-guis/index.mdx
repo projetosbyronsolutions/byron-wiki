@@ -1,0 +1,94 @@
+---
+title: 'Uma palavra sobre GUIs'
+sidebar_position: 5
+---
+
+# Uma palavra sobre GUIs
+
+Estou te ensinando a usar o Git principalmente pelo terminal.
+
+Existe um motivo para isso: se você souber como usar o Git pelo terminal, você sabe como usá-lo por meio de GUIs.
+
+Você não é obrigado a viver usando o Git pelo terminal caso ache isso inconveniente (há quem prefira). Por isso, nessa aula em texto vou te mostrar um pouco sobre uma GUI chamada GitKraken.
+
+![](./assets/Pasted%20image%2020240519122648.png)
+
+Quando você abre o GitKraken e abre a pasta do repositório que criamos e usamos para praticar até agora, é algo parecido com isso que você verá.
+
+A visão principal é como se fosse de um `git log --graph --oneline`.
+
+Por meio do GitKraken (e de outras GUIs semelhantes) é possível fazer todas (ou quase todas) as operações que fazemos com o Git via terminal. Tudo que esse tipo de ferramenta faz é rodar os comandos certos por baixo dos panos.
+
+Vamos criar arquivos e fazer commits usando apenas interfaces gráficas.
+
+No meu caso, vou utilizar o explorador de arquivos do Linux Gnome, o Nautilus, mas você pode utilizar o Windows Explorer, assim como vou utilizar o Gedit para escrever os arquivos, enquanto você pode utilizar o Notepad.
+
+![](./assets/Pasted%20image%2020240519123155.png)
+
+Assim que salvamos o arquivo e voltamos para o GitKraken, vamos o seguinte.
+
+![](./assets/Pasted%20image%2020240519123236.png)
+
+No canto superior direito, em azul, "1 file change in working directory [View change]".
+
+Se clicarmos para ver a mudança, somos apresentados à seguinte tela.
+
+![](./assets/Pasted%20image%2020240519123348.png)
+
+Onde podemos:
+
+- Apagar as mudanças clicando na lixeira em vermelho
+- Fazer o stage das mudanças (análogo ao `git add`)
+- Fazer o commit das mudanças ao definir uma mensagem (análogo ao `git commit -m`)
+
+A interface torna tudo bem intuitivo. Vamos commitar essa mudança.
+
+![](./assets/Pasted%20image%2020240519123530.png)
+
+![](./assets/Pasted%20image%2020240519123604.png)
+
+E pronto, já vemos o resultado desse commit na visualização em grafo.
+
+![](./assets/Pasted%20image%2020240519123640.png)
+
+## Criando uma branch
+
+![](./assets/Pasted%20image%2020240519123717.png)
+
+Na imagem acima, o botão "Branch" pode ser usado para criar uma nova branch a partir do ultimo commit.
+
+![](./assets/Pasted%20image%2020240519123805.png)
+
+Criei uma branch chamada `mais-gui`.
+
+![](./assets/Pasted%20image%2020240519123824.png)
+
+Observe no canto superior esquerdo que também trocamos para a branch `mais-gui` que antes era `main`.
+
+Vamos fazer mais alguns commits.
+
+![](./assets/Pasted%20image%2020240519123925.png)
+
+Só copiei o mesmo arquivo de antes 3 vezes e repeti as operações via interface do GitKraken. Primeiro fiz um commit só com 2 deles, depois com o restante.
+
+![](./assets/Pasted%20image%2020240519124036.png)
+
+Agora podemos voltar para branch main e fazer a mesma coisa, só para divergir um pouco mais as branches.
+
+![](./assets/Pasted%20image%2020240519124105.png)
+
+![](./assets/Pasted%20image%2020240519124205.png)
+
+## Fazendo um merge
+
+E finalmente vamos fazer o merge da branch `mais-gui`, clicando com o botão direito em cima do último commit dela e selecionando "Merge mais-gui into main".
+
+![](./assets/Pasted%20image%2020240519125151.png)
+
+Bem intuitivo!
+
+## Conclusão
+
+GUIs são úteis e devem ser usadas se você se sente mais confortável e seguro assim.
+
+Como falei, vou continuar explicando usando o terminal, mas sinta-se a vontade para usar GUIs no seu dia-a-dia, também vamos usar algo parecido com isso mais pra frente, só que embutido no VSCode.
