@@ -1,0 +1,213 @@
+---
+title: 'Configurando o ambiente'
+sidebar_position: 3
+---
+
+# Configurando o ambiente
+
+Agora que você conhece um pouco da história do Git, chegou a hora de aprender
+como usá-lo.
+
+Pra isso, vou te ajudar a configurar o seu ambiente de desenvolvimento com 3
+ferramentas que usaremos na capacitação. São elas:
+
+- O próprio Git
+- Visual Studio Code: Um **editor de texto** extensível
+- GitKraken: Uma das várias opções de **interfaces gráficas (GUIs)** para o Git
+
+Além disso, vamos instalar duas extensões no Visual Studio Code **(VSCode)**:
+
+- Gitlens
+- Git Graph
+
+Com esses programas e extensões você terá certa variedade de opções para decidir
+qual a sua melhor forma de trabalhar com Git.
+
+Focarei em te ensinar como usar o Git pelo **terminal**, mas esse conhecimento
+se aplicará para qualquer GUI que você decidir usar no futuro.
+
+[Assista ao vídeo de auxílio para essa aula.](https://youtu.be/RaGzpf9hPjY)
+
+## Instalando os programas
+
+Eu decidi assumir que você está usando o sistema operacional Windows nessa
+capacitação. Se você utiliza Linux ou Mac e tiver alguma dificuldade para
+instalar os programas, me avise.
+
+Aqui estão os links para a página de download das ferramentas:
+
+- https://code.visualstudio.com/Download
+- https://git-scm.com/downloads
+- https://www.gitkraken.com/
+
+Baixando o instalador, se atente a algumas opções que o _**wizard**_ de
+instalação te oferece.
+
+### Git
+
+Adicionar a profile do Git Bash ao terminal do windows (caso você queira acessar
+o Git Bash por ele):
+
+![](./assets/Pasted%20image%2020240519092914.png)
+
+Escolher um editor de texto familiar para algumas operações do Git (o padrão é o
+Vim, que pode ser um pouco assustador pra iniciantes):
+
+No vídeo eu optei pelo Nano.
+
+![](./assets/Pasted%20image%2020240519093039.png)
+
+Você pode deixar as demais opções com os valores padrões e terminar a
+instalação.
+
+### Visual Studio Code
+
+Marcar as opções que adicionam "Abrir com Code" ao menu de contexto de arquivo
+do Windows Explorer:
+
+![](./assets/Pasted%20image%2020240519093411.png)
+
+### GitKraken
+
+O instalador não te dá opções de customização, só clicar duas vezes para
+instalar.
+
+## Comandos básicos para usar um terminal
+
+Como o foco dessa capacitação é te ensinar a usar o Git pelo terminal, é
+importante que você saiba usar um terminal.
+
+No vídeo de auxílio eu te mostrei alguns comandos.
+
+> Se atente que quando falo "terminal", no seu caso (que deve estar utilizando o
+> Windows), estou me referindo ao Git Bash, já que o Windows tem algumas outras
+> opções de terminal que possuem comandos diferentes entre si.
+>
+> Aqui na capacitação, **Terminal = Git Bash**.
+
+### Explorando pastas
+
+```bash
+mkdir byron # cria uma pasta chamada "byron"
+
+cd byron # entra em uma pasta, nesse caso a pasta "byron" (cd significa change directory)
+
+cd .. # sai da pasta atual e volta para pasta anterior
+
+# . e .. são apelidos para pasta atual e pasta anterior, respectivamente
+
+cd ~ # ~ é um apelido para a pasta do seu usuário /home/user no linux e /c/Users/user no windows
+
+cd /c/Users/user/byron # você também pode passar um caminho completo para uma pasta
+
+pwd # mostra o caminho completo até a pasta atual
+
+ls # lista os arquivos na pasta atual
+
+ls byron # lista os arquivos na pasta "byron"
+
+ls -l # mesma coisa mas agora com uma *flag* -l que exibe os arquivos na pasta atual, na forma de lista
+
+ls -la # duas flags, -l e -a combinadas -la, a flag -a exibe arquivos ocultos
+
+ls -a # seria usando apenas a flag -a
+```
+
+### Criando arquivos
+
+```bash
+touch arquivo.txt # cria um arquivo txt vazio
+
+echo "alguma coisa" > arquivo.txt # cria um arquivo txt contendo "alguma coisa"
+```
+
+### Outros comandos
+
+```bash
+clear # limpa o terminal
+```
+
+Posso acabar usando algum comando novo durante a capacitação, nesse caso eu te
+explico o que ele faz no momento que ele aparecer.
+
+## Algumas configurações para o VSCode
+
+Abrindo o VSCode, você encontrará uma tela de boas-vindas. Fique a vontade para
+explorar.
+
+Vou te mostrar aqui apenas como instalar extensões, trocar o tema de cores e
+configurar o Git Bash como seu terminal integrado.
+
+### Instalar extensões
+
+No canto esquerdo da tela, você encontra essa aba.
+
+![](./assets/Pasted%20image%2020240519095133.png)
+
+Pesquise pelas extensões que vamos instalar: Gitlens e Git Graph e clique em
+instalar.
+
+![](./assets/Pasted%20image%2020240519095217.png)
+
+![](./assets/Pasted%20image%2020240519095251.png)
+
+### Trocar o tema de cores
+
+Você pode pesquisar por um tema de cores assim como você pesquisa por uma
+extensão. Clique no ícone de funil, no lado direito da barra de pesquisa, para
+utilizar um filtro, como na imagem abaixo.
+
+![](./assets/Pasted%20image%2020240519095430.png)
+
+Com o tema escolhido instalado, você será convidado a defini-lo como tema.
+
+![](./assets/Pasted%20image%2020240519095705.png)
+
+Também pode clicar em "Set Color Theme" caso a opção acima não apareça.
+
+### Configurar o Git Bash como terminal integrado
+
+Você pode abrir o terminal integrado segurando e arrastando a "bordinha" na
+parte de baixo da interface do VSCode, como na imagem abaixo.
+
+![](./assets/Pasted%20image%2020240519095902.png)
+
+O terminal que provavelmente aparecerá como padrão no Windows é o Powershell.
+Vamos trocar para o Git Bash.
+
+Clique na setinha ao lado do + no canto superior direito do terminal e depois em
+"Select Default Profile".
+
+![](./assets/Pasted%20image%2020240519100023.png)
+
+Escolha o Git Bash.
+
+![](./assets/Pasted%20image%2020240519100117.png)
+
+"Matando" o terminal atual ao clicar no ícone de lixeira e reabrindo o terminal
+integrado, você deve ver algo parecido com a imagem abaixo.
+
+![](./assets/Pasted%20image%2020240519100244.png)
+
+Agora seu terminal integrado está configurado para usar o Git Bash.
+
+Outra forma de abrir o terminal é usando o atalho `Ctrl + Shift + P` e digitando
+"Toggle terminal".
+
+![](./assets/Pasted%20image%2020240519100431.png)
+
+---
+
+## Respostas do Quiz 1
+
+**1. Qual a principal função de um sistema de versionamento de código?**
+
+- [x] Manter um histórico de alterações na codebase
+
+**2. O que motivou a criação do Git?**
+
+- [x] O BitKeeper se tornou software proprietário
+
+**3. O que NÃO é uma característica do Git?**
+
+- [x] É rápido, porém inseguro
