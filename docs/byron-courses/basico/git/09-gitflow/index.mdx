@@ -4,3 +4,53 @@ sidebar_position: 9
 ---
 
 # Fluxo de trabalho e o Gitflow
+
+O fluxo de trabalho com o Git costuma variar um pouco entre equipes.
+
+Também é comum que você tenha um fluxo quando trabalha sozinho e outro fluxo
+quando trabalha com outros desenvolvedores.
+
+Por isso, alguns padrões de fluxo de trabalho com Git foram criados. Um deles é
+o Gitflow.
+
+Assista o vídeo abaixo para uma introdução.
+
+<video src="https://youtube.com/embed/oweffeS8TRc" />
+
+## O que você precisa entender
+
+- Gitflow é um fluxo de trabalho
+- Essencialmente ele dá um propósito às branches que seu repositório terá
+  - Existem dois tipos de branches: as principais (main e develop) e as de
+    suporte (feature, release e hotfix)
+- Branches de feature adicionam novas funcionalidades
+- Branches de feature são nomeadas "feature/nome-da-feature"
+- Uma feature nunca é mergeada na main, mas é na develop
+- A partir da develop, uma branch de release pode ser criada quando chegar a
+  hora de lançar uma versão do software
+- A branch de release normalmente é nomeada com o número de versão, por exemplo
+  "release/v1.0"
+- A branch de release é então mergeada na main e, posteriormente, a main é
+  mergeada na develop
+  - Isso é feito para manter a main e a develop sincronizadas
+
+## Como vamos usar algo parecido com o Gitflow nessa capacitação
+
+Nessa capacitação não vamos focar muito no uso do Gitflow.
+
+Isso porque seu valor é realmente perceptível em projetos grandes, com muitos
+contribuidores, não em projetinhos pequenos como o que fizemos até agora.
+
+Conhecer a teoria do gitflow e os comandos que você precisa para aplicá-lo (que
+você aprendeu até mesmo antes dessa aula) é o necessário por enquanto. Na
+prática você vai usar esse fluxo de trabalho e aprender a utilizá-lo com
+facilidade.
+
+Na entrega final (próxima aula), você usará o conceito de branch de feature e
+develop, criando sua própria branch de feature e fazendo um merge na branch
+develop de um repositório público.
+
+Isso é explicado na próxima aula e demonstrado no vídeo de auxílio 3, onde você
+vai aprender outro conceito do Github: _**Forks**_.
+
+Por enquanto é isso, até lá. (Antes tem um quiz para você responder).
