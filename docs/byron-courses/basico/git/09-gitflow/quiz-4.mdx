@@ -2,6 +2,8 @@
 title: 'Quiz 4'
 ---
 
+import Quiz from '@site/src/components/Quiz'
+
 # Quiz 4
 
 As questões abaixo fazem menção ao conteúdo das duas últimas aulas em texto.
@@ -10,11 +12,26 @@ Responda sem consultar o material.
 
 ## Perguntas
 
-**1. Qual comando do Git é usado para iniciar um repositório em uma pasta
-vazia?**
+<Quiz
+  question={"1. No Gitflow, qual tipo branch é utilizado para adição de novas funcionalidades?"}
+  answers={["Develop", "Main", "Release", "Hotfix", "Feature"]}
+  correctIndex={4} 
+/>
 
-- [ ] `git start`
-- [ ] `git begin`
-- [ ] `git initialize`
-- [ ] `git init`
-- [ ] `git clone`
+<Quiz
+  question={"2. Suponha que você fez um commit mas esqueceu de adicionar um arquivo, qual comando do Git você NÃO usaria em nenhuma etapa para corrigir isso (sem criar um novo commit)?"}
+  answers={["git reset --soft HEAD^", "git commit --amend --no-edit", "git add arquivo.txt", "git revert HEAD", "git commit"]}
+  correctIndex={3} 
+/>
+
+<Quiz
+  question={"3. Qual comando do Git você utilizaria para deixar um trabalho que você estava fazendo no repositório para depois?"}
+  answers={["git stash", "git checkout", "git later", "git stash pop", "git merge"]}
+  correctIndex={0} 
+/>
+
+<Quiz
+  question={"4. Você fez um push para o repositório remoto e um commit com um bug foi enviado, que comando você utiliza para corrigir esse problema (criando um novo commit)?"}
+  answers={["git redo", "git checkout", "git fix", "git revert", "git reset --soft"]}
+  correctIndex={3} 
+/>
