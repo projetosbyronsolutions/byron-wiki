@@ -65,6 +65,8 @@ const Root = ({ children }) => {
         toast.error(error.message);
         throw error;
       }
+
+      location.reload()
     } catch (error) {
       throw error.message;
     } finally {
