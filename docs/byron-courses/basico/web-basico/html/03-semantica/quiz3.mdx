@@ -1,0 +1,49 @@
+---
+title: "Quiz 3"
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+# Quiz 3
+
+As questões abaixo fazem menção a semântica do HTML.
+
+Responda sem consultar o material.
+
+## Perguntas
+
+<Quiz
+  question="1. O que faz uma tag ser semântica em HTML?"
+  answers={[
+    "Uma tag que não define um significado para a informação",
+    "Uma tag que representa um intervalo de texto destacado",
+    "Uma tag que serve para agrupar elementos, mas não representa nada",
+    "Uma tag que dá sentido e significado para a informação",
+    "Uma tag que serve apenas para navegação",
+  ]}
+  correctIndex={3}
+/>
+
+<Quiz
+  question="2. Qual das seguintes opções NÃO é uma característica dos elementos 'h' em HTML?"
+  answers={[
+    "Representam os títulos",
+    "O <h1> é o nível de seção mais baixo",
+    "Organizam o nível de importância de cada informação em uma página",
+    "O <h1> só deve ser utilizado uma vez por página",
+    "É uma tag semântica",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="3. Qual tag HTML representa o conteúdo principal dentro do <body>?"
+  answers={["<main>", "<header>", "<footer>", "<section>", "<article>"]}
+  correctIndex={0}
+/>
+
+<Quiz
+  question="4. Qual tag HTML representa uma seção genérica da página e que não contriubui nada a semântica do código?"
+  answers={["<article>", "<nav>", "<form>", "<section>", "<div>"]}
+  correctIndex={4}
+/>
