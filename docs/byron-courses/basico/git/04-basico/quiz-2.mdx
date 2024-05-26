@@ -2,6 +2,8 @@
 title: 'Quiz 2'
 ---
 
+import Quiz from '@site/src/components/Quiz';
+
 # Quiz 2
 
 As questões abaixo fazem menção ao conteúdo das duas últimas aulas em texto.
@@ -9,32 +11,27 @@ As questões abaixo fazem menção ao conteúdo das duas últimas aulas em texto
 Responda sem consultar o material. 
 ## Perguntas
 
-**1. Qual comando do Git é usado para iniciar um repositório em uma pasta vaiza?**
+<Quiz
+  question={"1. Qual comando do Git é usado para iniciar um repositório em uma pasta vaiza?"}
+  answers={["git start", "git begin", "git initialize", "git init", "git clone"]}
+  correctIndex={3} 
+/>
 
-- [ ] `git start`
-- [ ] `git begin`
-- [ ] `git initialize`
-- [ ] `git init`
-- [ ] `git clone`
+<Quiz
+  question={"2. O que não é verdade sobre a operação de merge?"}
+  answers={["Um merge gera um commit de merge", "Pode ser feita com o comando `git merge`", "Não pode ser feita em uma branch diferente da principal", "Une o histórico de duas branches diferentes"]}
+  correctIndex={2} 
+/>
 
-**2. O que não é verdade sobre a operação de merge?**
+<Quiz
+  question={"3. Qual dos comandos abaixo não é usado com nenhuma flag?"}
+  answers={["git init --bare", "ls -la", "git log --graph", "git merge nova-branch", "git checkout -b nova-branch"]}
+  correctIndex={3}
+/>
 
-- [ ] Um merge gera um commit de merge
-- [ ] Pode ser feita com o comando `git merge`
-- [ ] Não pode ser feita em uma branch diferente da principal
-- [ ] Une o histórico de duas branches diferentes
+<Quiz
+  question={"4. Qual das afirmações abaixo está correta quanto a criação de branches com o Git?"}
+  answers={["O comando `git checkout` pode ser usado tanto para visitar um commit, quanto para visitar ou criar uma branch", "Uma vez criada, uma branch deve obrigatoriamente ser mesclada com outra branch", "`git new branch minha-branch` cria uma nova branch chamada `minha-branch`", "O histórico de uma nova branch é compartilhado com as demais"]}
+  correctIndex={0}
+/>
 
-**3. Qual dos comandos abaixo não é usado com nenhuma flag?**
-
-- [ ] `git init --bare`
-- [ ] `ls -la`
-- [ ] `git log --graph`
-- [ ] `git merge nova-branch`
-- [ ] `git checkout -b nova-branch`
-
-**4. Qual das afirmações abaixo está correta quanto a criação de branches com o Git?**
-
-- [ ] O comando `git checkout` pode ser usado tanto para visitar um commit, quanto para visitar ou criar uma branch
-- [ ] Uma vez criada, uma branch deve obrigatoriamente ser mesclada com outra branch
-- [ ] `git new branch minha-branch` cria uma nova branch chamada `minha-branch`
-- [ ] O histórico de uma nova branch é compartilhado com as demais

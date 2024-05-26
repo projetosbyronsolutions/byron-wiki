@@ -1,0 +1,43 @@
+---
+title: 'Quiz 3'
+---
+
+import Quiz from '@site/src/components/Quiz'
+
+# Quiz 3
+
+As questões abaixo fazem menção ao conteúdo das três últimas aulas.
+
+Responda sem consultar o material.
+
+## Perguntas
+
+<Quiz
+  question={"1. O que é o Github?"}
+  answers={["Uma plataforma para encontrar empregos", "Uma plataforma de blog para programadores", "Uma plataforma para hospedar repositórios remotos e contribuir com projetos", "Uma alternativa ao Git baseada na web"]}
+  correctIndex={2} 
+/>
+
+<Quiz
+  question={"2. O que NÃO é uma vantagem de se utilizar GUIs para o Git?"}
+  answers={["Comandos são poderosos apesar de complexos", "Você não precisa lembrar de muitos comandos do Git", "Elas usam os comandos certos por baixo dos panos, você não precisa pensar nisso", "Existem opções diversas, para diversos sistemas operacionais", "Você reutiliza o conhecimento de Git no terminal"]}
+  correctIndex={0} 
+/>
+
+<Quiz
+  question={"3. Qual comando do Git você utiliza para puxar as atualizações do repositório remoto?"}
+  answers={["git clone", "git merge", "git checkout", "git pull", "git push"]}
+  correctIndex={3} 
+/>
+
+<Quiz
+  question={"4. Qual operação do Git é realizada quando um Pull Request é aprovado?"}
+  answers={["Rebase", "Merge", "Clone", "Pull", "Push"]}
+  correctIndex={1} 
+/>
+
+<Quiz
+  question={"5. O que mais provavelmente causaria um conflito de merge dentre as opções abaixo?"}
+  answers={["Joel deu pull em um repositório com a working tree limpa", "Diego modificou o arquivo FOO na linha 3 enquanto Pedro modificou o arquivo BAR também na linha 3", "Bianca modificou o arquivo XPTO na linha 97 enquanto Tamiris modificava as linhas de 64 a 128 do mesmo arquivo", "Isaac fez um Pull Request na main", "Guilherme abriu uma Issue no repositório no Github"]}
+  correctIndex={2} 
+/>

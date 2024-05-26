@@ -1,0 +1,102 @@
+---
+title: 'Como cuidar do seu repositório'
+sidebar_position: 8
+---
+
+# Como cuidar do seu repositório
+
+Nessa aula em texto vou te apresentar alguns comandos e "rotinas" para manter o
+histórico do seu repositório limpo, assim como para desfazer commits não
+intencionais ou adicionar alterações que você esqueceu em um commit.
+
+## Fazendo certo desde o início facilita as coisas
+
+Desde o início da capacitação eu te recomendei a utiliza o `git add` sem o `.`
+(que adiciona todos os arquivos ao _**stage**_).
+
+Isso é uma boa prática, pois um commit não deve conter conteúdo não relacionado
+com a mensagem de commit.
+
+Por exemplo, você não deve adicionar um arquivo de documentação do repositório
+junto de um arquivo de configuração de deploy, no mesmo commit.
+
+O correto é: em um commit você adiciona os arquivos de configuração e em outro
+commit você adiciona os arquivos de documentação.
+
+"Mas e se eu fizer errado?"
+
+## O comando reset
+
+O comando `git reset` é bem versátil.
+
+Com ele você consegue tirar arquivos do stage:
+
+```bash
+git reset -- # remove todos os arquivos do stage
+
+git reset -- arquivo.txt # remove "arquivo.txt" do stage
+```
+
+E também desfaz commits sem criar um novo. Por exemplo:
+
+```bash
+git reset --soft HEAD~3 # desfaz os últimos 3 commits e volta as alterações para stage
+```
+
+Você pode utilizar o `git reset --soft` para desfazer a adição de vários
+arquivos não relacionados em um mesmo commit.
+
+## O comando commit --amend
+
+A flag `--amend` é utilizada para atualizar o último commit feito.
+
+Suponha que você esqueceu de adicionar um arquivo a um commit que acabou de
+fazer.
+
+Criando o arquivo e adicionando-o ao stage com `git add arquivo-esquecido.txt` e
+depois rodando `git commit --amend --no-edit` você atualiza o commit com a
+adição antes esquecida.
+
+> A flag --no-edit pula a etapa de alterar a mensagem do commit. Caso você não
+> utilize a flag, o Git vai abrir o seu editor padrão pedindo para que você mude
+> a mensagem ou deixe do mesmo jeito.
+
+## O comando revert
+
+O comando `git revert` não limpa o histórico do seu repositório, mas desfaz as
+alterações de um commit ao criar um novo commit com as operações contŕarias.
+
+```bash
+git revert <hash do commit> # reverte o commit com a hash especificada
+
+git revert HEAD~2 # reverte o antepenultimo commit
+
+git revert HEAD^ # reverte o ultimo commit
+```
+
+## O comando stash
+
+Quando você está trabalhando em alguma coisa, é comum que outra coisa para fazer
+apareça do nada.
+
+Para não perder suas alterações que estão pela metade e também não fazer o
+commit delas (porque estão pela metade) você pode adicioná-las ao stage e rodar
+o comando `git stash`.
+
+Opcionalmente você pode dar um nome para a stash: `git stash nome`.
+
+Depois que puder voltar a trabalhar no que estava trabalhando antes, o comando
+`git stash list` mostra suas stashs e o comando `git stash show <nome da stash>`
+mostra as alterações que uma stash possui.
+
+Para voltar as alterações de uma stash para a working tree, rode:
+
+```bash
+git stash pop # aplica a ultima stash salva
+
+git stash apply <nome da stash> # aplica a stash especificada
+```
+
+## Vídeo de referência, com mais comandos e detalhes
+
+<video src="https://youtube.com/embed/6OokP-NE49k" />
