@@ -1,0 +1,60 @@
+---
+title: "Quiz"
+sidebar_position: 7
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+Responda sem consultar o material.
+
+## Perguntas
+
+<Quiz
+  question="1. Qual é a principal diferença entre o seletor filho e o seletor descendente?"
+  answers={[
+    "O seletor filho aplica estilos apenas aos elementos filhos diretos de um elemento pai, enquanto o seletor descendente aplica estilos a todos os elementos que são descendentes de um elemento pai, independentemente do nível hierárquico",
+    "O seletor filho aplica estilos a todos os elementos dentro de um elemento pai, enquanto o seletor descendente aplica estilos apenas aos elementos netos de um elemento pai",
+    "O seletor filho aplica estilos apenas aos elementos que são irmãos diretos de um determinado elemento, enquanto o seletor descendente aplica estilos a todos os elementos irmãos de um determinado elemento",
+    "O seletor filho aplica estilos aos elementos que estão no mesmo nível hierárquico, enquanto o seletor descendente aplica estilos apenas aos primeiros filhos de um elemento pai",
+  ]}
+  correctIndex={0}
+/>
+
+<Quiz
+  question="2. Quando é mais apropriado utilizar o seletor de ID?"
+  answers={[
+    "Quando você quer aplicar estilos a vários elementos diferentes na mesma página",
+    "Quando você quer aplicar estilos a um elemento específico que deve ser único dentro de um documento HTML",
+    "Quando você quer aplicar estilos a todos os elementos de um determinado tipo em uma página",
+    "Quando você quer aplicar estilos a elementos que compartilham a mesma classe",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="3. Qual propriedade deve ser utilizada  para definir a direção dos itens dentro de um container?"
+  answers={["align-items", "flex-direction", "flex-wrap", "justify-content"]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="4. Supondo que eu tenha dois containers e gostaria de empilhá-los no canto superior direito, quais propriedades eu deveria utilizar? "
+  answers={[
+    "display: flex; flex-direction: column-reverse",
+    "display: flex; flex-direction: column;",
+    "display: flex; flex-direction: column; justify-content: end",
+    "display: flex; flex-direction: column; align-items: end",
+  ]}
+  correctIndex={3}
+/>
+
+<Quiz
+  question="4. Você está criando um layout responsivo e deseja que os itens dentro de um container se ajustem automaticamente em múltiplas linhas quando o espaço não for suficiente em uma única linha. Além disso, você quer que cada linha de itens seja centralizada verticalmente dentro do container. Quais propriedades devem ser utilizadas? "
+  answers={[
+    "flex-direction: column; align-content: center;",
+    "flex-wrap: wrap; align-items: center;",
+    "flex-wrap: wrap; align-content: center;",
+    "flex-direction: row; align-items: flex-start;",
+  ]}
+  correctIndex={2}
+/>
