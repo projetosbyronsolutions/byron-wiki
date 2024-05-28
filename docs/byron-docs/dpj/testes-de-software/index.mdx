@@ -1,0 +1,76 @@
+---
+title: "Testes de Software"
+sidebar_label: "Testes de Software"
+---
+
+## Testes
+
+Os testes de softwares são uma parte essencial do processo de desenvolvimento de software. Eles ajudam a garantir que, ao longo do seu desenvolvimento, o software funcionará corretamente, atendendo aos requisitos esperados dos usuários, facilitando a identificação dos erros e trazendo confiabilidade no uso do produto final. Existem diversos tipos de testes que podem ser realizados em diferentes níveis do sistema. Cada teste vai possuir uma determinada velocidade de implementação e complexidade e, por isso, a escolha por quais tipos de testes serão feitos depende do projeto, cultura da empresa e da equipe que os irão realizar.
+
+## Pirâmide de Testes
+
+A Pirâmide de Testes é uma abordagem que busca demonstrar de maneira simples os tipos de testes em uma hierarquia. Cada nível possui um objetivo específico, um custo e uma complexidade. No total, existem três níveis, como demonstrado na pirâmide de testes abaixo. No topo da pirâmide temos os testes de ponta a ponta. Ele tem como objetivo principal imitar o comportamento dos usuários finais nas aplicações. No meio, encontramos os testes de integração. Nestes iremos verificar se um conjunto determinado de funcionalidades está se comportando de maneira adequada. Já na base, estão os testes unitários, que correspondem a testar cada funcionalidade separadamente. De forma geral, testes mais perto do topo da pirâmide são mais custosos e demoram mais tempo para serem feitos, enquanto os testes mais perto da base são mais rápidos e mais simples, necessitando de menos recursos para serem feitos
+
+import imgX from "./img/piramide.png";
+
+<image
+  src={imgX}
+  alt="Uma Pirâmide de Testes,com as divisões e2e no topo, integration no meio e unit na base. Adjacente a pirâmide se tem o personagem Wile Coyote ao topo, e o Papa-léguas na base"
+  hideLegend
+  width={400}
+/>
+;
+
+### Testes Unitários
+
+Na base da pirâmide de testes, temos os testes unitários. Estes testes são de nível muito baixo e, portanto, são feitos em linguagem próxima a do desenvolvimento e por isso muitas vezes são realizados pelos próprios desenvolvedores. Por conta disso, são geralmente realizados de forma individual, e possuem como objetivo testar cada componente separadamente, e não juntos como um todo. São um dos testes mais rápidos e menos custosos para serem feitos, e testam unidades pequenas de código, sendo portanto os testes que são feitos em mais quantidade durante o desenvolvimento.
+
+### Testes de Integração
+
+Acima dos testes unitários e abaixo dos testes de ponta a ponta, estão os testes de integração. Como o próprio nome diz, estes testes buscam verificar como os componentes do softwares estão interagindo entre si e funcionando de maneira conjunta. Após os componentes serem testados separadamente, através dos testes unitários, eles devem ser testados em conjunto. Por isso, é interessante que os testes de integração sejam feitos depois que os testes unitários já tiverem sido feitos e resultados positivos terem sido obtidos.
+
+Esse tipo de teste é mais complexo e custoso que os unitários, pois precisam que mútuas partes do softwares estejam ativas e sejam testadas ao mesmo tempo. Porém, ele não engloba o sistema como um todo e, por isso, quando comparado com os testes de ponta a ponta, são menos complexos e custosos.
+
+### Testes de ponta a ponta
+
+Localizado no topo da pirâmide, os testes de ponta a ponta (e2e) buscam simular o comportamento de um usuário em um ambiente completo, muito próximo ao final. Esse ambiente deve poder simular casos reais do uso do software, buscando testar todos os requisitos e verificar todos casos de uso, como ser capaz de ter um alto tráfego de usuários ou simplesmente verificar se é possível acessar o banco de dados utilizado por exemplo.
+
+Esse teste costuma ser um dos últimos a ser feito, e não são feitos muitas vezes, visto que este engloba todo o processo, e precisa de um tempo maior para ser realizado, além de ser mais custoso. Ele também é caracterizado como um teste de alto nível, e por isso, apesar de ajudar a verificar problemas em qualquer ponto de encontro entre componentes do sistema, ele não é ideal para verificar detalhes mais específicos de um componentes, os quais seriam melhor identificados por teste unitários.
+
+## Outros testes
+
+### Testes de aceitação
+
+Os testes de aceitação são uma das ultimas etapas do desenvolvimento de software. Ele tem como objetivo identificar prováveis defeitos, verificando se ele atende aos requisitos e avalia se ele se comporta como esperado. Devido a isso, os testadores já deverão ter um conhecimento dos requisitos e funcionalidades do software.
+
+### Testes de desempenho
+
+Esses testes são feito para avaliar o desempenho do software sob uma carga de trabalho específica. Um exemplo seria testar se um site consegue manter determinado número de usuários o acessando ao mesmo tempo, sem apresentar problemas no servidor ou interromper a navegação de alguém indevidamente
+
+### Testes de segurança
+
+Como o próprio nome diz, esse teste visa garantir a segurança do software, testando se as funcionalidades estão respeitando as permissões determinadas para tal.
+
+## Automatização
+
+Todos esses testes podem ser feitos de forma manual ou de forma automatizada. O teste manual é feito por algum profissional da área, executando todos os passos estabelecidos. Como ele será feito por um humano, é possível que ocorra falhas, pulando alguma etapa ou encontrando algum erro e não percebendo. Apesar disso, o humano consegue notar possíveis falhas que não estavam no script determinado, podendo adiantar algum erro futuro. Já no teste automatizado, uma máquina irá realizar etapas, já determinadas anteriormente, e irá avaliar os resultados. Porém, a qualidade desses testes irá depender diretamente da qualidade dos scripts de testes escritos.
+
+De forma geral, os testes manuais são mais custosos e requerem alguém para configurar e executar os testes por si só, enquanto os automatizados necessitam apenas de um script com as etapas que devem ser executadas.
+
+## Conclusão
+
+Neste artigo, abordamos os testes que englobam a pirâmide de testes e alguns outros que foram considerados relevantes, porém estes não são os únicos. É importante se ter em mente que existem diversos tipos de testes e diversas formas de aplicá-los. É importante estudar as necessidades de seu prórpio software e com isso determinar quais testes serão necessários e quais são dispensáveis. Além disso, conforme a aplicação aumenta, é possível que surjam novas necessidades, e com isso, novos testes terão de ser feitos.
+
+## Referências
+
+[Diferentes tipos de testes de software - Atlassian](https://www.atlassian.com/br/continuous-delivery/software-testing/types-of-software-testing)
+
+[Técnicas e fundamentos de Testes de Software - DevMedia](https://www.devmedia.com.br/guia/tecnicas-e-fundamentos-de-testes-de-software/34403)
+
+[Tipos de teste de software: conheça os principais e saiba qual é a importância de cada um! - Positivo](https://www.meupositivo.com.br/panoramapositivo/teste-de-software/)
+
+[Testes de Software: Definição, Conceitos e Exemplos - objective](https://www.objective.com.br/insights/testes-de-software/)
+
+[A pirâmide de testes - Camila Campos](https://medium.com/creditas-tech/a-pir%C3%A2mide-de-testes-a0faec465cc2)
+
+[O QUE É A PIRÂMIDE DE TESTES? - Murilo Da Rolt](https://blog.onedaytesting.com.br/piramide-de-teses/)
