@@ -15,30 +15,41 @@ interface ISession {
 const Root = ({ children }) => {
   const { siteConfig }: any = useDocusaurusContext();
   const supabase = createClient(siteConfig.customFields.supabaseUrl, siteConfig.customFields.supabaseAnonKey);
-
   const [success, setSuccess] = useState(false); // When true, will unlock the site
   const [loading, setLoading] = useState(false); // Used to display a loading when handling requisitions
   const [showSignup, setShowSignup] = useState(false); // Controls if login or signup form shows up
-
   const [loginData, setLoginData] = useState({ email: '', password: '' }); // Stores form data to be later validated
 
+
   useEffect(() => {
+    if (siteConfig.customFields.devEnv === 'true') {
+      console.log("Ambiente de desenvolvimento - pulando autenticação");
+      setSuccess(true);
+      return;
+    }
+
     const getSession = async () => {
-      console.log('getSession');
+      console.log('Getting session');
 
       try {
         const { data, error }: ISession = await supabase.auth.getSession();
 
-        if (error) throw error;
+        if (error) {
+          toast.error(error.message);
+          throw error;
+        }
 
-        if (data.session !== null) setSuccess(true);
+        if (data.session !== null) {
+          setSuccess(true);
+        }
       } catch (error) {
-        throw error.message;
+        console.error("Error getting session:", error.message);
       }
     };
 
     getSession();
-  }, [loading]);
+  }, [siteConfig.customFields]);
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -54,6 +65,8 @@ const Root = ({ children }) => {
         toast.error(error.message);
         throw error;
       }
+
+      location.reload()
     } catch (error) {
       throw error.message;
     } finally {

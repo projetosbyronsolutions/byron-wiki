@@ -1,0 +1,81 @@
+---
+title: "Estrutura básica"
+sidebar_position: 2
+---
+
+## Estrutura
+
+### Estrutura do elemento
+
+Os elementos são divididos em 3 partes:
+
+- **Tag de abertura** (`<p>`);
+  - Dentro da tag de abertura, o elemento pode receber algum [atributo](https://www.alura.com.br/artigos/o-que-e-html-suas-tags-parte-5-atributos-elementos#o-que-sao-atributos-html?), que serve para controlar o comportamento do elemento.
+- **Conteúdo**;
+- **Tag de fechamento** (`</p>`).
+
+Alguns elementos são vazios, ou seja, só possuem a tag de abertura e seu funcionamento funciona na base dos atributos, um exemplo de elemento desse tipo é o `<input>`.
+
+![Estrutura de uma tag HTML](../img/estrutura-tag.png)
+
+### Estrutura do documento
+
+A estrutura básica do HTML é composta da seguinte forma:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+```
+
+Mas não se preocupe, você não vai precisar memorizar isso. Toda vez que for criar algum arquivo que precise usar essa estrutura, basta escrever "_!_" e apertar "enter" que o VS Code faz o resto para você.
+
+![Exemplo do "!"](../img/exemplo.gif)
+
+Ufaa! Mas o que significa cada coisa do que está aí?
+
+## Tags
+
+### `<!DOCTYPE html>`
+
+Informa ao navegador que esse documento é do tipo HTML e indica sua versão. Quando está escrito apenas html, indica que é a mais recente
+
+### [`<html>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/html)
+
+Representa a raiz do documento, serve com um container que engloba todos os outros elementos HTML.
+
+### [`<head>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/head)
+
+Compreende as informações do documento que serão interpretadas pelo navegador (metadados). Como, por exemplo, título do documento, links para folhas de estilo, etc.
+
+### [`<meta>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/meta)
+
+Define metadados, ou seja, informações sobre dados de um documento HTML. As tags vão dentro do elemento e são usadas para especificar o conjunto de caracteres, o autor ou autora do documento, as configurações da janela de visualização, etc.
+
+### [`<title>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/title)
+
+Define o título que aparece na aba do navegador.
+
+### [`<body>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/body)
+
+É onde fica todo o conteúdo de texto, imagem e vídeos, em que o usuário ou usuária vê e interage, nele os conteúdos são estruturados pelas demais tags do HTML.
+
+### [`<script>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/script)
+
+Esse elemento contém instruções de script ou aponta para um arquivo de script externo por meio do atributo src.
+
+### [`<style>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/style)
+
+Essa tag é usada para declarar estilos (CSS) para um documento.
+
+### [`<link>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/link)
+
+É uma tag vazia, que contém apenas atributos e faz a relação do documento HTML com recursos externos.
+
+É comumente usado para vincular uma folha de estilo externa, também é usada para definir o favicon da página (ícone da aba do navegador), como outros recursos.
