@@ -1,6 +1,102 @@
 ---
-title: 'Arrays - foreach'
+title: "Arrays - foreach"
 sidebar_position: 9
 ---
 
-<video src='https://www.youtube.com/embed/HuBF684WO0Y?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL' />
+Agora que já aprendemos sobre o `map()`, vamos conhecer e entender um método bem parecido, o `forEach()`.
+
+## O que é?
+
+O método [`forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) executa uma função para cada elemento do array, esta função, ao contrário do `map()`, não precisa necessariamente retornar um novo valor, ou seja, ela só vai executar a função e não necessariamente vai substituir o valor do elemento
+
+```js
+const bora = ["b", "y", "r", "o,", "n"];
+bora.forEach((element) => console.log(element)); // Da um console.log com o conteúdo de cada elemento
+
+// Expected output: "b"
+// Expected output: "y"
+// Expected output: "r"
+// Expected output: "0"
+// Expected output: "n"
+```
+
+## Sintaxe
+
+A sintaxe do `forEach()` é igual à que vimos anteriormente em `map()`, recebendo os mesmos parâmetros inclusive na função callback, porém ela não está vinculada a um novo array e sim ao mesmo que você já havia criado.
+
+```js
+array.forEach(callback);
+// ou
+array.forEach(callback, thisArg);
+```
+
+## Exemplos
+
+Agora vamos ver alguns exemplos de aplicação do método `map()`, tente fazer antes de ver a resposta!
+
+- Contando ocorrências de um elemento em um array.
+
+```js
+const letras = ["a", "b", "a", "c", "a", "b"];
+let contagemA = 0; // Contagem de "a"
+
+letras.forEach((letra) => {
+  // Se o conteúdo do elemento for "a"
+  if (letra === "a") {
+    contagemA++; // Adiciona 1 na contagem
+  }
+});
+
+console.log(contagemA); // => 3
+```
+
+- Criando uma frase com todas as strings de um array.
+
+```js
+const palavras = ["Palmeiras", "não", "tem", "mundial"];
+let frase = "";
+
+palavras.forEach((palavra) => {
+  frase += palavra + " "; // adiciona o conteúdo do elemento e um espaço
+});
+
+console.log(frase); // => "Palmeiras não tem mundial"
+```
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/HuBF684WO0Y?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quiz
+
+As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e o vídeo sobre `forEach()` em JS.
+
+<Quiz
+  question="1. O que a função `forEach()` faz em um array?"
+  answers={[
+    "Cria um novo array com os resultados de uma função aplicada a cada elemento do array original.",
+    "Executa uma função para cada elemento do array sem retornar um novo array.",
+    "Remove elementos duplicados do array.",
+    "Ordena os elementos do array em ordem crescente.",
+    "Filtra elementos baseados em uma condição.",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="2. Qual é a principal diferença entre `map()` e `forEach()`?"
+  answers={[
+    "O `map()` modifica o array original, enquanto `forEach()` não.",
+    "O `map()` retorna um novo array, enquanto `forEach()` não precisa retornar nada.",
+    "O `map()` só funciona com arrays de números, enquanto `forEach()` funciona com qualquer tipo de array.",
+    "O `map()` é uma função assíncrona, enquanto `forEach()` é síncrona.",
+    "O `map()` interrompe a iteração quando encontra um valor undefined, enquanto `forEach()` continua.",
+  ]}
+  correctIndex={1}
+/>
