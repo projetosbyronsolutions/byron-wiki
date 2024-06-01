@@ -10,11 +10,11 @@ sidebar_position: 7
 
 ## O que é?
 
-O “objeto” é um dos tipos de variáveis do JS, ele é usado para armazenar um conjunto de informações que definem as características do objeto. Essas características são chamadas de propriedades e são compostas por uma chave de identificação e um valor. Alguns exemplos de aplicação são para definir um usuário, que possui nome, idade, telefone e irmãos ou um carro, que possui marca, preço, categoria, peso e afins.
+O “objeto” é um dos tipos de variáveis do JS, ele é usado para armazenar um conjunto de informações que definem as características do objeto. Essas características são chamadas de propriedades e são compostas por uma chave de identificação e um valor. Alguns exemplos de aplicação são para definir um usuário, que possui nome, idade, telefone e irmãos, ou um carro que possui marca, preço, categoria, peso e afins.
 
 ## Estrutura
 
-A estrutura de um objeto é inicialmente semelhante a qualquer outro tipo de variável, porém ele é criado a partir de duas chaves. Dentro delas, temos algumas propriedades que funcionam na base de chave e valor, que seguem a estrutura (chave: valor).
+A estrutura de um objeto é inicialmente semelhante a qualquer outro tipo de variável, porém ele é criado a partir de duas chaves. Dentro delas, temos algumas propriedades que funcionam a partir de chave e valor (chave: valor).
 
 ```js
 let user = {
@@ -35,7 +35,7 @@ let user = {
 
 :::
 
-As propriedades podem receber qualquer tipo de valor, seja string, number, array ou até outro objeto, por exemplo:
+As propriedades podem receber qualquer tipo de valor: string, number, array ou até outro objeto, por exemplo:
 
 ```js
 let user = {
@@ -61,21 +61,21 @@ Onde a propriedade “irmãos” recebe um array com outros objetos, que são os
 
 ## Criação de um objeto
 
-Existem duas formas de criar um objeto. A primeira forma é a que já foi apresentada anteriormente, e a segunda é utilizando a função new Object(), por exemplo:
+Existem duas formas de criar um objeto. A primeira é a que já foi apresentada anteriormente, e a segunda é utilizando a função `new Object()`, por exemplo:
 
 ```js
 var user = new Object(); // Definimos a variável user como um novo objeto
 ```
 
-Mas desta forma só criamos o nome do nosso objeto, como fazemos para adicionar as propriedades a ele? Para fazer isso, vamos selecionar o nosso objeto, a chave da nossa propriedade e por fim o valor dele, resultando na seguinte forma:
+Desta forma só criamos o nome do nosso objeto, mas como fazemos para adicionar as propriedades a ele? Para fazer isso, vamos selecionar o nosso objeto, a chave da nossa propriedade e por fim o valor dele, resultando na seguinte forma:
 
 ```js
-user.nome = "Livianu"; // Criamos o propriedade nome dentro da variável user
+user.nome = "Livianu"; // Criamos a propriedade "nome" dentro da variável user
 // ou
 user.[“nome”] = "Livianu";
 ```
 
-Agora, recriando o nosso objeto usuário utilizando esses outros métodos, obtemos:
+Agora, utilizando esses outros métodos para recriar o nosso objeto `usuário`, obtemos:
 
 ```js
 var user = new Object();
@@ -98,14 +98,14 @@ user.irmaos[1].genero = "Cachorro";
 
 ## Manipulando o nosso Objeto
 
-É claro que ao decorrer do nosso código vamos utilizar esse objeto para alguma coisa. Para acessarmos as propriedades que desejamos, utilizaremos o “caminho” dela, assim como usamos no tópico anterior para adicionar uma, ou seja, digitando o nome do objeto e a chave. Fazendo isso, obtemos por exemplo:
+É claro que ao decorrer do nosso código vamos utilizar esse objeto para alguma coisa. Para acessarmos as propriedades que desejamos, utilizaremos o “caminho” dela da mesma forma que fizemos no tópico anterior para adicionar uma propriedade, ou seja, devemos digitar o nome do objeto e a chave. Com isso, teremos:
 
 ```js
 console.log(user.nome); // Retorna "Livianu"
 console.log(user.irmãos[0].nome); // Retorna "Ricardo"
 ```
 
-Além disso, podemos criar ou atualizar qualquer propriedade do nosso objeto a qualquer momento no nosso código, utilizando a mesma forma que usamos anteriormente. Caso seja uma propriedade nova, ela deve conter uma chave ainda não existente e, se desejarmos alterar alguma propriedade, devemos atribuir à chave um novo valor. Por exemplo, podemos primeiramente criar e depois mudar a localização da residência do nosso usuário.
+Além disso, podemos criar ou atualizar qualquer propriedade do nosso objeto a qualquer momento no nosso código, utilizando a mesma forma que usamos anteriormente. Caso seja uma propriedade nova, ela deve conter uma chave ainda não existente e, se desejarmos alterar alguma propriedade, devemos atribuir à chave um novo valor. Por exemplo, primeiro criamos e depois mudamos a localização da residência do nosso usuário.
 
 ```js
 user.residencia = "São Paulo"; // Cria propriedade
@@ -127,22 +127,22 @@ Agora que você já conhece os objetos em JavaScript, aproveite para se aventura
 
 ### Ambiente com Vite
 
-A partir de agora, como você verá na videoaula a seguir, começaremos a usar a ferramenta Vite, que é um criad um ambiente programável de JavaScript e possibilita usar o próprio navegador para visualizar o resultado do código. Para estruturar o nosso primeiro projeto de Vite vamos seguir o seguinte passo a passo:
+A partir de agora, como você verá na videoaula a seguir, começaremos a usar a ferramenta [Vite](https://pt.vitejs.dev/guide/), que cria um ambiente programável de JavaScript e possibilita usar o próprio navegador para visualizar o resultado do código. Para estruturar o nosso primeiro projeto de Vite vamos seguir o seguinte passo a passo:
 
-Agora é necessário entrar na pasta onde deseja criar o seu projeto no terminal. Para fazer isso, existem duas opções: abrir a pasta pelo "Explorador de arquivos" ou navegar pelo terminal. Após abrir essa pasta no terminal (pode ser tanto pelo PowerShell quanto pelo Git Bash), execute o seguinte comando:
+Primeiro, é necessário entrar na pasta onde deseja criar o seu projeto no terminal. Para fazer isso, existem duas opções: abrir a pasta pelo "Explorador de arquivos" ou navegar pelo terminal. Após abrir essa pasta no terminal (pode ser tanto pelo PowerShell quanto pelo Git Bash), execute o seguinte comando:
 
 ```bash
 $ npm create vite@latest
 ```
 
-Após rodar este comando digite o nome do seu projeto, no caso “js-basico”, depois selecione o framework “Vanilla” e por último JavaScript. Por fim entre nesta pasta e instale as dependências necessárias utilizando os comandos:
+Após rodar este comando, digite o nome do seu projeto, que no caso será “js-basico”. Depois, selecione o framework “Vanilla” e por último JavaScript. Por fim, entre nesta pasta e instale as dependências necessárias utilizando os comandos:
 
 ```bash
 $ cd js-basico # Entra no repositório
 $ npm install # Instala as dependências
 ```
 
-Pronto, você já criou o seu repositório! Se você entrar na pasta que havia selecionado você verá ele lá. Agora abra o seu repositório pelo VS Code.
+Pronto, você já criou o seu repositório! Se você entrar na pasta que havia selecionado ele estará lá. Agora abra o seu repositório pelo VS Code.
 
 ```bash
 $ code . # Abre o repositório no VS Code
@@ -191,7 +191,7 @@ As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e 
 />
 
 <Quiz
-  question="1. Como se cria um objeto utilizando a função `new Object()` e adiciona a propriedade 'time' com valor ”Corinthians”?"
+  question="3. Como se cria um objeto utilizando a função `new Object()` e se adiciona a propriedade 'time' com valor ”Corinthians”?"
   answers={[
     "let user = Object.new(); user.time = ”Corinthians”;",
     "var user = new Object(); user.time = ”Corinthians”;",
