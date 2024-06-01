@@ -1,6 +1,124 @@
 ---
-title: 'Arrays - map'
+title: "Arrays - map"
 sidebar_position: 8
 ---
 
-<video src='https://www.youtube.com/embed/FLi1Y1I1gak?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL' />
+Você já aprendeu o que são os arrays là na aula de variáveis, mas ainda não sabe como manipulá-los, o que é de extrema importância e utilidade. A partir de agora você verá como fazer isso.
+
+## O que é?
+
+A função [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) é um método que cria um novo array populado por elementos que surgem a partir de uma função que envolve cada elemento de outro array. Ou seja, é um método que pega cada elemento de um array, invoca uma função chamada `callback` com ele, por exemplo uma operação matemática, e retorna um novo array com o resultado de cada uma dessas funções.
+
+```js
+let Dinheiro = [2, 10, 20, 50, 100]; // Array de números
+
+// Varre cada elemento do array "Dinheiro"
+let Tigrinho = Dinheiro.map((element) => {
+  return element / 2; // Pega cada um desses elementos e divide por 2
+});
+
+console.log(Dinheiro); // => [2, 10, 20, 50, 100]
+console.log(Tigrinho); // => [1, 5, 10, 25, 50]
+```
+
+## Sintaxe
+
+Como já visto anteriormente a estrutura de um `map()` consiste em:
+
+```js
+var novoArray = array.map(callback);
+// ou
+var novoArray = array.map(callback, thisArg);
+```
+
+Mas o que significa `callback` e `thisArg`? Eles são os parâmetros que o método recebe, sendo eles:
+
+- **callback**: Função vista anteriormente, cujo retorno produz o elemento do novo Array. Recebe três argumentos:
+  - **element**: O valor do elemento original do Array de origem.
+  - **index**: O índice do elemento atual que está sendo processado no array.
+  - **array**: O Array de origem.
+- **thisArg** (opcional): Valor a ser utilizado como o this no momento da execução da função callback.
+
+## Exemplos
+
+Agora vamos ver alguns exemplos de aplicação do método `map()`, **tente fazer antes de ver a resposta!**
+
+- Mapeando um array de números para um array de raízes quadradas.
+
+```js
+var num = [1, 4, 9];
+var raiz = num.map(Math.sqrt); // Calcula a raiz quadrada em todos os elementos dos array
+
+console.log(num); //  => [1, 4, 9]
+console.log(raiz); // => [1, 2, 3]
+```
+
+- Mapeando um array de números para um array com o dobro do valor dos elementos.
+
+```js
+var num = [1, 4, 9];
+var dobro = num.map((element) {
+  return element * 2; // Pega cada um desses elementos e multiplica por 2
+});
+
+console.log(num); //   => [1, 4, 9]
+console.log(dobro); // => [2, 8, 18]
+```
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/FLi1Y1I1gak?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quiz
+
+As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e o vídeo sobre `map()` em JS.
+
+<Quiz
+  question="1. O que a função `map()` faz em um array?"
+  answers={[
+    "Remove elementos duplicados.",
+    "Muda cada elemento do mesmo array com os resultados de uma função aplicada a cada um deles.",
+    "Ordena os elementos do array em ordem crescente.",
+    "Filtra elementos baseados em uma condição.",
+    "Cria um novo array com os resultados de uma função aplicada a cada elemento do array original.",
+  ]}
+  correctIndex={4}
+/>
+
+<Quiz
+  question="2. O que acontece com o array original após aplicar `map()`?"
+  answers={[
+    "Ele é modificado.",
+    "Ele permanece o mesmo.",
+    "Ele é apagado.",
+    "Ele é duplicado.",
+    "Ele é ordenado.",
+  ]}
+  correctIndex={1}
+/>
+
+```js
+let array = [1, 2, 3];
+let resultado = array.map((element, index) => {
+  return element + index;
+});
+console.log("array:", array, "resultado:", resultado);
+```
+
+<Quiz
+  question="3. Qual é a saída do código acima?"
+  answers={[
+    "array: [ 1, 2, 3 ] resultado: [ 1, 3, 5 ]",
+    "array: [2, 4, 6] resultado: [1, 3, 6]",
+    "array: [1, 2, 3, 4] resultado: [1, 3, 6]",
+    "array: [1, 3, 5] resultado: [2, 4, 6]",
+    "array: [1, 3, 6] resultado: [1, 2, 3, 4]",
+  ]}
+  correctIndex={0}
+/>
