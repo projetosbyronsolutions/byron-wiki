@@ -1,6 +1,97 @@
 ---
-title: 'Arrays - find/findIndex'
+title: "Arrays - find/findIndex"
 sidebar_position: 12
 ---
 
-<video src='https://www.youtube.com/embed/ltmLRM_HZFs?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL' />
+Agora vamos aprender dois métodos semelhantes, o `find()` e o `findIndex()`.
+
+## O que são?
+
+- `find()`: O método `find()` verifica se algum elementos de um array satisfaz uma determinada condição estabelecida na função de callback e se caso isso aconteça, retorna valor deste elemento.
+- `findIndex()`: O método `findIndex()` é bem semelhante, porém ele retorna o index do elemento que satisfaz a condição.
+
+:::note
+Caso nenhum elemento satisfaça a condição, retorna undefined.
+:::
+
+A sintaxe de ambos é igual às dos demais métodos e não precisa ser atribuída a alguma variável.
+
+```js
+array.find(callback);
+// ou
+array.findIndex(callback);
+```
+
+## Exemplos
+
+Agora vamos ver alguns exemplos de aplicação dos métodos `find()` e `findIndex()`, **tente fazer antes de ver a resposta!**
+
+- Retornar o valor do primeiro elemento ímpar de um array.
+
+```js
+let num = [16, 24, 57, 73, 89, 95]; // Array de números
+
+console.log(
+  num.find((element) => {
+    // Varre cada elemento do array
+    return element % 2 != 0; // Verifica se é ímpar
+  })
+); // => 57
+```
+
+- Retornar o index do primeiro elemento maior que 57 de um array.
+
+```js
+let num = [16, 24, 57, 73, 89, 95]; // Array de números
+
+let resposta = num.findIndex((element) => {
+  // Varre cada elemento do array
+  return element > 57; // Verifica se é ímpar
+});
+
+console.log(resposta); // => 3
+```
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/ltmLRM_HZFs?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quiz
+
+As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e o vídeo sobre `find()` e `findIndex()` em JS.
+
+<Quiz
+  question="1. Qual é a principal diferença entre `find()` e `findIndex()` em JavaScript?"
+  answers={[
+    "O `find()` retorna um novo array, enquanto `findIndex()` retorna um booleano.",
+    "O `find()` retorna o valor do primeiro elemento que satisfaz a condição, enquanto `findIndex()` retorna o índice do primeiro elemento que satisfaz a condição.",
+    "O `find()` modifica o array original, enquanto `findIndex()` não modifica o array.",
+    "O `find()` retorna todos os elementos que satisfazem a condição, enquanto `findIndex()` retorna o índice do último elemento que satisfaz a condição.",
+    "O `find()` só funciona com arrays de números, enquanto `findIndex()` funciona com qualquer tipo de array.",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="2. Qual das opções mostra a forma correta de usar find() para encontrar o primeiro elemento que seja uma string no array"
+  answers={["0", "-1", "undefined", "null", "false"]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="3. Qual das opções mostra a forma correta de usar find() para encontrar o primeiro elemento que seja uma string no array"
+  answers={[
+    "array.find((element) => { return typeof element === 'string' })",
+    "array.find((element) => { return element.includes('string') })",
+    "array.find((element) => { return element.charAt(0) === 's' })",
+    "array.find((element) => { return element.split('string') })",
+    "array.find((element) => { return element.toLowerCase() })",
+  ]}
+  correctIndex={0}
+/>
