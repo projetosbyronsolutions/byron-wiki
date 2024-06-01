@@ -1,6 +1,86 @@
 ---
-title: 'Arrays - every/some'
+title: "Arrays - every/some"
 sidebar_position: 11
 ---
 
-<video src='https://www.youtube.com/embed/v63XneSxsto?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL' />
+Agora vamos aprender dois métodos semelhantes, o [`every()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) e o [`some()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some).
+
+## O que são?
+
+- **`every()`**: O método `every()` verifica se todos os elementos de um array seguem uma determinada condição estabelecida na função de callback, caso isso aconteça, retorna ‘true’, caso contrário retorna ‘false’.
+
+- **`some()`**: O método `some()` é bem semelhante, porém ele verifica apenas se algum elemento satisfaz a condição.
+
+A sintaxe de ambos é igual às dos demais métodos e não precisa ser atribuída a alguma variável.
+
+```js
+array.every(callback);
+// ou
+array.some(callback);
+```
+
+## Exemplos
+
+Agora vamos ver alguns exemplos de aplicação dos métodos `every()` e `some()`, **tente fazer antes de ver a resposta!**
+
+- Verificar se todos os elementos de um array de números são ímpares.
+
+```js
+let num = [16, 24, 57, 73, 89, 95]; // Array de números
+
+console.log(
+  num.every((element) => {
+    // Varre cada elemento do array
+    return element % 2 != 0; // Verifica se é ímpar
+  })
+); // => false
+```
+
+- Verificar se algum dos elementos de um array de números é ímpar.
+
+```js
+let num = [16, 24, 57, 73, 89, 95]; // Array de números
+
+let resposta = num.some((element) => {
+  // Varre cada elemento do array
+  return element % 2 != 0; // Verifica se é ímpar
+});
+console.log(resposta); // => true
+```
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/v63XneSxsto?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quiz
+
+As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e o vídeo sobre `every()` e `some()` em JS.
+
+<Quiz
+  question="1. Qual é a principal diferença entre `every()` e `some()`"
+  answers={[
+    "O `every()` modifica o array original, enquanto o `some()` não.",
+    "O `every()` analisa se todos os elementos seguem a condição, enquanto o `some()` analisa se se pelo menos um elemento segue a condição.",
+    "O `every()` retorna um novo array, enquanto o `some()` não retorna nada.",
+    "O `every()` só funciona com arrays de números, enquanto o `some()` funciona com qualquer tipo de array.",
+    "O `every()` é uma função assíncrona, enquanto o `some()` é síncrona.",
+  ]}
+  correctIndex={1}
+/>
+
+```js
+let num = [9, 24, 57, 73, 89, 95];
+console.log(num.every((element) => element > 0));
+```
+
+<Quiz
+  question="2. Qual é a saída do código acima?"
+  answers={["true", "false", "undefined", "null", " 9"]}
+  correctIndex={2}
+/>
