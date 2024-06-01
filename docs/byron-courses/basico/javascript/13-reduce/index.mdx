@@ -3,4 +3,125 @@ title: "Arrays - reduce"
 sidebar_position: 13
 ---
 
+Para finalizar arrays, veremos o método `reduce()`, porém existem mais inúmeros métodos relacionados ao array, como o [`sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort), o [`push()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push), o [`pop()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), entre outros. Não deixe de continuar pesquisando e aprofundar seus conhecimentos!
+
+## O que é?
+
+O método [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) executa uma função para cada elemento do array e retorna um valor único. Geralmente esta função envolve o valor atual do array e o anterior, possibilitando, por exemplo, o uso de operações matemáticas e comparação entre esses dois elementos.
+
+## Sintaxe
+
+Apesar da estrutura deste método ser semelhante aos outros, aqui temos algumas mudanças significativas: os parâmetros recebidos na função callback e o parâmetro de valorInicial.
+
+```js
+array.reduce(callback(acumulador, valorAtual, index, array), valorInicial);
+```
+
+- **callback**: Função que é executada em cada valor no array (exceto no primeiro, se nenhum valorInicial for passado); recebe quatro argumentos:
+  - **acumulador**: É o valor em que o callback anterior retornou. Este valor inicia com o valorInicial e será retornado na última iteração.
+  - **valorAtual**: É o valor do elemento atual.
+  - **index**: O índice do elemento atual que está sendo processado no array.
+  - **array**: O Array de origem.
+- **valorInicial** (opcional): Valor a ser utilizado como o acumulador na primeira chamada da função callback. Caso o valorInicial não seja fornecido, a primeira função de callback toma o primeiro elemento como o acumulador e o valorAtual não é lido.
+
+## Exemplos
+
+Agora vamos ver alguns exemplos de aplicação do método `reduce()`, **tente fazer antes de ver a resposta!**
+
+- Calcular a soma dos elementos de um array.
+
+```js
+var num = [1, 2, 3, 4, 5]; // Array de números
+
+var sum = num.reduce(function (anterior, atual) {
+  return anterior + atual; // Pega o acumulador e soma o valor do elemento atual
+}, 0); // Estabelece o valor inicial como 0
+
+console.log(sum); // => 15
+```
+
+- Calcular o produto dos elementos de um array.
+
+```js
+var num = [1, 2, 3, 4, 5]; // Array de números
+
+var product = num.reduce(function (anterior, atual) {
+  return anterior * atual; // Pega o acumulador e multiplica o valor do elemento atual
+}, 1); // Estabelece o valor inicial como 1
+
+console.log(product); // => 120
+```
+
+- Retornar o maior número de um array.
+
+```js
+var num = [1, 2, 3, 4, 5, 0]; // Array de números
+
+var max = num.reduce((anterior, atual) => {
+  return anterior > atual ? anterior : atual; // Compara o acumulador com o elemento atual e retorna o maior deles
+});
+
+console.log(max); // => 5
+```
+
+---
+
+## Videoaula
+
 <video src="https://www.youtube.com/embed/0wCmSVC4MKg?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quiz
+
+As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e o vídeo sobre `reduce()` em JS.
+
+<Quiz
+  question="1. O que o método reduce() faz?"
+  answers={[
+    "Retorna um novo array com todos os elementos transformados.",
+    "Filtra os elementos de um array de acordo com uma condição.",
+    "Executa uma função para cada elemento do array e retorna um valor único.",
+    "Ordena os elementos do array.",
+    "Adiciona novos elementos ao final do array.",
+  ]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="2. O que acontece se o valorInicial não for fornecido no método reduce()?"
+  answers={[
+    "O método reduce() falha e retorna um erro.",
+    "O valorInicial é automaticamente definido como 0.",
+    "O valorInicial é automaticamente definido como 1.",
+    "O primeiro elemento do array é usado como acumulador.",
+    " O valorInicial é definido como null.",
+  ]}
+  correctIndex={3}
+/>
+
+<Quiz
+  question="3. Qual é a função do acumulador no método reduce()?"
+  answers={[
+    "Armazenar o índice atual do array.",
+    "Inicializar o array com novos valores.",
+    "Armazenar o tamanho do array.",
+    "Retornar o array original.",
+    "Acumular o valor retornado pela execução da função callback anterior.",
+  ]}
+  correctIndex={4}
+/>
+
+<Quiz
+  question="4. Qual dos seguintes exemplos de uso do reduce() calcula corretamente a média dos elementos de um array?"
+  answers={[
+    "var avg = num.reduce((x, y) => { return x + y; }) / num.length;",
+    "var avg = num.reduce((x, y) => { x + y; }) / num.length;",
+    "var avg = num.reduce((x, y) => { return (x + y) / num.length; });",
+    "var avg = num.reduce((x, y) => { return (x + y) / num.length; }, 0);",
+    "var avg = num.reduce((x, y) => { x * y; }) / num.length;",
+  ]}
+  correctIndex={0}
+/>
