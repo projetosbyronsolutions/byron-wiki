@@ -3,7 +3,7 @@ title: "Arrays - reduce"
 sidebar_position: 13
 ---
 
-Para finalizar arrays, veremos o método `reduce()`, porém existem mais inúmeros métodos relacionados ao array, como o [`sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort), o [`push()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push), o [`pop()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), entre outros. Não deixe de continuar pesquisando e aprofundar seus conhecimentos!
+Para finalizar arrays, veremos o método `reduce()`, porém existem mais inúmeros métodos relacionados ao array, como o [`sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort), o [`push()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push), o [`pop()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), entre outros. Não deixe de continuar pesquisando para aprofundar seus conhecimentos!
 
 ## O que é?
 
@@ -11,14 +11,14 @@ O método [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 
 ## Sintaxe
 
-Apesar da estrutura deste método ser semelhante aos outros, aqui temos algumas mudanças significativas: os parâmetros recebidos na função callback e o parâmetro de valorInicial.
+Apesar da estrutura deste método ser semelhante aos outros, aqui temos algumas mudanças significativas: os parâmetros recebidos na função `callback` e o parâmetro de `valorInicial`.
 
 ```js
 array.reduce(callback(acumulador, valorAtual, index, array), valorInicial);
 ```
 
 - **callback**: Função que é executada em cada valor no array (exceto no primeiro, se nenhum valorInicial for passado); recebe quatro argumentos:
-  - **acumulador**: É o valor em que o callback anterior retornou. Este valor inicia com o valorInicial e será retornado na última iteração.
+  - **acumulador**: É o valor que o callback anterior retornou. Este valor inicia com o valorInicial e será retornado na última iteração.
   - **valorAtual**: É o valor do elemento atual.
   - **index**: O índice do elemento atual que está sendo processado no array.
   - **array**: O Array de origem.
@@ -33,8 +33,8 @@ Agora vamos ver alguns exemplos de aplicação do método `reduce()`, **tente fa
 ```js
 var num = [1, 2, 3, 4, 5]; // Array de números
 
-var sum = num.reduce(function (anterior, atual) {
-  return anterior + atual; // Pega o acumulador e soma o valor do elemento atual
+var sum = num.reduce(function (acumulador, atual) {
+  return acumulador + atual; // Pega o acumulador e soma o valor do elemento atual
 }, 0); // Estabelece o valor inicial como 0
 
 console.log(sum); // => 15
@@ -45,8 +45,8 @@ console.log(sum); // => 15
 ```js
 var num = [1, 2, 3, 4, 5]; // Array de números
 
-var product = num.reduce(function (anterior, atual) {
-  return anterior * atual; // Pega o acumulador e multiplica o valor do elemento atual
+var product = num.reduce(function (acumulador, atual) {
+  return acumulador * atual; // Pega o acumulador e multiplica o valor do elemento atual
 }, 1); // Estabelece o valor inicial como 1
 
 console.log(product); // => 120
@@ -57,8 +57,8 @@ console.log(product); // => 120
 ```js
 var num = [1, 2, 3, 4, 5, 0]; // Array de números
 
-var max = num.reduce((anterior, atual) => {
-  return anterior > atual ? anterior : atual; // Compara o acumulador com o elemento atual e retorna o maior deles
+var max = num.reduce((acumulador, atual) => {
+  return acumulador > atual ? acumulador : atual; // Compara o acumulador com o elemento atual e retorna o maior deles
 });
 
 console.log(max); // => 5
@@ -76,7 +76,7 @@ import Quiz from "@site/src/components/Quiz";
 
 ## Quiz
 
-As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e o vídeo sobre `reduce()` em JS.
+As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e no vídeo sobre `reduce()` em JS.
 
 <Quiz
   question="1. O que o método reduce() faz?"

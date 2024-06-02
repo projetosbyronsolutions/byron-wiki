@@ -7,14 +7,14 @@ Agora vamos aprender dois métodos semelhantes, o `find()` e o `findIndex()`.
 
 ## O que são?
 
-- `find()`: O método `find()` verifica se algum elementos de um array satisfaz uma determinada condição estabelecida na função de callback e se caso isso aconteça, retorna valor deste elemento.
-- `findIndex()`: O método `findIndex()` é bem semelhante, porém ele retorna o index do elemento que satisfaz a condição.
+- [**`find()`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find): O método `find()` verifica o **primeiro elemento** de um array que satisfaz uma determinada condição estabelecida na função de callback e se caso isso aconteça, retorna o **valor** deste elemento.
+- [**`findIndex()`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex): O método `findIndex()` é bem semelhante, porém ele retorna o **index** do **primeiro elemento** que satisfaz a condição.
 
 :::note
-Caso nenhum elemento satisfaça a condição, retorna undefined.
+Caso nenhum elemento satisfaça a condição, retorna **undefined**.
 :::
 
-A sintaxe de ambos é igual às dos demais métodos e não precisa ser atribuída a alguma variável.
+A sintaxe de ambos é igual às dos demais métodos e não precisa ser atribuída à alguma variável.
 
 ```js
 array.find(callback);
@@ -46,7 +46,7 @@ let num = [16, 24, 57, 73, 89, 95]; // Array de números
 
 let resposta = num.findIndex((element) => {
   // Varre cada elemento do array
-  return element > 57; // Verifica se é ímpar
+  return element > 57; // Verifica se é maior que 57
 });
 
 console.log(resposta); // => 3
@@ -64,7 +64,7 @@ import Quiz from "@site/src/components/Quiz";
 
 ## Quiz
 
-As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e o vídeo sobre [`find()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) e [`findIndex()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex) em JS.
+As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e no vídeo sobre `find()` e `findIndex()` em JS.
 
 <Quiz
   question="1. Qual é a principal diferença entre `find()` e `findIndex()` em JavaScript?"
@@ -79,13 +79,13 @@ As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e 
 />
 
 <Quiz
-  question="2. Qual das opções mostra a forma correta de usar find() para encontrar o primeiro elemento que seja uma string no array"
+  question="2. O que o `find()` e o `findIndex()` retornam se nenhum elemento satisfizer a condição."
   answers={["0", "-1", "undefined", "null", "false"]}
   correctIndex={2}
 />
 
 <Quiz
-  question="3. Qual das opções mostra a forma correta de usar find() para encontrar o primeiro elemento que seja uma string no array"
+  question="3. Qual das opções mostra a forma correta de usar find() para encontrar o primeiro elemento que seja uma string no array?"
   answers={[
     "array.find((element) => { return typeof element === 'string' })",
     "array.find((element) => { return element.includes('string') })",

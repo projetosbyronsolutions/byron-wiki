@@ -8,9 +8,9 @@ sidebar_position: 10
 O método [`filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) executa uma função que filtra cada elemento do array de acordo com uma condição, adicionando apenas os elementos que se encaixam nessa condição em outro array. Sua sintaxe é igual a do método `map()` e também necessita ser vinculado a uma variável.
 
 ```js
-array.filter(callback);
+var novoArray = array.filter(callback);
 // ou
-array.filter(callback, thisArg);
+var novoArray = array.filter(callback, thisArg);
 ```
 
 ## Exemplos
@@ -22,8 +22,8 @@ Agora vamos ver alguns exemplos de aplicação do método `filter()`, **tente fa
 ```js
 let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Array de número
 
+// Varre cada elemento do array
 let numPar = num.filter((element) => {
-  // Varre cada elemento do array
   return element % 2 == 0; // Verifica se o resto de divisão por 2 = 0
 });
 
@@ -36,28 +36,13 @@ console.log(numPar); // => [2, 4, 6, 8, 10]
 ```js
 let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Array de número
 
-let numPar = num.filter((element) => {
-  // Varre cada elemento do array
+// Varre cada elemento do array
+let maior6 = num.filter((element) => {
   return element > 6; // Verifica os elementos que são maior do que 6
 });
 
 console.log(num); //    => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-console.log(numPar); // => [7, 8, 9, 10]
-```
-
-- Filtrando o conteúdo de um array baseado em um critério de busca:
-
-```js
-const membros = ["Livianu", "Diego", "Joel", "Pedro", "Bianca", "Tamiris"];
-
-// Cria uma função que recebe um parâmetro de pesquisa
-const filterItems = (query) => {
-  // filtra array membros e retorna o primeiro index -1 em que o parâmetro pode ser encontrado no array
-  return membros.filter((el) => el.indexOf(query.toLowerCase()) > -1);
-};
-
-console.log(filterItems("i")); // ['Livianu', 'Diego', 'Bianca', 'Tamiris']
-console.log(filterItems("an")); // ['Livianu', 'Bianca']
+console.log(maior6); // => [7, 8, 9, 10]
 ```
 
 ---
@@ -77,7 +62,7 @@ As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e 
 <Quiz
   question="1. O que a função `filter()` faz em um array?"
   answers={[
-    "Cria um novo array com os resultados de uma função aplicada a cada elemento do array original",
+    "Cria um novo array com os resultados de uma função aplicada a cada elemento do array original.",
     "Executa uma função para cada elemento do array sem retornar um novo array.",
     "Filtra elementos do array de acordo com uma condição e adiciona apenas os que satisfazem essa condição em um novo array.",
     "Remove elementos duplicados do array.",
