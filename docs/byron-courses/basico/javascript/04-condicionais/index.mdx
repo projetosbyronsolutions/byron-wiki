@@ -1,6 +1,263 @@
 ---
-title: 'Condicionais'
+title: "Condicionais"
 sidebar_position: 4
 ---
 
-<video src='https://www.youtube.com/embed/KN9KOCbCk4U?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL' />
+### if…else
+
+Sintaxe básica:
+
+```JavaScript
+if (condicao) {
+  codigo para executar caso a condição seja verdadeira
+} else {
+  senão, executar este código
+}
+```
+
+&nbsp;
+Explicando:
+
+1. A palavra reservada `if` seguida de um par de parênteses.
+2. Um teste condicional, localizado dentro dos parênteses (normalmente "este valor é maior que esse", ou "este valor existe").
+3. Um par de chaves, e dentro dele temos código — pode ser qualquer código que queiramos, e só vai ser executado se o teste condicional retornar true.
+4. A palavra reservada else.
+5. Outro par de chaves, dentro dele temos mais um pouco de código — pode ser qualquer código que queiramos, e só vai executar se o teste condicional retornar um valor diferente de true, neste caso not true, ou false.
+   &nbsp;
+
+**Importante:** não é obrigatório colocar o else e o segundo bloco de par de chaves, poderia ser assim:
+
+```JavaScript
+if (condicao) {
+  codigo para executar se a condição for verdadeira
+}
+
+código a ser executado
+```
+
+&nbsp;
+Entretanto, você precisa ser cauteloso aqui — neste caso, repare que o segundo bloco de código não é controlado pela declaração condicional, então ele vai executar sempre, independente do teste condicional retornar true ou false
+&nbsp;
+
+Exemplo
+
+```JavaScript
+let idade1 = 20;
+let idade2 = 14;
+
+if(idade1 > idade2){
+	console.log(idade2 = idade2 + 2);
+} else {
+	console.log(idade1 - idade2);
+}
+```
+
+&nbsp;
+Perceba que a condição dada (da primeira idade ser maior que a segunda) é verdadeira, portanto entrará no bloco do `if` e executará o que está dentro do console.log. Também é importante observar que o console.log é colocado dentro dos blocos com as ações desejadas entre os parênteses
+&nbsp;
+
+#### Operador ternário
+
+```JavaScript
+console.log( (condição) ? faça se for true : faça se for falso)
+```
+
+Veja o exemplo:
+
+```JavaScript
+let idade1 = 20;
+let idade2 = 14;
+
+console.log((idade1 > idade2) ? (idade2 = idade2 + 2) : (idade1 - idade2))
+```
+
+&nbsp;
+Podemos resumir tudo que foi feito acima com o `if…else` através do operador ternário. Caso a condição seja validada ( idade1 maior que idade2), irá somar dois na idade2, caso contrário irá subtrair a idade1 da idade2
+&nbsp;
+
+---
+
+### else if
+
+O `else if` permite que você verifique múltiplas condições em sequência. Após um comando `if` inicial, que verifica uma primeira condição, o `else if` pode ser utilizado para avaliar outras condições subsequentes. Veja o exemplo:
+
+```JavaScript
+let idade = 9;
+
+if(idade < 10){
+	console.log("você é uma criança");
+} else if(idade >= 10 && idade <= 13){
+console.log("você é um pré adolescente");
+} else if(idade > 13 && idade < 18){
+	console.log("você é um adolescente");
+} else {
+	console.log("você é um adulto");
+}
+```
+
+---
+
+### switch case
+
+É uma estrutura especialmente útil quando se precisa executar diferentes blocos de código com base no valor de uma expressão. Ela oferece uma maneira eficiente de lidar com múltiplas condições, evitando o uso excessivo de estruturas condicionais aninhadas.
+
+Sintaxe básica:
+
+```JavaScript
+switch (expressão) {
+case valor1:
+  // bloco de código a ser executado
+  break;
+case valor2:
+  // bloco de código a ser executado
+  break;
+// mais cases...
+default:
+  // bloco de código a ser executado se nenhum case combinar
+}
+```
+
+Veja um exemplo de utilização:
+
+```JavaScript
+let diasDaSemana = "quarta";
+
+switch (diasDaSemana){
+	case "segunda":
+	console.log("mais café, por favor!");
+	break;
+case "terça":
+	console.log("dose de café em dobro!");
+	break;
+case "quarta":
+	console.log("ainda bem que já está na metade");
+	break;
+case "quinta":
+	console.log("quase sexta!!!");
+	break;
+case "sexta":
+	console.log("ufa, sextou :)");
+	break;
+default:
+	console.log("final de semana");
+}
+```
+
+Veja outro exemplo:
+
+```JavaScript
+let diasDaSemana = 6;
+let diaNome;
+
+switch (diasDaSemana){
+	case 1:
+	diaNome = "Domingo";
+	break;
+case 2:
+	diaNome = "Segunda";
+	break;
+case 3:
+	diaNome = "Terça";
+	break;
+case 4:
+	diaNome = "Quarta";
+	break;
+case 5:
+	diaNome = "Quinta";
+	break;
+case 6:
+	diaNome = "Sexta";
+	break;
+case 7:
+	diaNome = "Sábado";
+	break;
+default:
+	diaNome = "Inválido";
+}
+
+console.log(diaNome);
+```
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/KN9KOCbCk4U?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quizz
+
+```JavaScript
+let temperatura = 30;
+let clima;
+
+if (temperatura > 35) {
+    clima = "Muito quente";
+} else if (temperatura >= 25 && temperatura <= 35) {
+    clima = "Quente";
+} else if (temperatura >= 15 && temperatura < 25) {
+    clima = "Agradável";
+} else {
+    clima = "Frio";
+}
+
+console.log(clima);
+```
+
+<Quiz
+  question="1. O que será impresso no console quando este código for executado?"
+  answers={["Muito quente", "Quente", "Agradável", "Frio"]}
+  correctIndex={1}
+/>
+
+```JavaScript
+let idade = 20;
+if (idade >= 18) {
+    console.log("Você é maior de idade");
+} else {
+    console.log("Você é menor de idade");
+}
+```
+
+<Quiz
+  question="2. Qual será a saída desse código?"
+  answers={[
+    "Você é maior de idade",
+    "Erro de sintaxe",
+    "Nenhuma saída",
+    "Você é menor de idade",
+  ]}
+  correctIndex={0}
+/>
+
+```JavaScript
+let fruta = 'maçã';
+
+switch (fruta) {
+    case 'banana':
+        console.log('Banana é boa!');
+        break;
+    case 'maçã':
+        console.log('Maçã é deliciosa!');
+        break;
+    case 'laranja':
+        console.log('Laranja é saudável!');
+        break;
+    default:
+        console.log('Fruta desconhecida');
+}
+```
+
+<Quiz
+  question="3. Qual será a saída desse código?"
+  answers={[
+    "Banana é boa!",
+    "Laranja é saudável!",
+    "Fruta desconhecida",
+    "Maçã é deliciosa!",
+  ]}
+  correctIndex={3}
+/>

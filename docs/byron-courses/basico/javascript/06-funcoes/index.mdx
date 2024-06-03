@@ -1,6 +1,207 @@
 ---
-title: 'Funções'
+title: "Funções"
 sidebar_position: 6
 ---
 
-<video src='https://www.youtube.com/embed/KdmTj0xdE6M?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL' />
+Outro conceito essencial em código é a função, que permite que você armazene um pedaço de código que realiza uma simples tarefa dentro de um bloco, e então chama aquele código sempre que você precisar usá-lo com um curto comando — em vez de ter que escrever o mesmo código múltiplas vezes.
+
+A definição da função (também chamada de declaração de função) consiste no uso da palavra chave `function`, seguida por:
+
+- Nome da Função.
+- Lista de parâmetros para a função, entre parênteses e separados por vírgulas.
+- Declarações JavaScript que definem a função, entre chaves { }.
+
+```JavaScript
+function nomeDaFuncao(parametro1, parametro2, ...) {
+    // Corpo da função
+    // Código a ser executado
+}
+```
+
+---
+
+### Tipos de função
+
+#### Função void
+
+É uma função vazia, que não retorna nada. Ela é usada apenas para realizar uma tarefa específica ou executar um conjunto de instruções, mas não produz um valor de saída que possa ser armazenado ou utilizado posteriormente
+
+Exemplo:
+
+```JavaScript
+function n1(){
+	console.log("estou dentro da função")
+}
+
+n1() // chamando a função
+```
+
+#### Função com parâmetros
+
+É uma função que recebe dados como entrada para realizar determinadas operações. Esses parâmetros são valores que você pode passar para a função quando ela é chamada e são usados dentro do corpo da função para executar tarefas específicas
+
+**Observação:** os parâmetros passados só podem ser utilizados dentro dessa função
+
+Exemplo:
+
+```JavaScript
+function mostraNome(nome){
+	console.log(nome)
+}
+
+mostraNome("Bianca")
+mostraNome("Rossi")
+```
+
+&nbsp;
+Note que é possível chamar a função mais de uma vez e passar parâmetros diferentes
+&nbsp;
+
+Outro exemplo:
+
+```JavaScript
+function media(num1, num2){
+	let mediaAritm = (num1 + num2)/2
+	console.log(mediaAritm)
+}
+
+media(10,8)
+```
+
+#### Função return
+
+A instrução `return` é usada dentro de uma função para retornar um valor específico após a conclusão da execução da função. Essa instrução termina a execução da função e especifica o valor que será retornado à expressão que chamou a função, permitindo que esse valor seja utilizado em outras partes do código
+
+Exemplo:
+
+```JavaScript
+function media(num1, num2){
+	let mediaAritm = (num1 + num2)/2
+	return mediaAritm
+}
+
+console.log(media(10,8))
+```
+
+#### Arrow function
+
+É uma forma concisa de escrever uma função. Veja sua sintaxe:
+
+```JavaScript
+// Com um único parâmetro
+let nomeDaFuncao = parametro => {
+    // Corpo da função
+    // Código a ser executado
+};
+
+// Com múltiplos parâmetros
+let nomeDaFuncao = (parametro1, parametro2) => {
+    // Corpo da função
+    // Código a ser executado
+};
+```
+
+&nbsp;
+
+- Se a função tiver apenas um parâmetro, os parênteses em torno do parâmetro são opcionais. Porém, se não houver parâmetros ou houver mais de um parâmetro, os parênteses são necessários.
+- O corpo da função é definido entre chaves {}, como em uma função tradicional
+  &nbsp;
+
+Arrow function sem parâmetros:
+
+```JavaScript
+let saudacao = () => {
+    return "Olá, mundo!"
+}
+
+console.log(saudacao())
+```
+
+Arrow function com um parâmetro:
+
+```JavaScript
+let quadrado = x => {
+    return x * x
+}
+
+console.log(quadrado(5))
+```
+
+Arrow function com dois parâmetros:
+
+```JavaScript
+let soma = (a, b) => {
+    return a + b
+}
+
+console.log(soma(3, 7))
+```
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/KdmTj0xdE6M?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quizz
+
+```JavaScript
+function dobro(numero) {
+    return numero * 2
+}
+
+let resultado = dobro(5) + dobro(3)
+console.log(resultado)
+```
+
+<Quiz
+  question="1. O que será impresso no console quando este código for executado?"
+  answers={["10", "12", "16", "30"]}
+  correctIndex={2}
+/>
+
+```JavaScript
+let nome = "João";
+
+function saudacao() {
+    let nome = "Maria";
+    return "Olá, " + nome + "!";
+}
+
+let mensagem = saudacao();
+console.log(mensagem);
+```
+
+<Quiz
+  question="2. Qual é a saída do código acima?"
+  answers={[
+    "Olá, João!",
+    "Olá, Maria!",
+    "Olá, undefined!",
+    "ReferenceError: nome is not defined",
+  ]}
+  correctIndex={1}
+/>
+
+```JavaScript
+let saudacao = (nome) => {
+    return "Olá, " + nome + "!"
+}
+
+console.log(saudacao(Carlos))
+```
+
+<Quiz
+  question="3. Qual será a saída desse código?"
+  answers={[
+    "Olá, Carlos!",
+    "undefined",
+    "SyntaxError: Unexpected token =>",
+    "ReferenceError: Carlos is not defined",
+  ]}
+  correctIndex={3}
+/>
