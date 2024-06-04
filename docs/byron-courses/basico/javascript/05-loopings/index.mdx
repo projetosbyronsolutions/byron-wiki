@@ -1,6 +1,230 @@
 ---
-title: 'Loopings'
+title: "Loopings"
 sidebar_position: 5
 ---
 
-<video src='https://www.youtube.com/embed/5C77abIEeBw?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL' />
+O loop consiste em fazer a mesma coisa repetidas vezes. Geralmente possui um ou mais dos seguintes itens:
+
+- O contador, que é inicializado com um certo valor (ponto inicial do loop)
+- A condição de saída, que é o critério no qual o loop irá parar. Normalmente quando o contador atinge um certo valor
+- Um iterador, que usualmente incrementa o contador em uma pequena quantidade a cada loop, sucessivamente, até atingir a condição de saída
+
+---
+
+### for
+
+Sintaxe básica:
+
+```JavaScript
+for (inicializador; condição-saída; expressão-final) {
+  // código para executar
+}
+```
+
+&nbsp;
+Explicação:
+
+1. A palavra-chave `for`, seguido por parênteses.
+2. Dentro do parênteses temos três itens, separados por ponto e vírgula:
+   - O inicializador— geralmente é uma variável configurada para um número, que é incrementado para contar o número de vezes que o loop foi executado. É também por vezes referido como uma variável de contador.
+   - A condição-saída — como mencionado anteriormente, aqui é definido quando o loop deve parar de executar. Geralmente, essa é uma expressão que apresenta um operador de comparação, um teste para verificar se a condição de saída foi atendida.
+   - A expressão-final — isso sempre é avaliado (ou executado) cada vez que o loop passou por uma iteração completa. Geralmente serve para incrementar/decrementar a variável do contador, aproximando-a do valor da condição de saída
+3. Algumas chaves contêm um bloco de código - esse código será executado toda vez que o loop for iterado.
+   &nbsp;
+
+Exemplo:
+
+```JavaScript
+for(i = 0; i < 10; i++){
+	console.log(i);
+}
+```
+
+&nbsp;
+Vamos analisar o exemplo:
+
+A variável `i` foi inicializada com zero dentro do parênteses
+Nossa condição de saída foi `i < 10`, ou seja, queremos que o código pare quando imprimir o número 9. Por último, temos a nossa expressão final, que adiciona uma unidade cada vez que a variável entra no laço
+&nbsp;
+
+Imagine o seguinte: o valor inicial da variável entra no laço, verifica se é menor que 10 e, se for, soma uma unidade. Isso irá acontecer até que ela entre no laço, faça a verificação e não passe por ela (perceba que o 9 já não poderá seguir, porque a condição é que seja menor do que 10 e não menor ou igual a 10)
+
+Exemplo:
+
+```JavaScript
+let sum = 0;
+
+for(let i = 1; i <= 10; i++){
+	if(i % 2 == 0) {
+		sum += i;
+}
+}
+
+console.log(sum);
+```
+
+&nbsp;
+Vamos à explicação:
+
+1. A variável `sum` é declarada e inicializada com o valor 0. Essa variável será usada para acumular a soma dos números pares
+2. O laço `for` vai iterar sobre os números de 1 a 10. A variável `i` começa em 1 e é incrementada em 1 até chegar ao 10
+3. Dentro do laço `for`, há uma condição `if` que verifica se `i` é um número par. A expressão `i % 2 === 0` é verdadeira quando `i` é divisível por 2, ou seja, quando i é um número par
+4. Se a condição `if` for verdadeira, o valor de `i` (que é um número par) é adicionado à variável `sum`
+5. Após a conclusão do laço `for`, o valor acumulado na variável `sum` é impresso no console
+   Portanto, temos que a variável `sum` é a somatória dos números pares presentes no intervalo do 0 ao 10.
+
+   `sum = 2 + 4 + 6 + 8 + 10 = 30`
+   &nbsp;
+
+Observação: Também é possível inicializar a variável e depois chamá-la, mas não é a maneira mais comum. Veja como funciona:
+
+```JavaScript
+let i = 0;
+
+for(i; i < 10; i++){
+	console.log(i);
+}
+```
+
+---
+
+### while
+
+A maior diferença é que o `for` é utilizado quando você sabe a quantidade de iterações, já o `while` e o `do…while` é usado quando você não sabe essa quantidade.
+`while` funciona de maneira muito semelhante ao loop `for`, exceto que a variável inicializadora é definida antes do loop, e a expressão final é incluída dentro do loop após o código a ser executado - em vez de esses dois itens serem incluídos dentro dos parênteses.
+
+Sintaxe básica:
+
+```JavaScript
+inicializador
+while (condição-saída) {
+  // code to run
+
+  expressão-final
+}
+```
+
+&nbsp;
+Os mesmos três itens ainda estão presentes, e eles ainda são definidos na mesma ordem do loop `for` - isso faz sentido, já que você ainda precisa ter um inicializador definido antes de poder verificar se ele atingiu a condição de saída. A condição final é então executada após o código dentro do loop ser executado (uma iteração foi concluída), o que só acontecerá se a condição de saída ainda não tiver sido atingida
+&nbsp;
+
+Veja o exemplo:
+
+```JavaScript
+let n = 5;
+let fat = 1;
+
+while(n >= 1){
+	fat = fat*n;
+	n--
+}
+
+console.log(fat)
+```
+
+&nbsp;
+No exemplo, estamos buscando o fatorial de 5, que é 120. Temos que enquanto o que está dentro do parênteses retornar true, o bloco será executado. Portanto, o n entrará no laço até ser maior ou igual a um
+&nbsp;
+
+---
+
+### do…while
+
+Sintaxe básica:
+
+```JavaScript
+inicializador
+
+do {
+	// código para executar
+
+expressão-final
+} while (condição-saída)
+```
+
+&nbsp;
+Nesse caso, o inicializador novamente vem em primeiro lugar, antes que o loop seja iniciado. A palavra-chave precede diretamente as chaves que contêm o código a ser executado e a expressão final
+&nbsp;
+
+O diferencial aqui é que a condição de saída vem depois de todo o resto, envolvida em parênteses e precedida por uma palavra-chave `while`. Em um loop `do ... while`, o código dentro das chaves é sempre executado uma vez antes da verificação ser feita para ver se deve ser executada novamente. Em suma, o `while` executa o loop enquanto a condição for verdadeira, já o `do..while` executa o loop primeiro e depois verifica a condição.
+
+**Importante:** Com `while` e `do ... while` - como em todos os loops - você deve certificar-se de que o inicializador esteja iterado para que ele atinja a condição de saída. Caso contrário, o loop continuará indefinidamente e o navegador irá forçá-lo a parar ou falhar. Isso é chamado de loop infinito
+
+Exemplo:
+
+```JavaScript
+let n = 10;
+
+do{
+	console.log("olá");
+	n++
+} while(n < 1)
+
+console.log("tchau")
+```
+
+&nbsp;
+Note que, por mais que o `n` não satisfaça a condição, o olá aparece uma vez no terminal. Isso ocorre porque a verificação é feita depois e, caso o `n` não passe na verificação, irá sair do laço de repetição
+&nbsp;
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/5C77abIEeBw?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quizz
+
+```JavaScript
+let count = 0;
+while (count < 5) {
+    console.log(count);
+    count++;
+}
+```
+
+<Quiz
+  question="1. O que será impresso no console quando este código for executado?"
+  answers={[
+    "0 1 2 3 4",
+    "1 2 3 4 5",
+    "0 1 2 3 4 5",
+    "Nenhuma das alternativas anteriores",
+  ]}
+  correctIndex={0}
+/>
+
+```JavaScript
+let num = 5;
+let resultado = 1;
+for (let i = num; i > 1; i--) {
+    resultado *= i;
+}
+console.log(resultado);
+```
+
+<Quiz
+  question="2. Qual será a saída desse código?"
+  answers={["5", "10", "20", "120"]}
+  correctIndex={3}
+/>
+
+```JavaScript
+let num = 5;
+let resultado = 0;
+do {
+    resultado += num;
+    num--;
+} while (num > 0);
+console.log(resultado);
+```
+
+<Quiz
+  question="3. Qual será a saída desse código?"
+  answers={["12", "15", "20", "120"]}
+  correctIndex={1}
+/>
