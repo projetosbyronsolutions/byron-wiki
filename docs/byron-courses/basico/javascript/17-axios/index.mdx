@@ -1,6 +1,250 @@
 ---
-title: 'Recebendo e enviando dados com Axios'
-sidebar_position: 17
+O Axios é uma biblioteca popular para fazer requisições HTTP em navegadores e ambientes Node.js. Além de fornecer uma interface simples e fácil de usar para lidar com solicitações assíncronas
+
+**Instalação**
+
+A instalação pode ser feita utilizando o npm. Utilize o seguinte comando no terminal: 
+
+```JavaScript
+   npm install axios
+```
+
+
+**Fazendo Requisições com Axios**
+
+O Axios suporta todos os métodos HTTP comuns, como GET, POST, PUT, DELETE
+
+#### Exemplo de requisição do tipo GET
+
+```JavaScript
+  const axios = require('axios')
+
+async function obterDados() {
+  try {
+    const resposta = await axios.get('https://api.github.com/users/bianca-rossi')
+    console.log(resposta.data)
+  } catch (erro) {
+    console.error('Houve um problema com a requisição:', erro)
+  }
+}
+
+obterDados()
+```
+
+Passo a passo: 
+
+1. Importação do Axios
+
+```JavaScript
+const axios = require('axios')
+```
+
+&nbsp
+**const axios = require('axios'):** importa a biblioteca axios, que é usada para fazer solicitações HTTP de maneira simplificada e poderosa. Certifique-se de que você instalou a biblioteca axios usando `npm install axios` antes de executar o código
+&nbsp;
+
+2. Declaração da função assíncrona
+
+```JavaScript
+async function obterDados() {
+```
+
+&nbsp
+**async:** declara a função obterDados como assíncrona. Isso permite o uso da palavra-chave await dentro da função
+&nbsp;
+
+3. Bloco try...catch
+
+```JavaScript
+try {
+  // Código que pode gerar exceções
+} catch (erro) {
+  // Código para tratar exceções
+}
+```
+
+&nbsp
+try...catch: estrutura de controle usada para capturar e tratar erros que podem ocorrer durante a execução do código dentro do bloco try
+&nbsp;
+
+4. Chamada axios.get com await
+
+```JavaScript
+const resposta = await axios.get('https://api.github.com/users/bianca-rossi')
+```
+
+&nbsp
+- **await:** pausa a execução da função assíncrona até que a promise retornada por axios.get seja resolvida
+- **axios.get:** faz uma solicitação HTTP GET para a URL fornecida
+- **const resposta:** armazena a resposta retornada pela função axios.get
+&nbsp;
+
+5. Acessando os dados da resposta
+
+```JavaScript
+console.log(resposta.data)
+```
+
+&nbsp
+- **resposta.data:** axios encapsula a resposta HTTP e fornece os dados reais no objeto data dentro da resposta
+- **console.log(resposta.data):** imprime os dados do usuário no console
+&nbsp;
+
+6. Tratamento de erros
+
+```JavaScript
+catch (erro) {
+  console.error('Houve um problema com a requisição:', erro)
+}
+```
+
+&nbsp
+- **catch (erro):** captura qualquer erro que ocorra durante a execução do bloco try
+- **console.error:** imprime uma mensagem de erro no console, seguida pelo objeto de erro
+&nbsp;
+
+7. Chamada da função
+
+```JavaScript
+obterDados()
+```
+
+&nbsp
+- **obterDados():** chama a função obterDados para executar o código assíncrono
+&nbsp;
+
+#### Exemplo de requisição do tipo POST
+
+```JavaScript
+const axios = require('axios');
+
+async function criarProduto() {
+  try {
+    const resposta = await axios.post('https://fakestoreapi.com/products', {
+      title: 'Produto 1',
+      price: 14.20,
+      description: 'Produto para teste',
+      image: 'https://i.pravatar.cc',
+      category: 'esportes'
+    })
+    console.log('Resposta do servidor:', resposta.data)
+  } catch (erro) {
+    console.error('Houve um problema com a requisição:', erro)
+  }
+}
+
+criarProduto();
+```
+
+Passo a passo: 
+
+1. Importação do Axios
+
+2. Declaração da função assíncrona
+
+3. Bloco try...catch
+
+4. Chamada axios.post com await
+
+```JavaScript
+const resposta = await axios.post('https://fakestoreapi.com/products', {
+  title: 'Produto 1',
+  price: 14.20,
+  description: 'Produto para teste',
+  image: 'https://i.pravatar.cc',
+  category: 'esportes'
+})
+```
+
+&nbsp
+- axios.post: Faz uma solicitação HTTP POST para a URL fornecida (https://fakestoreapi.com/products). A função axios.post aceita dois parâmetros principais:
+    - A URL do endpoint da API.
+    - Um objeto contendo os dados que você deseja enviar no corpo da requisição.
+- **{ title: 'Produto 1', price: 14.20, description: 'Produto para teste', image: 'https://i.pravatar.cc', category: 'esportes' }:** objeto que contém os dados do produto a ser criado. Esses dados são enviados no corpo da requisição POST.
+- **const resposta:** armazena a resposta retornada pela função axios.post. A resposta é um objeto que inclui informações sobre a resposta HTTP, como os dados retornados pelo servidor
+&nbsp;
+
+5. Acessando os Dados da Resposta
+
+```JavaScript
+console.log('Resposta do servidor:', resposta.data)
+```
+
+6. Tratamento de erros
+
+```JavaScript
+catch (erro) {
+  console.error('Houve um problema com a requisição:', erro)
+}
+```
+
+7. Chamada da função
+
+```JavaScript
+criarProduto();
+```
+
 ---
 
-<video src='https://www.youtube.com/embed/Iy96Tkl9dKw?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL' />
+## Videoaula
+
+title: 'Recebendo e enviando dados com Axios'
+sidebar_position: 17
+
+---
+
+<video src="https://www.youtube.com/embed/Iy96Tkl9dKw?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quizz
+
+```JavaScript
+const axios = require('axios')
+
+async function fazerRequisicao() {
+  try {
+    const response = await axios.get('https://api.example.com/users')
+    console.log(response.data)
+  } catch (error) {
+    console.error('Erro:', error)
+  }
+}
+
+fazerRequisicao()
+```
+
+<Quiz
+  question="1. O que esse código faz?"
+  answers={[
+    "Uma requisição POST para obter dados de usuários do servidor e imprime no console",
+    "Uma requisição GET para obter dados de usuários do servidor e imprime no console",
+    "Uma requisição DELETE para excluir dados de usuários do servidor e imprime no console",
+    "Uma requisição PUT para atualizar dados de usuários do servidor e imprime no console",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="2. Qual é o propósito do método .catch() em uma chamada Axios?"
+  answers={[
+    "Para enviar os dados da requisição para o servidor",
+    "Para executar uma função de callback quando a requisição é bem-sucedida",
+    "Para tratar erros que ocorrem durante a requisição, como erros de rede ou erros no servidor",
+    "Para cancelar a requisição antes que ela seja concluída",
+  ]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="3. Qual é a finalidade do método .then() em uma chamada Axios?"
+  answers={[
+    "Para tratar erros que ocorrem durante a requisição",
+    "Para cancelar a requisição antes que ela seja concluída",
+    "Para configurar opções adicionais da requisição",
+    "Para executar uma função de callback quando a requisição é bem-sucedida",
+  ]}
+  correctIndex={3}
+/>

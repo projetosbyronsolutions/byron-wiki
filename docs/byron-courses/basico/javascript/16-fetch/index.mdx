@@ -1,6 +1,637 @@
 ---
-title: 'Promises e APIs'
+title: "Promises e APIs"
 sidebar_position: 16
 ---
 
-<video src='https://www.youtube.com/embed/5nApiyeGvp8?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL' />
+## Promises
+
+Uma promise é um proxy para um valor não necessariamente conhecido quando a promise é criada. Ele permite que você associe manipuladores ao valor de sucesso ou motivo de falha de uma ação assíncrona. Isso permite que métodos assíncronos retornem valores como métodos síncronos: em vez de retornar imediatamente o valor final, o método assíncrono retorna uma promise para fornecer o valor em algum momento no futuro
+
+Uma promise está em um destes estados:
+
+- pending: estado inicial, nem cumprido nem rejeitado.
+- fulfilled: significa que a operação foi concluída com sucesso.
+- rejected: significa que a operação falhou.
+
+O estado eventual de uma promise pendente pode ser fulfilled com um valor ou rejected com um motivo (erro). Quando uma dessas opções ocorre, os manipuladores associados enfileirados pelo método then de uma promise são chamados. Se a promise já tiver sido cumprida ou rejeitada quando um manipulador correspondente for anexado, o manipulador será chamado, portanto, não há condição de corrida entre a conclusão de uma operação assíncrona e a anexação de seus manipuladores  
+&nbsp;
+Uma promise é considerada resolvida se for cumprida ou rejeitada, mas não pendente.
+&nbsp;
+
+**Por que usar Promises?**
+
+Promises são úteis para gerenciar operações assíncronas, como chamadas a servidores, timers, ou leitura de arquivos. Elas ajudam a evitar o famoso "callback hell" (um aninhamento profundo de funções de callback).
+
+**Como usar uma Promise?**
+
+```JavaScript
+let minhaPromise = new Promise((resolve, reject) => {
+  let sucesso = true;
+
+  if (sucesso) {
+    resolve("A operação foi bem-sucedida!")
+  } else {
+    reject("Algo deu errado!")
+  }
+})
+
+minhaPromise.then((mensagem) => {
+  console.log(mensagem)  // "A operação foi bem-sucedida!"
+}).catch((erro) => {
+  console.error(erro)  // Se algo deu errado
+})
+```
+
+&nbsp;
+Neste exemplo:
+
+- resolve é chamado quando a operação é bem-sucedida
+- reject é chamado quando há um erro
+- .then é usado para tratar o resultado da promessa quando ela é resolvida
+- .catch é usado para tratar qualquer erro que ocorrer&nbsp;
+
+---
+
+## Método das Promises
+
+#### _.then()_
+
+O método .then() é utilizado para lidar com o caso em que uma promise é resolvida (fulfilled) ou rejeitada (rejected). Ele pode aceitar até dois argumentos:
+
+1. Uma função a ser executada quando a promise for resolvida
+2. Uma função a ser executada quando a promise for rejeitada
+
+**Sintaxe:**
+
+```JavaScript
+promise.then(onFulfilled, onRejected)
+```
+
+&nbsp;
+onFulfilled: função executada se a promise for resolvida com sucesso. Recebe o valor resultante da Promise como argumento
+
+onRejected: função executada se a promise for rejeitada. Recebe o motivo da rejeição como argumento
+&nbsp;
+
+Exemplo:
+
+```JavaScript
+let minhaPromise = new Promise((resolve, reject) => {
+  let sucesso = true
+
+  if (sucesso) {
+    resolve("A operação foi bem-sucedida!")
+  } else {
+    reject("Algo deu errado!")
+  }
+});
+
+minhaPromise.then((mensagem) => {
+  console.log(mensagem);  // "A operação foi bem-sucedida!"
+}, (erro) => {
+  console.error(erro);  // "Algo deu errado!"
+})
+```
+
+&nbsp;
+Nesse exemplo:
+
+Primeira função: a primeira função passada para .then() é executada quando a promise é resolvida
+
+- Neste caso, console.log(mensagem) imprime a mensagem passada para resolve, que é "A operação foi bem-sucedida!"
+
+Segunda função: a segunda função passada para .then() é executada quando a promise é rejeitada
+
+- Neste caso, console.error(erro) imprimirá a mensagem passada para reject, que seria "Algo deu errado!" se sucesso fosse false
+
+&nbsp;
+
+**Encadeamento de .then():**
+
+Cada chamada ao método .then() retorna uma nova promise, permitindo o encadeamento de operações assíncronas
+
+```JavaScript
+minhaPromise
+  .then((valor) => {
+    console.log(valor)  // "A operação foi bem-sucedida!"
+    return valor + " Continuando o processo.";
+  })
+  .then((novoValor) => {
+    console.log(novoValor)  // "A operação foi bem-sucedida! Continuando o processo."
+  })
+```
+
+#### _.catch()_
+
+O método .catch() é usado para tratar erros que ocorreram durante a execução da promise. Ele é um atalho para then(null, onRejected)
+
+**Sintaxe:**
+
+```JavaScript
+promise.catch(onRejected);
+```
+
+&nbsp;
+onRejected: função executada se a promise for rejeitada. Recebe o motivo da rejeição como argumento
+&nbsp;
+
+Exemplo:
+
+```JavaScript
+minhaPromise.catch((erro) => {
+  console.error("Erro:", erro)
+})
+```
+
+#### _.finally()_
+
+O método .finally() é usado para executar uma função quando a promise é concluída, independentemente de ela ter sido resolvida ou rejeitada. Isso é útil para executar qualquer tipo de limpeza ou finalização que precisa acontecer após a operação assíncrona, independentemente do resultado
+
+**Sintaxe:**
+
+```JavaScript
+promise.finally(onFinally);
+```
+
+&nbsp;
+onFinally: Função a ser executada quando a promise é concluída (resolve ou reject). Não recebe nenhum argumento
+&nbsp;
+
+Exemplo:
+
+```JavaScript
+function fazerPedido(pedido) {
+  return new Promise((resolve, reject) => {
+    console.log(`Fazendo pedido: ${pedido}`);
+    setTimeout(() => {
+      if (pedido === 'café') {
+        resolve('Pedido de café aceito');
+      } else {
+        reject('Pedido recusado');
+      }
+    }, 1000);
+  });
+}
+
+fazerPedido('café')
+  .then(resposta => {
+    console.log(resposta)  // "Pedido de café aceito"
+    return 'Preparando café'
+  })
+  .then(status => {
+    console.log(status)  // "Preparando café"
+    return 'Café pronto'
+  })
+  .then(resultado => {
+    console.log(resultado)  // "Café pronto"
+  })
+  .catch(erro => {
+    console.error('Erro:', erro)  // Se o pedido não for 'café'
+  })
+  .finally(() => {
+    console.log('Operação concluída.')  // Sempre executado
+  })
+```
+
+&nbsp;
+
+1. Criação da promise - new Promise((resolve, reject) => { ... }) a função fazerPedido retorna uma nova promise que aceita duas funções, resolve e reject, como parâmetros
+2. Log do pedido - console.log(Fazendo pedido: ${pedido}) imprime o pedido no console
+3. Simulação de atraso - setTimeout(() => { ... }, 1000) usa setTimeout para simular um atraso de 1 segundo (1000 milissegundos) antes de resolver ou rejeitar a promise
+4. Condição do pedido
+   - if (pedido === 'café') { ... } else { ... }: verifica se o pedido é igual a 'café'
+   - resolve('Pedido de café aceito'): se for 'café', a promise é resolvida com a mensagem 'Pedido de café aceito'
+   - reject('Pedido recusado'): se não for 'café', a promise é rejeitada com a mensagem 'Pedido recusado'
+5. Encadeamento de promises - a função fazerPedido é chamada e encadeada com .then(), .catch(), e .finally() para gerenciar o fluxo da operação assíncrona
+   &nbsp;
+
+---
+
+## Promises Encadeadas
+
+Quando você encadeia promises, cada .then() recebe o resultado da promise anterior. Isso permite que você trate o resultado de uma operação assíncrona, faça algo com ele, e passe o resultado para a próxima operação assíncrona. Os métodos de promises then(), catch()e finally()são usados ​​para associar ações adicionais a uma promessa que é cumprida
+
+**Entendendo o exemplo anterior passo a passo**
+
+**Passo 1:** Chamando fazerPedido('café')
+
+```JavaScript
+fazerPedido('café')
+```
+
+&nbsp;
+
+- Chama a função fazerPedido com o argumento 'café'
+- Isso retorna uma promise
+  &nbsp;
+
+**Passo 2:** Primeiro .then(resposta => { ... })
+
+```JavaScript
+.then(resposta => {
+  console.log(resposta)  // "Pedido de café aceito"
+  return 'Preparando café'
+})
+```
+
+&nbsp
+
+- **resposta:** é a mensagem de resolução da promise retornada por fazerPedido
+- **console.log(resposta):** imprime 'Pedido de café aceito' no console
+- **return 'Preparando café':** retorna a string 'Preparando café', que se torna o valor para a próxima promise no encadeamento
+
+Neste ponto, a primeira promise foi resolvida com 'Pedido de café aceito' e a string 'Preparando café' é passada para a próxima etapa
+&nbsp;
+
+**Passo 3:** Segundo .then(status => { ... })
+
+```JavaScript
+.then(status => {
+  console.log(status)  // "Preparando café"
+  return 'Café pronto'
+})
+```
+
+&nbsp
+
+- **status:** é o valor retornado pelo primeiro .then(), que é 'Preparando café'
+- **console.log(status):** imprime 'Preparando café' no console
+- **return 'Café pronto':** retorna a string 'Café pronto', que se torna o valor para a próxima Promise no encadeamento
+
+Neste ponto, a string 'Preparando café' foi processada e 'Café pronto' é passada para a próxima etapa
+&nbsp;
+
+**Passo 4:** Terceiro .then(resultado => { ... })
+
+```JavaScript
+.then(resultado => {
+  console.log(resultado)  // "Café pronto"
+})
+```
+
+&nbsp
+
+- **resultado:** é o valor retornado pelo segundo .then(), que é 'Café pronto'
+- **console.log(resultado):** imprime 'Café pronto' no console
+
+Neste ponto, a string 'Café pronto' foi processada e impressa no console
+&nbsp;
+
+**Passo 5:** .catch(erro => { ... })
+
+```JavaScript
+.catch(erro => {
+  console.error('Erro:', erro)  // Se o pedido não for 'café'
+})
+```
+
+&nbsp
+
+- **erro:** captura qualquer erro que tenha ocorrido em qualquer um dos .then() anteriores
+- **console.error('Erro:', erro):** imprime 'Erro:' seguido da mensagem de erro no console
+
+Neste exemplo específico, o .catch não será executado porque a promise foi resolvida com sucesso. Se o pedido não fosse 'café', a promise seria rejeitada, e o .catch capturaria o erro
+&nbsp;
+
+**Passo 6:** .finally(() => { ... })
+
+```JavaScript
+.finally(() => {
+  console.log('Operação concluída.')  // Sempre executado
+})
+```
+
+&nbsp
+
+- **console.log('Operação concluída.'):** imprime 'Operação concluída.' no console
+- finally é sempre executado, independentemente de a promise ter sido resolvida ou rejeitada
+  &nbsp;
+
+**Considerações adicionais**
+
+1. Encadeamento limpo: cada .then() retorna uma nova Promise, permitindo o encadeamento
+2. Manuseio de erros: qualquer erro em qualquer estágio é capturado pelo .catch().
+3. Finalização: o .finally() garante que a finalização ocorra, independentemente do sucesso ou falha
+
+---
+
+## APIs
+
+**O que é API e por que utilizá-las?**
+
+APIs são construções disponibilizadas em linguagens de programação para permitir que os desenvolvedores criem funcionalidades complexas com mais facilidade. Eles abstraem códigos mais complexos de você, fornecendo uma sintaxe mais fácil de usar em seu lugar. Elas permitem que use uma API do Twitter para obter os tweets de um usuário, por exemplo
+
+**fetch e Promises**
+
+O método fetch é uma API moderna para realizar solicitações HTTP. Ele retorna uma Promise, o que torna fácil trabalhar com operações assíncronas como chamadas a servidores. Sintaxe básica do fetch:
+
+```JavaScript
+fetch(url, [options])
+```
+
+&nbsp
+
+- url: a URL do recurso que você deseja buscar
+- options: um objeto opcional contendo qualquer configuração personalizada da solicitação
+  &nbsp;
+
+Exemplo prático:
+
+```JavaScript
+fetch('https://api.github.com/users/bianca-rossi')
+  .then(response => {
+    return response.json()
+  })
+  .then(body => {
+    console.log(body)
+  })
+  .catch(error => {
+    console.error(error)
+  })
+  .finally(() => {
+    console.log("Terminado")
+  })
+```
+
+&nbsp
+
+1. fetch('https://api.github.com/users/bianca-rossi')
+   - URL: 'https://api.github.com/users/bianca-rossi' é a URL da API do GitHub que retorna os dados do usuário bianca-rossi
+2. .then(response => { ... })
+   - .then(): Recebe o objeto Response da promise resolvida pelo fetch
+   - response.json(): response.json() é um método do objeto Response que retorna outra promise. Esta promise resolve para o corpo da resposta convertido em JSON
+3. .then(body => { ... })
+   - Recebe o objeto JSON que contém os dados do usuário do GitHub
+   - console.log(body): imprime o corpo da resposta JSON no console. Esse objeto JSON contém informações do perfil do usuário bianca-rossi no GitHub, como nome, login, bio, repositórios, etc
+4. .catch(error => { ... })
+   - .catch(): captura qualquer erro que ocorra em qualquer ponto do encadeamento das promises
+   - console.error(error): imprime qualquer erro no console. Isso pode incluir erros de rede, erros de análise JSON ou outros erros que possam ocorrer
+5. .finally(() => { ... }) - .finally(): executa uma função quando a promise é concluída, independentemente de ela ter sido resolvida ou rejeitada - console.log("Terminado"): imprime "Terminado" no console
+   &nbsp;
+
+---
+
+## Async e await
+
+async e await é uma maneira moderna e elegante de trabalhar com operações assíncronas. Eles simplificam o uso de Promises, tornando o código mais legível e parecido com código síncrono
+
+**Conceitos básicos**
+
+async: usado para declarar uma função assíncrona. Uma função marcada com async retorna uma Promise implicitamente
+
+await: usado dentro de uma função async para esperar por uma promise. Ele pausa a execução da função assíncrona até que a promise seja resolvida ou rejeitada
+
+**Como podemos chamar uma API com async e await?**
+
+1. Declarar uma função assíncrona
+
+```JavaScript
+async function obterDados() {
+  // Código assíncrono
+}
+```
+
+2. Usar await para esperar pela resolução da promise  
+   &nbsp
+   Dentro da função async, você pode usar await antes de uma chamada de função que retorna uma promise (como fetch), para esperar pela sua resolução
+   &nbsp;
+
+```JavaScript
+async function obterDadosUsuario() {
+  try {
+    const resposta = await fetch('https://api.github.com/users/bianca-rossi')
+    if (!resposta.ok) {
+      throw new Error('Não foi possível obter os dados do usuário')
+    }
+    const dadosUsuario = await resposta.json()
+    console.log('Dados do usuário:', dadosUsuario)
+  } catch (erro) {
+    console.error('Houve um problema ao obter os dados do usuário:', erro)
+  }
+}
+
+obterDadosUsuario()
+```
+
+Passo a passo:
+
+1. Declaração da função
+
+```JavaScript
+async function obterDadosUsuario()
+```
+
+&nbsp
+**async:** a palavra-chave async é usada para declarar uma função assíncrona. Uma função assíncrona retorna uma promise e permite o uso da palavra-chave await dentro dela
+&nbsp;
+
+2. Bloco try
+
+```JavaScript
+try {
+```
+
+&nbsp
+O bloco try contém código que pode lançar uma exceção. Se uma exceção ocorrer, ela será capturada pelo bloco catch
+&nbsp;
+
+3. Chamada fetch com await
+
+```JavaScript
+try {const resposta = await fetch('https://api.github.com/users/bianca-rossi')
+```
+
+&nbsp
+**await:** pausa a execução da função assíncrona até que a Promise retornada por fetch seja resolvida.
+
+**fetch:** faz uma solicitação HTTP GET para a URL. Nesse caso, a URL é da API do GitHub para obter informações do usuário "bianca-rossi".
+
+**const resposta:** armazena o objeto Response retornado pela função fetch
+&nbsp;
+
+4. Verificação da resposta
+
+```JavaScript
+if (!resposta.ok) {
+  throw new Error('Não foi possível obter os dados do usuário')
+}
+```
+
+&nbsp
+**resposta.ok:** verifica se a resposta HTTP é bem-sucedida
+
+**throw new Error():** lança um erro com a mensagem "Não foi possível obter os dados do usuário" se a resposta não for bem-sucedida. Isso fará com que o controle do código vá para o bloco catch
+&nbsp;
+
+5. Análise dos dados da resposta
+
+```JavaScript
+const dadosUsuario = await resposta.json()
+```
+
+&nbsp
+**await:** pausa a execução até que a Promise retornada por response.json() seja resolvida
+
+**resposta.json():** converte o corpo da resposta HTTP em um objeto
+
+**const dadosUsuario:** armazena os dados do usuário retornados pela API
+&nbsp;
+
+6. Impressão dos dados do usuário
+
+```JavaScript
+console.log('Dados do usuário:', dadosUsuario)
+```
+
+&nbsp
+**console.log:** imprime os dados do usuário no console
+&nbsp;
+
+7. Bloco catch
+
+```JavaScript
+  } catch (erro) {
+console.error('Houve um problema ao obter os dados do usuário:', erro)
+}
+```
+
+&nbsp
+**catch (erro):** captura qualquer erro que ocorra no bloco try, incluindo erros lançados explicitamente e rejeições de Promises
+
+**console.error:** imprime a mensagem de erro no console
+&nbsp;
+
+8. Chamada da função
+
+```JavaScript
+obterDadosUsuario()
+```
+
+&nbsp
+Esta linha chama a função obterDadosUsuario()
+&nbsp;
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/5nApiyeGvp8?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quiz
+
+```JavaScript
+function esperar(segundos) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(`Esperei ${segundos} segundos.`)
+    }, segundos * 1000)
+  });
+}
+
+esperar(3)
+  .then(mensagem => console.log(mensagem))
+  .catch(erro => console.error(erro))
+```
+
+<Quiz
+  question="1. O que esse código faz?"
+  answers={[
+    "Espera 3 segundos antes de imprimir uma mensagem no console",
+    "Imprime uma mensagem no console imediatamente",
+    "Espera 3 segundos antes de lançar um erro",
+    "Lança um erro imediatamente",
+  ]}
+  correctIndex={0}
+/>
+
+<Quiz
+  question="2. O que o método .json() faz em uma resposta fetch?"
+  answers={[
+    "Converte a resposta para um formato de arquivo JSON",
+    "Converte a resposta para um objeto JavaScript",
+    "Envia a resposta para o servidor como um arquivo JSON",
+    "Converte a resposta para uma string JSON",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="2. O que o método .json() faz em uma resposta fetch?"
+  answers={[
+    "Converte a resposta para um formato de arquivo JSON",
+    "Converte a resposta para um objeto JavaScript",
+    "Envia a resposta para o servidor como um arquivo JSON",
+    "Converte a resposta para uma string JSON",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="3. Como você pode lidar com erros ao fazer uma requisição com fetch?"
+  answers={[
+    "Usando o método .then() para tratar erros",
+    "Usando o método .catch() para tratar erros",
+    "Usando o método .error() para tratar erros",
+    "Usando o método .finally() para tratar erros",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="4. Como você lidaria com erros ao usar async/await?"
+  answers={[
+    "Usando a palavra-chave error dentro de uma função assíncrona",
+    "Usando um bloco try...catch em torno de uma operação que pode falhar",
+    "Usando um método .catch() após uma chamada de função assíncrona",
+    "Usando a palavra-chave finally para tratar erros",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="5. O que a palavra-chave await faz em uma função assíncrona?"
+  answers={[
+    "Pausa a execução da função assíncrona até que uma promise seja resolvida ou rejeitada",
+    "Retorna o valor de uma promise de forma síncrona",
+    "Força a execução da função assíncrona de forma síncrona",
+    "Encerra a execução da função assíncrona e retorna um valor imediatamente",
+  ]}
+  correctIndex={0}
+/>
+
+```JavaScript
+async function fetchData() {
+    const response = await fetch('https://api.example.com/data');
+    if (!response.ok) {
+        throw new Error('Erro ao buscar os dados');
+    }
+    const data = await response.json();
+    return data;
+}
+
+async function processarDados() {
+    try {
+        const dados = await fetchData();
+        console.log('Dados processados:', dados);
+    } catch (error) {
+        console.error('Erro ao processar os dados:', error.message);
+    }
+}
+
+processarDados();
+```
+
+<Quiz
+  question="6. Qual é o propósito do bloco try...catch dentro da função processarDados() no código acima?"
+  answers={[
+    "Para aguardar a resposta da requisição HTTP",
+    "Para lançar um erro se a resposta da requisição não estiver OK",
+    "Para processar os dados recebidos da requisição",
+    "Para capturar e lidar com erros que podem ocorrer durante a execução da função fetchData()",
+  ]}
+  correctIndex={3}
+/>
