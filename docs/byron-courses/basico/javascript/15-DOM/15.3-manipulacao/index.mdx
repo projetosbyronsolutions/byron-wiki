@@ -1,0 +1,498 @@
+---
+title: "Métodos de manipulação"
+sidebar_position: 3
+---
+
+Agora que já sabemos como acessar cada elemento, vamos aprender a manipular eles usando o DOM.
+
+## Manipulando HTML através de DOM
+
+O primeiro tipo de manipulação que iremos abordar interfere diretamente na estrutura do nosso site e nossas tags HTML. Veremos como alterar, adicionar, criar e remover os elementos, além de manipular os seus atributos.
+
+### Alterar conteúdo do elemento
+
+Antes de começarmos a ver como alterar ou adicionar um conteúdo dentro de um elemento, vamos entender a diferença entre os 3 métodos que nos permitem fazer isso.
+
+:::note
+Usaremos como base para os próximos exemplos o seguinte código HTML:
+
+```html
+<p id="paragrafo">
+  Eu sou um parágrafo.
+  <span style="display: none">Eu estou invisível.</span>
+</p>
+<div id="container"></div>
+```
+
+:::
+
+- **[`innerText`](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/innerText):** O `innerText`, quando aplicado em algum elemento,
+  retorna apenas o texto visível, ou seja, caso haja algum conteúdo textual
+  escondido ("display: none"), ele não aparecerá, por exemplo: ```js var
+  paragrafo1 = document.querySelector("#paragrafo");
+  console.log(paragrafo1.innerText); // ⟹ Eu sou um parágrafo.
+
+- **[`textContent`(https://developer.mozilla.org/pt-BR/docs/Web/API/Node/textContent)]:** O `textContent` devolve todo o texto de dentro daquele elemento, mesmo que ele não esteja aparecendo na página, por exemplo:
+
+```js
+console.log(paragrafo1.textContent); // ⟹ Eu sou um parágrafo. Eu estou invisível.
+```
+
+- **[`innerHTML`](https://developer.mozilla.org/pt-BR/docs/Web/API/Element/innerHTML):** O `innerHTML` retorna todo o conteúdo de dentro daquele elemento, mesmo que ele não esteja aparecendo na página. Porém a diferença dele para o `textContent` é que ele retorna literalmente todo o conteúdo de dentro daquele elemento, até mesmo outras tags que estejam lá e suas propriedades, por exemplo:
+
+```js
+console.log(paragrafo1.innerHTML); // ⟹ Eu sou um parágrafo. <span style="display: none">Eu estou invisível.</span>
+```
+
+Portanto, essas são as diferenças entre cada método. Porém, para adicionarmos o alterarmos o conteúdo de dentro do elemento que acessamos, usamos a mesma técnica para todos eles. Basta colocar um sinal de "=" depois do método para substituir o conteúdo pelo o que você deseja ou usar o "+=" para concatenar alguma informação no seu texto, por exemplo:
+
+```js
+paragrafo1.innerText += " E sou legal!";
+// ⟹ <p id="paragrafo">Eu sou um parágrafo. E sou legal!</p>;
+
+paragrafo1.innerText = "Parágrafo 1";
+// ⟹ <p id="paragrafo">Parágrafo 1</p>
+```
+
+:::caution
+Todo o conteúdo de dentro do elemento é substituído, portanto, nesse exemplo, o span some!
+:::
+
+:::tip
+Utilizei o método `innerText`, mas teste com os outros para ver que todos retornam a mesma coisa.
+:::
+
+### Criar elementos
+
+Agora vamos ver como criar um elemento e popular ele usando o que aprendemos no último tópico.
+Primeiro vamos criar um elemento vazio utilizando [`createElement()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement). Este método recebe um parâmetro com o nome da tag que este elemento será, portanto, se quisermos criar um parágrafo, devemos usar:
+
+```js
+var novoParagrafo = document.createElement("p");
+console.log(novoParagrafo); // ⟹ <p></p>
+```
+
+Agora que criamos o nosso novo parágrafo, vamos popular ele com algum texto por meio do método innerText:
+
+```js
+novoParagrafo.innerText = "Um novo parágrafo";
+console.log(novoParagrafo); // ⟹ <p>Um novo parágrafo</p>
+```
+
+### Inserir elementos
+
+Agora, nós temos um elemento novo, porém ele não aparece no nosso site, ele existe mas ainda não foi adicionado ao nosso HTML. Para fazermos isso vamos utilizar ou o `appendChild()` ou o `insertBefore()`.
+
+**[`appendChild()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Node/appendChild):** O método `appendChild()` vai atribuir um elemento em um outro elemento pai, o "caminho" deste elemento pai deve ser especificado antes do método ser chamado. Sua sintaxe é `elementoPai.appendChild(elemento);`. Portanto, se desejamos adicionar o nosso parágrafo dentro da nossa `<div>` "#container", vamos usar:
+
+```js
+var container = document.querySelector("#container");
+
+container.appendChild(novoParagrafo);
+
+console.log(document.querySelector("body"));
+// ⟹ <body>
+// ⟹   <p id="paragrafo">Parágrafo 1</p>
+// ⟹   <div id="container">
+// ⟹     <p>Um novo parágrafo</p>
+// ⟹   </div>
+// ⟹ </body>
+```
+
+**[`insertBefore()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore):** O método `insertBefore()` vai atribuir um elemento antes de um outro elemento de referência. Apesar dessa diferença em relação ao método anterior, o "caminho" do elemento pai deve ser especificado antes do método ser chamado. Sua sintaxe é `elementoPai.insertBefore(elemento, elementoReferencia);`. Portanto, se desejamos adicionar o nosso parágrafo no `body`, mas antes da nossa `<div>`, vamos usar:
+
+```js
+document.body.insertBefore(novoParagrafo, container);
+
+console.log(document.querySelector("body"));
+// ⟹ <body>
+// ⟹   <p id="paragrafo">Parágrafo 1</p>
+// ⟹   <p>Um novo parágrafo</p>
+// ⟹   <div id="container"></div>
+// ⟹ </body>
+// A partir daqui vamos seguir com o novoParagrafo dentro da nossa div, como visto anteriormente.
+```
+
+### Trocar elementos
+
+Agora vamos aprender a trocar os elementos do nosso projeto. Primeiro temos que criar um elemento novo (ou usar um outro existente também) e depois substituir em algum que já existe. Para fazer isso iremos utilizar o método [`replaceChild()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Node/replaceChild), cuja sintaxe é: `elementoPai.replaceChild(elementoNovo, elementoAntigo)`, o _elementoPai_ é o elemento que o elemento que vai ser substituído(_elementoAntigo_) está localizado. Então, vamos supor que queremos substituir o elemento de parágrafo que tínhamos criado por um span, para isso vamos fazer:
+
+```js
+// Elemento novo
+var infoInutil = document.createElement("span");
+infoInutil.innerText = "Informação inútil";
+
+// Acessando o elemento em que o "novoParagrafo" esta localizado usando parentNode
+var elementoPai = novoParagrafo.parentNode;
+
+// Trocando elemento "infoInutil" no lugar de "novoParagrafo"
+elementoPai.replaceChild(infoInutil, novoParagrafo);
+
+console.log(document.querySelector("body"));
+// ⟹ <body>
+// ⟹   <p id="paragrafo">Parágrafo 1</p>
+// ⟹   <div id="container">
+// ⟹     <span>Informação inútil</span>
+// ⟹   </div>
+// ⟹ </body>
+```
+
+### Remover elementos
+
+Passando para a parte de remover os elementos, vamos entender melhor como funciona o método `removeChild()` e `remove()`.
+
+- **[`removeChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild):** O `removeChild()` é um método utilizado quando desejamos remover o elemento filho de algum elemento. Sua sintaxe é: `elemento.removeChild(elementoFilho);`. Para treinar vamos remover o elemento "infoInutil" de dentro da `<div>`:
+
+```js
+container.removeChild(infoInutil);
+console.log(document.querySelector("body"));
+// ⟹ <body>
+// ⟹   <p id="paragrafo">Parágrafo 1</p>
+// ⟹   <div id="container"></div>
+// ⟹ </body>
+```
+
+- **[`remove()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/remove):** Se utilizarmos o método `remove()`, podemos remover diretamente o elemento que queremos apagar, sem precisar acessar o seu elemento pai, por exemplo:
+
+```js
+infoInutil.remove();
+console.log(document.querySelector("body"));
+// ⟹ <body>
+// ⟹   <p id="paragrafo">Parágrafo 1</p>
+// ⟹   <div id="container"> </div>
+// ⟹ </body>
+```
+
+### Acessar e adicionar atributos
+
+Para finalizar a manipulação de HTML através de DOM, vamos aprender como acessar e adicionar os atributos do elemento. Esse cenário é interessante quando estamos criando os elementos, e desejamos popular ele preenchendo os valores dos atributos.
+
+- Primeiro, vamos aprender a acessar esses elementos usando o método [`getAttribute()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Element/getAttribute). Sua sintaxe é: `element.getAttribute(nomeDoAtributo)`. Então vamos supor que temos uma imagem e queremos ver qual é o alt dela, o código ficaria da seguinte maneira:
+
+```js
+// <img src="" alt="Imagem de teste" id="imagem" />
+
+var img = document.querySelector("#imagem");
+console.log(img.getAttribute("alt")); // ⟹ Imagem de teste
+```
+
+- Agora vamos ver como inserir ou alterar algum atributo usando o método [`setAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute). Sua sintaxe é: `element.setAttribute(nomeAtributo, valor)`, ela permanece a mesma tanto para criar quanto para alterar um atributo, a diferença entre um e outro é se a variável que você inseriu já existe ou não. Com isso, vamos testar dois exemplos: mudar o `alt` da imagem do exemplo anterior e adicionar o id lá no elemento "infoInutil" que criamos.
+
+```js
+// Alterando atributo "alt" da imagem
+img.setAttribute("alt", "Foto");
+console.log(img.getAttribute("alt")); // ⟹ Foto
+
+// Adicionando atributo "id" em um elemento
+infoInutil.setAttribute("id", "span");
+console.log(infoInutil.getAttribute("id"));
+```
+
+## Manipulando CSS através de DOM
+
+A partir de agora vamos aprender a manipular o CSS dos elementos e alterar as suas propriedades por meio de DOM.
+
+### Propriedades
+
+As propriedades de estilização podem ser modificadas diretamente no objeto JS e são _inline_, então pode não ser conveniente adicionar nesse formato. Para adicionar as propriedades você precisa acessar o elemento, o seu `style` dele, colocar o nome da propriedade e por último o seu valor, dessa forma: `elemento.style.styleProp = valor`, sempre acessando cada propriedade separadamente. Por exemplo, vamos alterar o tamanho e a cor do nosso elemento "paragrafo1":
+
+```js
+paragrafo1.style.fontSize = "5em";
+paragrafo1.style.color = "blue";
+
+console.log(paragrafo1.style.fontSize); // ⟹ 5em
+console.log(paragrafo1.style.color); // ⟹ blue
+console.log(paragrafo1.getAttribute("style")); // ⟹ font-size: 5em; color: blue;
+```
+
+:::info
+Quando utilizado no DOM, as propriedades do CSS são escritas em [camel Case](https://www.alura.com.br/artigos/convencoes-nomenclatura-camel-pascal-kebab-snake-case), ou seja, não possuem espaço ou "-", a primeira letra da primeira palavra é minúscula e a primeira letra das demais é maiuscula, por exemplo "font-size" para "fontSize".
+:::
+
+Caso você queira inserir várias propriedades de uma vez, você pode utilizar `cssText`:
+
+```js
+paragrafo1.style.cssText = "font-size: 5em; color: blue";
+
+console.log(console.log(paragrafo1.style.cssText);); // ⟹ font-size: 5em; color: blue;
+```
+
+Porém, as estilizações que não são inline, não conseguem ser lidas diretamente pelo propriedade style. Para acessar essas propriedades, é preciso acessar o objeto global window e utilizar o método [`getComputedStlye()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle). Ou seja, com este método obtemos especificamente o valor de alguma propriedade CSS do elemento. Sua sintaxe é: `window.getComputedStyle(element).styleProp`, então basta passarmos o elemento que queremos manipular como parâmetro desse método. Por exemplo, vamos acessar novamente as propriedades de `style` do "paragrafo1" e ver o que retorna:
+
+```js
+console.log(window.getComputedStyle(paragrafo1).color); // ⟹ rgb(0, 0, 255)
+console.log(window.getComputedStyle(paragrafo1).fontSize); // ⟹ 80px
+```
+
+### classList
+
+Uma forma mais interessante de estilizar a partir do JS é manipulando as classes CSS. Para fazermos isso, utilizamos a propriedade [`classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList), apresenta uma API que permite adicionar, remover e ler as classes utilizadas no elemento HTML. Com ela utilizamos 3 métodos diferentes:
+
+- **`classList.add()`:** Adiciona uma classe no elemento desejado. Sua sintaxe é: `elemento.classList.add("nomeDaClasse")`. Então vamos adicionar uma classe ao elemento "infoInutil" que criamos lá atrás:
+
+```js
+infoInutil.classList.add("info");
+console.log(infoInutil); // ⟹ <span id="span" class="info">Informação inútil</span>
+```
+
+- **`classList.remove()`:** Remove uma classe no elemento desejado. Sua sintaxe é: `elemento.classList.remove("nomeDaClasse")`. Então vamos remover a classe que acabamos de criar:
+
+```js
+infoInutil.classList.remove("info");
+console.log(infoInutil); // ⟹ <span id="span">Informação inútil</span>
+```
+
+- **`classList.toggle()`:** Ativa ou desativa alguma classe de um elemento, isso pode acontecer de acordo com uma condição que você estabelece quando chama o método. Sua sintaxe é: `elemento.classList.toggle("nomeDaClasse", condicao)`, cujo a condição é opcional. Para exemplificar, vamos usar o `classList.toggle()` com uma possível classe "visible", que já existiria no CSS e estaria configurada com algumas propriedades:
+
+```js
+// Caso não tenha essa classe, o toggle adiciona ela, caso contrário remove
+
+infoInutil.classList.toggle("visible"); // Não possui, portanto adiciona:
+// ⟹ <span id="span" class="visible">Informação inútil</span>
+
+infoInutil.classList.toggle("visible"); // Agora possui, portanto remove:
+// ⟹ <span id="span" class>Informação inútil</span>
+
+// Com condição:
+infoInutil.classList.toggle("visible", i < 10); // Só adiciona caso i<10
+```
+
+## Métodos de instância
+
+Por fim, para finalizar a parte de DOM vamos aprender a respeito dos métodos de instância para manipular eventos. Eventos no JS são ações do nosso código de acordo com alguma coisa, por exemplo um _click_ no botão, um conteúdo ou página carregada, um erro, passar o mouse por cima de algo e outro tipos de "gatilho". Com isso podemos criar algumas coisas interessantes, como animações, interações de botões e muito mais.
+
+### `addEventListener()`
+
+Para criarmos um "gatilho" de evento, vamos utilizar o método [`addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), ele "escuta" um evento que você determina, ou seja espera isso acontecer e depois executa uma função. Sua sintaxe é `element.addEventListener("evento",funcao)`. Vamos começar com um exemplo simples, toda vez que clicar no elemento "paragrafo1" vamos printar "Hello World" no console:
+
+```js
+//Função que vai printar "Hello World"
+function helloWorld() {
+  console.log("Hello World");
+}
+
+paragrafo1.addEventListener("click", helloWorld);
+```
+
+Esse é um exemplo simples, mas já dá para ter uma noção do quanto de coisas podemos fazer com ele, já que podemos criar qualquer função para chamar quando algum desses eventos acontecerem com o elemento que escolhemos. Agora vamos ver alguns exemplos de aplicações desse método:
+
+Vamos alterar a cor do nosso texto toda vez que passarmos o mouse sobre ele:
+
+```js
+function changeColor() {
+  var colors = ["red", "green", "pink", "black", "blue", "purple", "orange"]; // Array com algumas cores
+  var i = Math.floor(Math.random() * colors.length); // Sorteia um index de 0 a 6
+  paragrafo1.style.color = colors[i]; // muda a cor do texto
+}
+
+paragrafo1.addEventListener("mouseover", changeColor);
+```
+
+Alterar toda vez que clicar no "paragrafo1" o texto vai aumentar para "Parágrafo 2", depois "Parágrafo 3" e assim por diante.
+
+```js
+var contador = 1;
+
+function contadorParagrafo() {
+  contador++; // Adiciona 1 toda ao contador toda vez que a função é chamada
+  paragrafo1.innerText = `Parágrafo ${contador}`; // Muda o texto
+}
+
+paragrafo1.addEventListener("click", contadorParagrafo);
+```
+
+Existem vários outros tipos de evento, segue uma tabela com alguns deles e seus gatilhos para serem disparados:
+
+| **Evento**         | **É disparado…**                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------- |
+| `click`            | quando é pressionado e liberado o botão primário do mouse, trackpad, etc.                               |
+| `mousemove`        | sempre que o cursor do mouse se move.                                                                   |
+| `mouseover`        | quando o cursor do mouse é movido para sobre algum elemento.                                            |
+| `mouseout`         | quando o cursor do mouse se move para fora dos limites de um elemento.                                  |
+| `dblclick`         | quando acontece um clique duplo com o mouse, trackpad, etc.                                             |
+| `DOMContentLoaded` | quando o DOM do documento está totalmente carregado (mais sobre isso num tutorial futuro).              |
+| `load`             | quando todo o documento (DOM e recursos externos como imagens, scripts, etc) está totalmente carregado. |
+| `keydown`          | quando uma tecla no teclado é pressionada.                                                              |
+| `keyup`            | quando uma tecla no teclado é liberada (depois de pressionada).                                         |
+| `scroll`           | quando há "rolagem" (scroll) num elemento.                                                              |
+
+## Tabela geral dos métodos
+
+| **Método**                                          | **Função**                                                          | **Retorno ao acessar elemento com o método**                | **Sintaxe**                                                   |
+| --------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------- |
+| [`innerText` ](#alterar-conteúdo-do-elemento)       | Acessar ou alterar conteúdo textual do elemento                     | Apenas o texto visível                                      | `elemento.innerText = "texto" `                               |
+| [`textContent` ](#alterar-conteúdo-do-elemento)     | Acessar ou alterar conteúdo textual do elemento                     | Todo o texto de dentro daquele elemento                     | `elemento.textContent = "texto"                             ` |
+| [`innerHTML` ](#alterar-conteúdo-do-elemento)       | Acessar ou alterar conteúdo textual do elemento                     | Todo o texto de dentro daquele elemento (inclusive as tags) | `elemento.innerHTML = "texto"                               ` |
+| [`createElement()` ](#criar-elementos)              | Criar um elemento                                                   | ~-~-~-~-~-~-~-~-                                            | `document.createElement("nomeTag")                          ` |
+| [`appendChild()` ](#inserir-elementos)              | Inserir elemento dentro de outro elemento (por último)              | ~-~-~-~-~-~-~-~-                                            | `elementoPai.appendChild(elemento)                          ` |
+| [`insertBefore()` ](#inserir-elementos)             | Inserir elemento antes de outro elemento                            | ~-~-~-~-~-~-~-~-                                            | `elementoPai.insertBefore(elemento, elementoReferencia)     ` |
+| [`replaceChild()` ](#trocar-elementos)              | Substituir um elemento por outro                                    | ~-~-~-~-~-~-~-~-                                            | `elementoPai.replaceChild(elementoNovo, elementoAntigo)     ` |
+| [`removeChild()` ](#remover-elementos)              | Remover o elemento filho de algum elemento                          | ~-~-~-~-~-~-~-~-                                            | `elemento.removeChild(elementoFilho)                        ` |
+| [`remove()` ](#remover-elementos)                   | Remover elemento                                                    | ~-~-~-~-~-~-~-~-                                            | `elemento.remove()                                          ` |
+| [`getAttribute()` ](#acessar-e-adicionar-atributos) | Acessar atributos                                                   | Conteúdo do atriuto                                         | `elemento.getAttribute(nomeDoAtributo)                      ` |
+| [`setAttribute()` ](#acessar-e-adicionar-atributos) | Adicionar atributos                                                 | ~-~-~-~-~-~-~-~-                                            | `elemento.setAttribute(nomeAtributo, valor)                 ` |
+| [`style.styleProp` ](#propriedades)                 | Adicionar individualmente uma propriedade do CSS                    | Conteúdo da tag `<style>` daquela propriedade               | `elemento.style.styleProp = "valor"                         ` |
+| [`style.cssText` ](#propriedades)                   | Adicionar várias propriedades do CSS de uma vez                     | Conteúdo complet da tag `<style>`                           | `elemento.style.cssText = "prop: valor, prop2 = valor, ..." ` |
+| [`getComputedStlye()` ](#propriedades)              | Acessar especificamente o valor de alguma propriedade               | Valor específicoda propriedade                              | `window.getComputedStyle(elemento).styleProp                ` |
+| [`classList.add()` ](#classlist)                    | Adicionar classe                                                    | ~-~-~-~-~-~-~-~-                                            | `elemento.classList.add("nomeDaClasse")                     ` |
+| [`classList.remove()` ](#classlist)                 | Remover classe                                                      | ~-~-~-~-~-~-~-~-                                            | `elemento.classList.remove("nomeDaClasse")                  ` |
+| [`classList.toggle()` ](#classlist)                 | Ativar ou desativar alguma classe                                   | ~-~-~-~-~-~-~-~-                                            | `elemento.classList.toggle("nomeDaClasse", _condicao_)      ` |
+| [`addEventListener()` ](#addeventlistener)          | Determinar um elemento para "escutar" um evento e ativar uma função | ~-~-~-~-~-~-~-~-                                            | `elemento.addEventListener("evento",funcao)                 ` |
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/68s7BzUuwZg" />
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quiz
+
+As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e no vídeo sobre métodos de manipulação por meio de DOM em JS.
+
+### Manipulação de HTML
+
+<Quiz
+  question="1. Qual método retorna apenas o texto visível de um elemento HTML?"
+  answers={[
+    "textContent",
+    "innerHTML",
+    "innerText",
+    "createElement",
+    "getAttribute",
+  ]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="2. Para inserir um elemento filho em um elemento pai, qual método deve ser usado?"
+  answers={[
+    "insertChild",
+    "appendChild",
+    "textContent",
+    "innerHTML",
+    "getAttribute",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="3. Como removemos diretamente um elemento HTML sem precisar acessar seu elemento pai?"
+  answers={[
+    "removeChild",
+    "appendChild",
+    "replaceChild",
+    "remove",
+    "createElement",
+  ]}
+  correctIndex={3}
+/>
+
+<Quiz
+  question="4. Como acessamos o valor de um atributo específico de um elemento HTML?"
+  answers={[
+    "setAttribute",
+    "getAttribute",
+    "innerHTML",
+    "textContent",
+    "innerText",
+  ]}
+  correctIndex={1}
+/>
+
+### Manipulação de CSS
+
+<Quiz
+  question="1. Como você altera a cor de um elemento HTML para azul usando JavaScript?"
+  answers={[
+    "elemento.color = 'blue';",
+    "elemento.style.fontColor = 'blue';",
+    "elemento.style.color = 'blue';",
+    "elemento.css.color = 'blue';",
+    "elemento.setStyle.color = 'blue';",
+  ]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="2. Como você definiria a propriedade 'font-size' de um elemento para '5em' em JavaScript?"
+  answers={[
+    "elemento.style.fontsize = '5em';",
+    "elemento.style.fontSize = '5em';",
+    "elemento.css.fontSize = '5em';",
+    "elemento.style.font-size = '5em';",
+    "elemento.styleFontSize = '5em';",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="3. Para definir múltiplas propriedades CSS ao mesmo tempo, você pode usar:"
+  answers={[
+    "elemento.style.multiCSS",
+    "elemento.style.multiStyle",
+    "elemento.style.cssText",
+    "elemento.style.setProperties",
+    "elemento.cssText",
+  ]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="4. Qual método que ativa ou desativa a presença de uma classe CSS em um elemento?"
+  answers={[
+    "elemento.classList.switch('classe')",
+    "elemento.toggleClass('classe')",
+    "elemento.classList.toggle('classe')",
+    "elemento.classToggle('classe')",
+    "elemento.class.switch('classe')",
+  ]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="5. Qual método você usaria para acessar especificamente o valor de alguma propriedade?"
+  answers={[
+    "elemento.getComputedStyle()",
+    "window.getComputedStyle(elemento)",
+    "elemento.style.getProperty()",
+    "window.getStyle(elemento)",
+    "elemento.getPropertyValue()",
+  ]}
+  correctIndex={1}
+/>
+
+### Métodos de instância
+
+<Quiz
+  question="1. Qual a sintaxe correta para adicionar um evento de clique a um elemento chamado paragrafo1 que chama uma função helloWorld?"
+  answers={[
+    "paragrafo1.addEvent('click', helloWorld);",
+    "paragrafo1.eventListener('click', helloWorld);",
+    "paragrafo1.addEventListener('click', helloWorld);",
+    "paragrafo1.onClick('click', helloWorld);",
+    "paragrafo1.addListener('click', helloWorld);",
+  ]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="2. Para o que serve o método addEventListener()?"
+  answers={[
+    "Para criar um evento.",
+    "Para criar um gatilho para um evento.",
+    "Para atrelar uma função a um elemento.",
+    "Para determinar um elemento para ativar uma função quando um evento acontecer.",
+    "Para alterar o conteúdo textual de um elemento.",
+  ]}
+  correctIndex={3}
+/>
+
+<Quiz
+  question="3. Qual evento é acionado quando o cursor do mouse é movido para dentro dos limites de um elemento?"
+  answers={["click", "mouseover", "mouseout", "mousemove", "dblclick"]}
+  correctIndex={1}
+/>
