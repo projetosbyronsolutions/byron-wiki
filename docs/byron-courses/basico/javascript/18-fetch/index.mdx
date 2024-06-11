@@ -195,13 +195,13 @@ fazerPedido('café')
 
 &nbsp;
 
-1. Criação da promise - new Promise((resolve, reject) => { ... }) a função fazerPedido retorna uma nova promise que aceita duas funções, resolve e reject, como parâmetros
-2. Log do pedido - console.log(Fazendo pedido: ${pedido}) imprime o pedido no console
-3. Simulação de atraso - setTimeout(() => { ... }, 1000) usa setTimeout para simular um atraso de 1 segundo (1000 milissegundos) antes de resolver ou rejeitar a promise
+1. Criação da promise - `new Promise((resolve, reject) => { ... })` a função fazerPedido retorna uma nova promise que aceita duas funções, resolve e reject, como parâmetros
+2. Log do pedido - `console.log(Fazendo pedido: ${pedido})` imprime o pedido no console
+3. Simulação de atraso - `setTimeout(() => { ... }, 1000)` usa setTimeout para simular um atraso de 1 segundo (1000 milissegundos) antes de resolver ou rejeitar a promise
 4. Condição do pedido
-   - if (pedido === 'café') { ... } else { ... }: verifica se o pedido é igual a 'café'
-   - resolve('Pedido de café aceito'): se for 'café', a promise é resolvida com a mensagem 'Pedido de café aceito'
-   - reject('Pedido recusado'): se não for 'café', a promise é rejeitada com a mensagem 'Pedido recusado'
+   - `if (pedido === 'café') { ... } else { ... }`: verifica se o pedido é igual a 'café'
+   - `resolve('Pedido de café aceito')`: se for 'café', a promise é resolvida com a mensagem 'Pedido de café aceito'
+   - `reject('Pedido recusado')`: se não for 'café', a promise é rejeitada com a mensagem 'Pedido recusado'
 5. Encadeamento de promises - a função fazerPedido é chamada e encadeada com .then(), .catch(), e .finally() para gerenciar o fluxo da operação assíncrona
    &nbsp;
 
@@ -225,7 +225,7 @@ fazerPedido('café')
 - Isso retorna uma promise
   &nbsp;
 
-**Passo 2:** Primeiro .then(resposta => { ... })
+**Passo 2:** Primeiro `.then(resposta => { ... })`
 
 ```JavaScript
 .then(resposta => {
@@ -243,7 +243,7 @@ fazerPedido('café')
 Neste ponto, a primeira promise foi resolvida com 'Pedido de café aceito' e a string 'Preparando café' é passada para a próxima etapa
 &nbsp;
 
-**Passo 3:** Segundo .then(status => { ... })
+**Passo 3:** Segundo `.then(status => { ... })`
 
 ```JavaScript
 .then(status => {
@@ -261,7 +261,7 @@ Neste ponto, a primeira promise foi resolvida com 'Pedido de café aceito' e a s
 Neste ponto, a string 'Preparando café' foi processada e 'Café pronto' é passada para a próxima etapa
 &nbsp;
 
-**Passo 4:** Terceiro .then(resultado => { ... })
+**Passo 4:** Terceiro `.then(resultado => { ... })`
 
 ```JavaScript
 .then(resultado => {
@@ -277,7 +277,7 @@ Neste ponto, a string 'Preparando café' foi processada e 'Café pronto' é pass
 Neste ponto, a string 'Café pronto' foi processada e impressa no console
 &nbsp;
 
-**Passo 5:** .catch(erro => { ... })
+**Passo 5:** `.catch(erro => { ... })`
 
 ```JavaScript
 .catch(erro => {
@@ -293,7 +293,7 @@ Neste ponto, a string 'Café pronto' foi processada e impressa no console
 Neste exemplo específico, o .catch não será executado porque a promise foi resolvida com sucesso. Se o pedido não fosse 'café', a promise seria rejeitada, e o .catch capturaria o erro
 &nbsp;
 
-**Passo 6:** .finally(() => { ... })
+**Passo 6:** `.finally(() => { ... })`
 
 ```JavaScript
 .finally(() => {
@@ -355,18 +355,18 @@ fetch('https://api.github.com/users/bianca-rossi')
 
 &nbsp
 
-1. fetch('https://api.github.com/users/bianca-rossi')
+1. `fetch('https://api.github.com/users/bianca-rossi')`
    - URL: 'https://api.github.com/users/bianca-rossi' é a URL da API do GitHub que retorna os dados do usuário bianca-rossi
-2. .then(response => { ... })
+2. `.then(response => { ... })`
    - .then(): Recebe o objeto Response da promise resolvida pelo fetch
    - response.json(): response.json() é um método do objeto Response que retorna outra promise. Esta promise resolve para o corpo da resposta convertido em JSON
-3. .then(body => { ... })
+3. `.then(body => { ... })`
    - Recebe o objeto JSON que contém os dados do usuário do GitHub
    - console.log(body): imprime o corpo da resposta JSON no console. Esse objeto JSON contém informações do perfil do usuário bianca-rossi no GitHub, como nome, login, bio, repositórios, etc
-4. .catch(error => { ... })
+4. `.catch(error => { ... })`
    - .catch(): captura qualquer erro que ocorra em qualquer ponto do encadeamento das promises
    - console.error(error): imprime qualquer erro no console. Isso pode incluir erros de rede, erros de análise JSON ou outros erros que possam ocorrer
-5. .finally(() => { ... }) - .finally(): executa uma função quando a promise é concluída, independentemente de ela ter sido resolvida ou rejeitada - console.log("Terminado"): imprime "Terminado" no console
+5. `.finally(() => { ... })` - .finally(): executa uma função quando a promise é concluída, independentemente de ela ter sido resolvida ou rejeitada - console.log("Terminado"): imprime "Terminado" no console
    &nbsp;
 
 ---
