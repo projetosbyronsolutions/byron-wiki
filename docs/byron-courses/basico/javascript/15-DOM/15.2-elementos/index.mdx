@@ -1,0 +1,162 @@
+---
+title: "Acessando elementos"
+sidebar_position: 2
+---
+
+DOM - Acessando elementos
+
+## Como navegar e acessar os elementos através de DOM
+
+Para começarmos a trabalhar com DOM, vamos utilizar o que foi visto em 'Árvore DOM' e entender melhor como acessar os elementos. As duas principais formas de fazer isso são por meio de _Id_, _class_ e _tag_ ou pelo `querySelector()`. Porém, essas duas formas têm algo em comum, antes de chamarmos o respectivo método, temos um que acessar o `document`, portanto sempre usaremos a seguinte sintaxe:
+
+```js
+document.método(); // Acessa o documento e usa algum método escolhido
+```
+
+### Id, class e tag
+
+Como já foi dito, uma das formas de acessar esses elementos é por meio de _Id_, _class_ e _tag_. Agora vamos ver os métodos utilizados para fazermos isso com cada tipo de 'chave' de identificação.
+
+:::info
+Os exemplos a seguir usaram como base o HTML usado como exemplo na seção de Árvore DOM.
+:::
+
+- **Id:** Para selecionarmos o elemento que desejamos por meio do id utilizamos o método [`getElementById('id')`](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/getElementById), que recebe como parâmetro o id do elemento, e devolve o elemento inteiro.Caso você insira um _id_ que não exista o método retorna _null_, por exemplo:
+
+```js
+// <h1 id="titulo">DOM é uma coisa legal</h1>
+const título = document.getElementById("título"); // id errado (com acento)
+console.log(título); // ⟹ null
+
+const titulo = document.getElementById("titulo"); // id correto
+console.log(titulo); // ⟹ <h1 id="titulo">DOM é uma coisa legal</h1>
+```
+
+- **class:** O método utilizado para buscar os elementos por meio da _class_ é o [`getElementsByClassName('classe')`](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/getElementsByClassName). Esse método devolve um objeto do tipo HTMLCollection, que pode ser visto como Array com os elementos HTML, contendo todos os elementos que possuem essa classe. Caso não possua nenhum elemento com a classe inserida ele retorna um HTMLCollection vazio.
+
+```js
+const errado = document.getElementsByClassName("itens");
+console.log(errado); // ⟹ HTMLCollection []
+
+const itens = document.getElementsByClassName("item");
+console.log(itens); // ⟹ HTMLCollection(2) [li.item, li.item]
+
+console.log(itens[0]); // ⟹ <li class="item">Item 1</li>
+console.log(itens[1]); // ⟹ <li class="item">Item 2</li>
+```
+
+- **tag:** Para buscarmos os elementos de acordo com a _tag_, usamos o método [`getElementsByTagName('tag')`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName). Ele funciona da mesma forma do `getElementsByClassName('')` e também retorna um HTMLCollection.
+
+```js
+// Para este exemplo vamos adicionar, no nosso arquivo HTML, mais uma `<li>` dentro de `<ul>`, também com a classe "item" e vamos retirar a classe "item" do primeiro `<li>`. Assim poderemos ver que esse método realmente é diferente do anterior.
+
+const lis = document.getElementsByTagName("li");
+console.log(lis); // ⟹ HTMLCollection(3) [li, li.item, li.item]
+
+for (let li of lis) console.log(li); // Uma maneira de ver o console.log de cada item usando o for
+// ⟹ <li>Item 1</li>
+// ⟹ <li class="item">Item 2</li>
+// ⟹ <li class="item">Item 3</li>
+```
+
+:::note
+Apesar do _HTMLCollection_ ter a mesma estrutura de um array, ele não é, portanto não tem as funções da API Array vistas anteriormente.
+:::
+
+### `querySelector()`
+
+Com o avanço do JS, um novo método foi adicionado ao DOM, o [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) e [`querySelectorAll()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll), que atualmente são os métodos mais utilizados. Eles permitem acessar o elemento da mesma forma que é feita no CSS, buscando por _id_, _class_, atributos, e todas as outras combinações usadas no CSS.
+
+**`querySelector()`:** O `querySelector()` busca elementos de acordo com com algum parâmetro passado e retorna apenas um elemento. Se só houver um, retorna este único e se tiver mais de um, retorna apenas o primeiro elemento.
+
+```js
+// Por id ➔ document.querySelector('#id’)
+const titulo = document.querySelector("#titulo");
+console.log(titulo); // ⟹ <h1 id="titulo">DOM é uma coisa legal</h1>
+
+// Por classe ➔ document.querySelector(‘.class’)
+const item = document.querySelector(".item");
+console.log(item); // ⟹ <li class="item">Item 2</li>
+
+// Por tag ➔ document.querySelector(‘nome-tag’);
+const li = document.querySelector("li");
+console.log(li); // ⟹ <li>Item 1</li>
+```
+
+**`querySelectorAll()`:** O `querySelectorAll()` é bem semelhante ao `querySelector()`, porém ele retorna todos os elementos em um NodeList.
+
+```js
+// Por classe ➔ document.querySelectorAll(‘.class’)
+const itens = document.querySelectorAll(".item");
+console.log(itens); // ⟹ NodeList(2) [li.item, li.item]
+for (let item of itens) console.log(item);
+// ⟹ <li class="item">Item 2</li>
+// ⟹ <li class="item">Item 3</li>
+
+// Por tag ➔ document.querySelectorAll(‘nome-tag’);
+const lis = document.querySelectorAll("li");
+console.log(lis); // ⟹ <li>Item 1</li>
+for (let li of lis) console.log(li);
+// ⟹ <li>Item 1</li>
+// ⟹ <li class="item">Item 2</li>
+// ⟹ <li class="item">Item 3</li>
+```
+
+## Tabela dos métodos
+
+| **Função**                  | **querySelector()**                  | **querySelectorAll()**                      | **Usual**                                         |
+| --------------------------- | ------------------------------------ | ------------------------------------------- | ------------------------------------------------- |
+| Acessar elemento por id     | `document.querySelector('#id')`      | Não é utilizado pois id é único             | `document.getElementById('id')`                   |
+| Acessar elemento por classe | `document.querySelector('.class') `  | `document.querySelectorAll('.class')`       | `getElementsByClassName('classe')`                |
+| Acessar elemento por tag    | `document.querySelector('nome-tag')` | `document.querySelectorAll('nome-tag')`     | `getElementsByTagName('tag') `                    |
+| O que retorna               | Retorna o primeiro elemento          | Retorna todos os elementos em um _NodeList_ | Retorna todos os elementos em um _HTMLCollection_ |
+
+—
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/KFyCa6hAHSU" />
+
+—
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quiz
+
+As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e no vídeo sobre como acessar elementos por meio de DOM em JS.
+
+<Quiz
+  question="1. Qual é a principal diferença entre getElementById() e querySelector('#id')?"
+  answers={[
+    "getElementById() retorna um 'array' de elementos.",
+    "querySelector('#id') pode selecionar múltiplos elementos.",
+    "getElementById() é mais rápido para seleções únicas por ID.",
+    "querySelector('#id') não pode ser usado para IDs.",
+    "Não há diferença.",
+  ]}
+  correctIndex={0}
+/>
+
+<Quiz
+  question="2. Qual método é utilizado para acessar elementos por meio de classe no DOM?"
+  answers={[
+    "getElementById().",
+    "getElementsByClassName().",
+    "querySelector('#id').",
+    "getElementsByTagName().",
+    "querySelectorAll('nome-tag').",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="3. Qual método pode ser usado como alternativa a getElementsByTagName() para acessar elementos por tag, considerando que tem mais de um elemento com essa tag?"
+  answers={[
+    "`getElementById()`.",
+    "`getElementsByClassName()`.",
+    "`querySelectorAll('nome-tag')`.",
+    "`querySelector('nome-tag')`.",
+    "`getElementByTag()`.",
+  ]}
+  correctIndex={2}
+/>

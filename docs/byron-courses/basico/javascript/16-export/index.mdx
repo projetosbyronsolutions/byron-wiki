@@ -1,0 +1,96 @@
+---
+title: "Import e Export"
+sidebar_position: 16
+---
+
+Import e Export
+Vamos ver mais duas funções muito interessantes do JS que nos possibilitam acessar qualquer informação do nosso projeto (seja uma função, uma variável ou um componente), mesmo que ela não esteja no mesmo diretório. Essas funções trazem vários benefícios para o nosso projeto, além de ajudar a nos organizar evitando repetições desnecessárias de código, elas fazem com que seja possível usar outras bibliotecas e frameworks criadas por outros desenvolvedores ou por nós mesmos. As funções que nos possibilitam fazer isso são o `import` e o `export`, vamos entender melhor como cada uma delas funciona, mas antes vamos ver alguns exemplos práticos da utilização dessas funções:
+
+- Ter um arquivo no nosso projeto contendo funções matemáticas que serão exportadas para serem utilizadas em outras partes do nosso programa;
+- Uma pasta cheia de componentes que se repetem durante o projeto;
+- Um arquivo com requisições para o backend.
+  Agora que já sabemos o que pode ser feito com esses métodos e a importância deles, vamos aprender como eles fazem isso.
+
+## Export
+
+Iremos iniciar com o método do [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export), pelo fato de que sem ele o `import` não existe. O `export` tem como função permitir que uma informação que está em um arquivo _x_ seja usada em um arquivo _y_, ou seja, ele “permite” que outro arquivo use aquela informação.
+Existem dois tipos de exportação, se a informação é definida como a exportação padrão daquele arquivo, ou não. Geralmente definimos como `default` quando só tem aquela informação no arquivo, porém também é usado quando ela é a principal. A diferença na sintaxe desses dois tipos consiste em:
+
+```js
+export default const info = blablabla // ➔ default
+export const info = blablabla // ➔ não default
+```
+
+Além disso, temos duas opções de como exportar a informação, como visto acima ou utilizando no final, com todas as informações de uma vez: (`export { info1, info2, info3, … }`).
+
+```js
+export default info // ➔ default
+export info // ➔ uma não default
+export { info1, info2, info3, … } // ➔ várias não default
+```
+
+:::info
+Só existe um `export default` por arquivo.
+:::
+
+Vamos usar um exemplo de um arquivo criado com nome `biblioteca.js`, que possui 3 informações, uma função que calcula a área de um triângulo, uma constante com o valor de duas vezes o _pi_ e um objeto que contém uma função que retorna uma mensagem no console e outro objeto com alguns estilos de CSS:
+
+```js
+// lib > biblioteca.js
+
+// Função que calcula a área de um triângulo
+function areaTriangulo(base, altura) {
+  return (base * altura) / 2;
+}
+
+// Constante com o valor de duas vezes o pi
+const PIx2 = Math.PI * 2;
+
+// Um objeto com:
+const estilo = {
+  msg() {
+    // Função que retorna uma mensagem no console
+    console.log("Estilo pré-definido no arquivo biblioteca.js");
+  },
+  options: {
+    // Outro objeto com alguns estilos de CSS
+    color: "slateBlue",
+    fontSize: "7em",
+  },
+};
+
+export { areaTriangulo, PIx2, estilo }; // Exportando todas as informações
+```
+
+## Import
+
+Agora que já exportamos as nossas informações, vamos aprender como utilizá-las em outro arquivo usando o método [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import). Este método tem como função chamar alguma informação de um arquivo externo. A sintaxe da importação do conteúdo varia de acordo com a condição de se este conteúdo é `default` ou não, da seguinte forma:
+
+```js
+import info from "./caminho./arquivo.js"; // ➔ default
+import { info } from "./caminho./arquivo.js"; // ➔ não default
+```
+
+Após importar essas informações da outra pasta você está livre para usá-las nesse arquivo o quanto de vezes você quiser.
+
+```js
+// main.js
+
+import { areaTriangulo, PIx2, estilo } from "./lib/biblioteca";
+
+console.log(areaTriangulo(5, 8)); // ⟹ 20
+
+console.log(PIx2); // ⟹ 6.283185307179586
+
+paragrafo1.style.cssText = `
+  color: ${estilo.options.color}; 
+  font-size: ${estilo.options.fontSize};
+`;
+console.log(paragrafo1.getAttribute("style")); // ⟹ color: slateblue; font-size: 7em;
+```
+
+---
+
+## Videoaula
+
+<video src="https://www.youtube.com/embed/6EWku72BvzY?list=PLc77ERAwzB_0-C3oGJm0y-HPBf2dWS7UL" />
