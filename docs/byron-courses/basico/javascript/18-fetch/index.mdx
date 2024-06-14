@@ -24,7 +24,7 @@ Promises são úteis para gerenciar operações assíncronas, como chamadas a se
 
 **Como usar uma Promise?**
 
-```JavaScript
+```javascript
 let minhaPromise = new Promise((resolve, reject) => {
   let sucesso = true;
 
@@ -63,7 +63,7 @@ O método .then() é utilizado para lidar com o caso em que uma promise é resol
 
 **Sintaxe:**
 
-```JavaScript
+```javascript
 promise.then(onFulfilled, onRejected)
 ```
 
@@ -75,7 +75,7 @@ onRejected: função executada se a promise for rejeitada. Recebe o motivo da re
 
 Exemplo:
 
-```JavaScript
+```javascript
 let minhaPromise = new Promise((resolve, reject) => {
   let sucesso = true
 
@@ -110,7 +110,7 @@ Segunda função: a segunda função passada para .then() é executada quando a 
 
 Cada chamada ao método .then() retorna uma nova promise, permitindo o encadeamento de operações assíncronas
 
-```JavaScript
+```javascript
 minhaPromise
   .then((valor) => {
     console.log(valor)  // "A operação foi bem-sucedida!"
@@ -127,7 +127,7 @@ O método .catch() é usado para tratar erros que ocorreram durante a execução
 
 **Sintaxe:**
 
-```JavaScript
+```javascript
 promise.catch(onRejected);
 ```
 
@@ -137,7 +137,7 @@ onRejected: função executada se a promise for rejeitada. Recebe o motivo da re
 
 Exemplo:
 
-```JavaScript
+```javascript
 minhaPromise.catch((erro) => {
   console.error("Erro:", erro)
 })
@@ -149,7 +149,7 @@ O método .finally() é usado para executar uma função quando a promise é con
 
 **Sintaxe:**
 
-```JavaScript
+```javascript
 promise.finally(onFinally);
 ```
 
@@ -159,7 +159,7 @@ onFinally: Função a ser executada quando a promise é concluída (resolve ou r
 
 Exemplo:
 
-```JavaScript
+```javascript
 function fazerPedido(pedido) {
   return new Promise((resolve, reject) => {
     console.log(`Fazendo pedido: ${pedido}`);
@@ -215,7 +215,7 @@ Quando você encadeia promises, cada .then() recebe o resultado da promise anter
 
 **Passo 1:** Chamando fazerPedido('café')
 
-```JavaScript
+```javascript
 fazerPedido('café')
 ```
 
@@ -227,7 +227,7 @@ fazerPedido('café')
 
 **Passo 2:** Primeiro `.then(resposta => { ... })`
 
-```JavaScript
+```javascript
 .then(resposta => {
   console.log(resposta)  // "Pedido de café aceito"
   return 'Preparando café'
@@ -245,7 +245,7 @@ Neste ponto, a primeira promise foi resolvida com 'Pedido de café aceito' e a s
 
 **Passo 3:** Segundo `.then(status => { ... })`
 
-```JavaScript
+```javascript
 .then(status => {
   console.log(status)  // "Preparando café"
   return 'Café pronto'
@@ -263,7 +263,7 @@ Neste ponto, a string 'Preparando café' foi processada e 'Café pronto' é pass
 
 **Passo 4:** Terceiro `.then(resultado => { ... })`
 
-```JavaScript
+```javascript
 .then(resultado => {
   console.log(resultado)  // "Café pronto"
 })
@@ -279,7 +279,7 @@ Neste ponto, a string 'Café pronto' foi processada e impressa no console
 
 **Passo 5:** `.catch(erro => { ... })`
 
-```JavaScript
+```javascript
 .catch(erro => {
   console.error('Erro:', erro)  // Se o pedido não for 'café'
 })
@@ -295,7 +295,7 @@ Neste exemplo específico, o .catch não será executado porque a promise foi re
 
 **Passo 6:** `.finally(() => { ... })`
 
-```JavaScript
+```javascript
 .finally(() => {
   console.log('Operação concluída.')  // Sempre executado
 })
@@ -325,7 +325,7 @@ APIs são construções disponibilizadas em linguagens de programação para per
 
 O método fetch é uma API moderna para realizar solicitações HTTP. Ele retorna uma Promise, o que torna fácil trabalhar com operações assíncronas como chamadas a servidores. Sintaxe básica do fetch:
 
-```JavaScript
+```javascript
 fetch(url, [options])
 ```
 
@@ -337,7 +337,7 @@ fetch(url, [options])
 
 Exemplo prático:
 
-```JavaScript
+```javascript
 fetch('https://api.github.com/users/bianca-rossi')
   .then(response => {
     return response.json()
@@ -385,7 +385,7 @@ await: usado dentro de uma função async para esperar por uma promise. Ele paus
 
 1. Declarar uma função assíncrona
 
-```JavaScript
+```javascript
 async function obterDados() {
   // Código assíncrono
 }
@@ -396,7 +396,7 @@ async function obterDados() {
    Dentro da função async, você pode usar await antes de uma chamada de função que retorna uma promise (como fetch), para esperar pela sua resolução
    &nbsp;
 
-```JavaScript
+```javascript
 async function obterDadosUsuario() {
   try {
     const resposta = await fetch('https://api.github.com/users/bianca-rossi')
@@ -417,7 +417,7 @@ Passo a passo:
 
 1. Declaração da função
 
-```JavaScript
+```javascript
 async function obterDadosUsuario()
 ```
 
@@ -427,7 +427,7 @@ async function obterDadosUsuario()
 
 2. Bloco try
 
-```JavaScript
+```javascript
 try {
 ```
 
@@ -437,7 +437,7 @@ O bloco try contém código que pode lançar uma exceção. Se uma exceção oco
 
 3. Chamada fetch com await
 
-```JavaScript
+```javascript
 try {const resposta = await fetch('https://api.github.com/users/bianca-rossi')
 ```
 
@@ -451,7 +451,7 @@ try {const resposta = await fetch('https://api.github.com/users/bianca-rossi')
 
 4. Verificação da resposta
 
-```JavaScript
+```javascript
 if (!resposta.ok) {
   throw new Error('Não foi possível obter os dados do usuário')
 }
@@ -465,7 +465,7 @@ if (!resposta.ok) {
 
 5. Análise dos dados da resposta
 
-```JavaScript
+```javascript
 const dadosUsuario = await resposta.json()
 ```
 
@@ -479,7 +479,7 @@ const dadosUsuario = await resposta.json()
 
 6. Impressão dos dados do usuário
 
-```JavaScript
+```javascript
 console.log('Dados do usuário:', dadosUsuario)
 ```
 
@@ -489,7 +489,7 @@ console.log('Dados do usuário:', dadosUsuario)
 
 7. Bloco catch
 
-```JavaScript
+```javascript
   } catch (erro) {
 console.error('Houve um problema ao obter os dados do usuário:', erro)
 }
@@ -503,7 +503,7 @@ console.error('Houve um problema ao obter os dados do usuário:', erro)
 
 8. Chamada da função
 
-```JavaScript
+```javascript
 obterDadosUsuario()
 ```
 
@@ -523,7 +523,7 @@ import Quiz from "@site/src/components/Quiz";
 
 ## Quiz
 
-```JavaScript
+```javascript
 function esperar(segundos) {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -603,7 +603,7 @@ esperar(3)
   correctIndex={0}
 />
 
-```JavaScript
+```javascript
 async function fetchData() {
     const response = await fetch('https://api.example.com/data');
     if (!response.ok) {

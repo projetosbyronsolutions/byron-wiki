@@ -8,7 +8,7 @@ Uma coisa especial sobre as variáveis é que elas podem conter praticamente qua
 
 #### Observe a sintaxe da declaração de uma variável
 
-```JavaScript
+```javascript
 let | var [ identificador ] [ = valor | expressão ]
 ```
 
@@ -25,7 +25,7 @@ let | var [ identificador ] [ = valor | expressão ]
 
 Digita-se a palavra chave var seguido pelo nome desejado para a variável, por exemplo:
 
-```JavaScript
+```javascript
 var nome;
 var faculdade;
 ```
@@ -36,7 +36,7 @@ Quando não possuem valor, são containers vazios, como o que foi feito acima. S
 
 #### Declarando uma variável e adicionando valor
 
-```JavaScript
+```javascript
 var nome = "Bianca";
 var faculdade = "Unifei";
 
@@ -54,7 +54,7 @@ O que deverá aparecer no terminal
 
 Retire os valores das variáveis e execute, dessa forma:
 
-```JavaScript
+```javascript
 var nome;
 var faculdade;
 
@@ -67,7 +67,7 @@ Note que a saída do terminal será `undefined`, uma vez que não possuem mais v
 
 **Importante:** O nome das variáveis deve ser separado por vírgulas dentro do console.log, como foi feito anteriormente. Além disso, deve ser utilizado o camelcase para nomes com mais de uma palavra.
 
-```JavaScript
+```javascript
 var nomeSobrenome = "Bianca Rossi";
 ```
 
@@ -81,7 +81,7 @@ Para explicar a diferença entre declaração de tipo let e de tipo var, explica
 
 **Escopo global:** é possível chamar a variável fora e dentro de funções, observe:
 
-```JavaScript
+```javascript
 var nome = "Bianca";
 
 function func1(){
@@ -96,7 +96,7 @@ func1()
 
 **Escopo local:** a variável é definida dentro de uma função e só aquela função poderá chamá-la. Se for chamada em outro lugar, dará erro.
 
-```JavaScript
+```javascript
 var nome = "Bianca";
 
 function fun1 (){
@@ -110,7 +110,7 @@ func1()
 
 **Escopo de bloco:** bloco é definido por abre e fecha chaves ( { } ). A variável é contida dentro do bloco, veja:
 
-```JavaScript
+```javascript
 let a = 10;
 let validar = true;
 
@@ -131,7 +131,7 @@ Dito tudo isso, a diferença é:
 
 Ademais, também sabe-se que a declaração do tipo var pode ser atualizada e declarada novamente dentro do escopo global, enquanto a declaração do tipo let podem ser atualizadas, mas não podem ser redeclaradas.
 
-```JavaScript
+```javascript
 let a = 30;
 let a = 15;
 
@@ -142,7 +142,7 @@ console.log(a)
 Execute e perceba que dará erro, porque foi feita a redeclaração da variável `let`
 &nbsp;
 
-```JavaScript
+```javascript
 let a = 30;
 a = 15;
 
@@ -155,7 +155,7 @@ E assim funcionará porque o valor está apenas sendo atualizado
 
 **Importante:**
 
-```JavaScript
+```javascript
 console.log(a)
 let a = 10;
 console.log(a)
@@ -169,7 +169,7 @@ Com a declaração tipo `let`, o terminal exibe um erro caso tente imprimir a va
 
 É um valor que uma vez declarado não pode ser alterado. Há muitas razões pelas quais você deseja fazer isso, desde segurança até a depuração e a compreensão do código. Funciona da mesma forma que let, porém não é permitido que um novo valor seja atribuído
 
-```JavaScript
+```javascript
 const diasNaSemana = 7;
 const horasNoDia = 24;
 ```
@@ -183,7 +183,7 @@ const horasNoDia = 24;
 Você pode armazenar números em variáveis, tanto números inteiros, quanto decimais
 &nbsp;
 
-```JavaScript
+```javascript
 let minhaIdade = 21;
 ```
 
@@ -192,7 +192,7 @@ let minhaIdade = 21;
 São sequências de textos. Quando você dá a uma variável um valor em texto, você precisa envolver o texto em aspas simples ou duplas, senão será interpretado como sendo outro nome de variável
 &nbsp;
 
-```JavaScript
+```javascript
 let linguagem = "Estamos aprendendo JavaScript!";
 ```
 
@@ -201,7 +201,7 @@ let linguagem = "Estamos aprendendo JavaScript!";
 São valores verdadeiro/falso (true/false). São geralmente usados para verificar uma condição, que em seguida o código é executado apropriadamente. Exemplo:
 &nbsp;
 
-```JavaScript
+```javascript
 let a = true;
 let b = 10;
 
@@ -216,13 +216,13 @@ console.log(b + c);
 Um array é um único objeto que contém valores múltiplos inseridos entre colchetes e separados por vírgulas
 &nbsp;
 
-```JavaScript
+```javascript
 let numeros = [15, 30, 45];
 ```
 
 Caso queira exibir apenas um número no terminal, dê o console.log dessa forma:
 
-```JavaScript
+```javascript
 let numeros = [15, 30, 45];
 
 console.log(numeros[0])
@@ -237,7 +237,7 @@ Lembre-se que a contagem do array começa em 0, portanto exibirá o número 15 n
 Em programação, um objeto é uma estrutura de código que representa um objeto da vida real. você poderia ter um objeto que representa uma pessoa, e contém dados sobre seu nome, altura, peso, que idioma ela fala, etc
 &nbsp;
 
-```JavaScript
+```javascript
 let aluno = {
     nome: "Bianca",
     idade: 21,
@@ -251,7 +251,7 @@ console.log(aluno)
 Teste com as suas informações
 &nbsp;
 
-```JavaScript
+```javascript
 let aluno = {
     nome: "Bianca",
     idade: 21,
@@ -279,7 +279,7 @@ import Quiz from "@site/src/components/Quiz";
 
 ## Quizz
 
-```JavaScript
+```javascript
 console.log(a);
 var a = 10;
 console.log(a);
