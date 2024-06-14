@@ -11,7 +11,7 @@ A definição da função (também chamada de declaração de função) consiste
 - Lista de parâmetros para a função, entre parênteses e separados por vírgulas.
 - Declarações JavaScript que definem a função, entre chaves { }.
 
-```JavaScript
+```javascript
 function nomeDaFuncao(parametro1, parametro2, ...) {
     // Corpo da função
     // Código a ser executado
@@ -28,7 +28,7 @@ function nomeDaFuncao(parametro1, parametro2, ...) {
 
 Exemplo:
 
-```JavaScript
+```javascript
 function n1(){
 	console.log("estou dentro da função")
 }
@@ -44,7 +44,7 @@ n1() // chamando a função
 
 Exemplo:
 
-```JavaScript
+```javascript
 function mostraNome(nome){
 	console.log(nome)
 }
@@ -59,7 +59,7 @@ Note que é possível chamar a função mais de uma vez e passar parâmetros dif
 
 Outro exemplo:
 
-```JavaScript
+```javascript
 function media(num1, num2){
 	let mediaAritm = (num1 + num2)/2
 	console.log(mediaAritm)
@@ -74,7 +74,7 @@ A instrução `return` é usada dentro de uma função para retornar um valor es
 
 Exemplo:
 
-```JavaScript
+```javascript
 function media(num1, num2){
 	let mediaAritm = (num1 + num2)/2
 	return mediaAritm
@@ -87,7 +87,7 @@ console.log(media(10,8))
 
 É uma forma concisa de escrever uma função. Veja sua sintaxe:
 
-```JavaScript
+```javascript
 // Com um único parâmetro
 let nomeDaFuncao = parametro => {
     // Corpo da função
@@ -109,7 +109,7 @@ let nomeDaFuncao = (parametro1, parametro2) => {
 
 Arrow function sem parâmetros:
 
-```JavaScript
+```javascript
 let saudacao = () => {
     return "Olá, mundo!"
 }
@@ -119,7 +119,7 @@ console.log(saudacao())
 
 Arrow function com um parâmetro:
 
-```JavaScript
+```javascript
 let quadrado = x => {
     return x * x
 }
@@ -129,7 +129,7 @@ console.log(quadrado(5))
 
 Arrow function com dois parâmetros:
 
-```JavaScript
+```javascript
 let soma = (a, b) => {
     return a + b
 }
@@ -149,7 +149,7 @@ import Quiz from "@site/src/components/Quiz";
 
 ## Quizz
 
-```JavaScript
+```javascript
 function dobro(numero) {
     return numero * 2
 }
@@ -164,7 +164,7 @@ console.log(resultado)
   correctIndex={2}
 />
 
-```JavaScript
+```javascript
 let nome = "João";
 
 function saudacao() {
@@ -187,7 +187,7 @@ console.log(mensagem);
   correctIndex={1}
 />
 
-```JavaScript
+```javascript
 let saudacao = (nome) => {
     return "Olá, " + nome + "!"
 }

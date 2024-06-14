@@ -9,7 +9,7 @@ O Axios é uma biblioteca popular para fazer requisições HTTP em navegadores e
 
 A instalação pode ser feita utilizando o npm. Utilize o seguinte comando no terminal:
 
-```JavaScript
+```bash
    npm install axios
 ```
 
@@ -19,7 +19,7 @@ O Axios suporta todos os métodos HTTP comuns, como GET, POST, PUT, DELETE
 
 #### Exemplo de requisição do tipo GET
 
-```JavaScript
+```javascript
   const axios = require('axios')
 
 async function obterDados() {
@@ -38,7 +38,7 @@ Passo a passo:
 
 1. Importação do Axios
 
-```JavaScript
+```javascript
 const axios = require('axios')
 ```
 
@@ -48,7 +48,7 @@ const axios = require('axios')
 
 2. Declaração da função assíncrona
 
-```JavaScript
+```javascript
 async function obterDados() {}
 ```
 
@@ -58,7 +58,7 @@ async function obterDados() {}
 
 3. Bloco try...catch
 
-```JavaScript
+```javascript
 try {
   // Código que pode gerar exceções
 } catch (erro) {
@@ -72,7 +72,7 @@ try...catch: estrutura de controle usada para capturar e tratar erros que podem 
 
 4. Chamada axios.get com await
 
-```JavaScript
+```javascript
 const resposta = await axios.get('https://api.github.com/users/bianca-rossi')
 ```
 
@@ -85,7 +85,7 @@ const resposta = await axios.get('https://api.github.com/users/bianca-rossi')
 
 5. Acessando os dados da resposta
 
-```JavaScript
+```javascript
 console.log(resposta.data)
 ```
 
@@ -97,7 +97,7 @@ console.log(resposta.data)
 
 6. Tratamento de erros
 
-```JavaScript
+```javascript
 catch (erro) {
   console.error('Houve um problema com a requisição:', erro)
 }
@@ -111,7 +111,7 @@ catch (erro) {
 
 7. Chamada da função
 
-```JavaScript
+```javascript
 obterDados()
 ```
 
@@ -122,7 +122,7 @@ obterDados()
 
 #### Exemplo de requisição do tipo POST
 
-```JavaScript
+```javascript
 const axios = require('axios');
 
 async function criarProduto() {
@@ -153,7 +153,7 @@ Passo a passo:
 
 4. Chamada axios.post com await
 
-```JavaScript
+```javascript
 const resposta = await axios.post('https://fakestoreapi.com/products', {
   title: 'Produto 1',
   price: 14.20,
@@ -174,13 +174,13 @@ const resposta = await axios.post('https://fakestoreapi.com/products', {
 
 5. Acessando os Dados da Resposta
 
-```JavaScript
+```javascript
 console.log('Resposta do servidor:', resposta.data)
 ```
 
 6. Tratamento de erros
 
-```JavaScript
+```javascript
 catch (erro) {
   console.error('Houve um problema com a requisição:', erro)
 }
@@ -188,7 +188,7 @@ catch (erro) {
 
 7. Chamada da função
 
-```JavaScript
+```javascript
 criarProduto();
 ```
 
@@ -202,7 +202,7 @@ import Quiz from "@site/src/components/Quiz";
 
 ## Quizz
 
-```JavaScript
+```javascript
 const axios = require('axios')
 
 async function fazerRequisicao() {
