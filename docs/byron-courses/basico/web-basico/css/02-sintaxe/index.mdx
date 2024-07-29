@@ -22,16 +22,62 @@ Uma regra CSS é a unidade básica de uma folha de estilo. Entenda-se como unida
 3. Dentro de cada conjunto de regras, você deve usar ponto e vírgula ( ; ) para separar cada declaração da próxima.
 4. Quando o valor de uma propriedade for uma palavra composta, separada por espaços, deve-se usar sinais de aspas duplas (“ “) ou de aspas simples (‘ ‘). Por exemplo:
 
-![](./assets/image9.png)
+```css
+p {
+  font-family: "times new roman";
+}
+```
 
 ### Modificando múltiplos valores de propriedade de uma vez
 
 Para modificar vários valores de propriedade em um conjunto de regras, escreva-os separados por ponto e vírgula, assim:
 
-![](./assets/image14.png)
+```css
+p {
+  font-family: "times new roman";
+  background-color: gray;
+  color: white;
+}
+```
 
 ### Selecionando múltiplos elementos
 
 Também é possível selecionar vários tipos de elementos e aplicar um único conjunto de regras a todos eles. Inclua múltiplos seletores separados por vírgulas. Por exemplo:
 
-![](./assets/image46.png)
+```css
+h1,
+p {
+  font-family: "times new roman";
+  background-color: gray;
+  color: white;
+}
+```
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Quizz
+
+<Quiz
+  question="1. Para separar múltiplos seletores em uma única regra CSS, deve-se usar:"
+  answers={["Ponto e vírgula", "Dois pontos", "Vírgula", "Aspas duplas"]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="2. O que define os elementos a serem estilizados em uma regra CSS?"
+  answers={["Propriedade", "Valor", "Declaração", "Seletor"]}
+  correctIndex={3}
+/>
+
+<Quiz
+  question="3. Qual é a estrutura correta de uma declaração CSS?"
+  answers={[
+    "Seletor { valor: propriedade; }",
+    "Seletor { propriedade: valor }",
+    "Declaração { seletor: valor }",
+    "Valor { seletor: propriedade }",
+  ]}
+  correctIndex={1}
+/>

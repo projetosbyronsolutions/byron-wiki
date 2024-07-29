@@ -19,7 +19,7 @@ ou usar a sintaxe abreviada:
 
 ---
 
-As propriedades CSS font, background, margin, padding, border, border-width, border-style, border-color\_ e outline admitem a sintaxe abreviada, a qual consiste em declarar uma lista de valores separados por um espaço, conforme mostrado. Para as propriedades em que se definem valores para os quatro lados de um box, tais como margin e padding, é válida a sintaxe abreviada e a ordem em que os valores são escritos na lista correspondem aos **lados superior, direito, inferior e esquerdo, respectivamente**.
+As propriedades CSS font, background, margin, padding, border, border-width, border-style, border-color e outline admitem a sintaxe abreviada, a qual consiste em declarar uma lista de valores separados por um espaço, conforme mostrado. Para as propriedades em que se definem valores para os quatro lados de um box, tais como margin e padding, é válida a sintaxe abreviada e a ordem em que os valores são escritos na lista correspondem aos **lados superior, direito, inferior e esquerdo, respectivamente**.
 
 A declaração abreviada admite ainda as seguintes variações:
 
@@ -37,3 +37,43 @@ margin: 15px 10px; margens superior e inferior de 15px e direita e esquerda de 1
 &nbsp;
 margin: 20px 10px 15px; margem superior de 20px margens direita e esquerda de 10px e margem inferior de 15px
 &nbsp;
+
+<br />
+
+> #### IMPORTANTE
+>
+> Para remover completamente as margens de um elemento, utiliza-se `margin: 0`
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Perguntas
+
+<Quiz
+  question="1. Para definir as margens superior e inferior de 15px e as margens direita e esquerda de 10px, qual sintaxe abreviada deve ser usada?"
+  answers={[
+    "margin: 15px 10px;",
+    "margin: 10px 15px;",
+    "margin: 15px 10px 15px 10px;",
+    "margin: 10px 15px 10px 15px;",
+  ]}
+  correctIndex={0}
+/>
+
+<Quiz
+  question="2. Como você pode remover completamente as margens de um elemento em CSS?"
+  answers={["margin: 0;", "margin: none;", "margin: no;", "margin: zero;"]}
+  correctIndex={0}
+/>
+
+<Quiz
+  question="3. Se você declarar margin: 25px 50px;, quais serão os valores das margens superior, direita, inferior e esquerda, respectivamente?"
+  answers={[
+    "25px, 25px, 50px, 50px",
+    "50px, 25px, 25px, 50px",
+    "25px, 50px, 25px, 50px",
+    "50px, 50px, 25px, 25px",
+  ]}
+  correctIndex={2}
+/>

@@ -1,13 +1,34 @@
 ---
-title: "Seletor de ID"
+title: "Seletor ID"
 sidebar_position: 5
 ---
 
-O seletor de classe começa com uma hashtag (#). A principal característica do seletor de id é que ele serve para identificar uma parte única do código, diferente do seletor de classe, que tem usos mais gerais e pode ser usado o mesmo nome várias vezes num mesmo documento de HTML. A sintaxe é muito semelhante ao id de classe, deve ser colocado o atributo id dentro de uma tag e atribuir valor a esse id. Por exemplo:
+O seletor de ID começa com uma hashtag (#). A principal característica do seletor de id é que ele serve para identificar uma parte única do código, diferente do seletor de classe, que tem usos mais gerais e pode ser usado o mesmo nome várias vezes num mesmo documento de HTML. A sintaxe é muito semelhante ao seletor de classe, deve ser colocado o atributo id dentro de uma tag e atribuir valor a esse id. Por exemplo:
 
-![](../assets/image10.png)
+```html
+<!--TÍTULO-->
+<div id="divLogin">
+  <h1>Login</h1>
+  <p>olá</p>
+  <div>
+    <p>Seja bem-vindo!</p>
+  </div>
+</div>
+```
 
-![](../assets/image35.png)
+Arquivo HTML
+
+```css
+#divLogin {
+  font-size: x-large;
+  color: white;
+  background-color: gray;
+}
+```
+
+Arquivo CSS
+
+<br />
 
 > #### IMPORTANTE
 >

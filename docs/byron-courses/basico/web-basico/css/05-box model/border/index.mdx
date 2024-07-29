@@ -60,3 +60,37 @@ A propriedade _border_ define a espessura, o estilo e a cor das bordas do box. C
 ou usar a sintaxe abreviada para bordas que sejam iguais nos quatros lados:
 
 > border: 2px dotted white;
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Perguntas
+
+<Quiz
+  question="1. Qual das seguintes opções define corretamente uma borda com espessura de 1px na parte superior, 2px na direita, 3px na inferior e 4px na esquerda?"
+  answers={[
+    "border: 1px 2px 3px 4px;",
+    "border-width: 1px 2px 3px 4px;",
+    "border-size: 1px 2px 3px 4px;",
+    "border-thickness: 1px 2px 3px 4px;",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="2. Qual propriedade CSS é utilizada para definir o estilo da borda de um elemento?"
+  answers={["border-style", "border-type", "border-format", "border-design"]}
+  correctIndex={0}
+/>
+
+<Quiz
+  question="3. Qual declaração CSS define uma borda de 5px de largura, estilo sólido e cor preta em todos os lados de um elemento?"
+  answers={[
+    "border: 5px black solid;",
+    "border: 5px solid black;",
+    "border: solid 5px black;",
+    "border: black 5px solid;",
+  ]}
+  correctIndex={1}
+/>

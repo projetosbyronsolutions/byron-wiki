@@ -1,16 +1,49 @@
 ---
-title: "Seletor de Filho"
+title: "Seletor Filho"
 sidebar_position: 7
 ---
 
 É colocado um ( > ) entre dois seletores. Esse seletor é responsável por aplicar a estilização apenas aos filhos diretos do primeiro seletor. Por exemplo:
 
-![](../assets/image2.png)  
+```html
+<body>
+  <!--TÍTULO-->
+  <div class="div-login">
+    <h1 class="titulo-login">Login</h1>
+    <p>olá</p>
+    <div>
+      <p class="paragrafo-do-login">Seja bem-vindo!</p>
+    </div>
+  </div>
+
+  <form>
+    <!--FORMULÁRIO EMAIL-->
+    <label>Email:</label>
+    <input type="email" placeholder="byron@byronsolutions.com" />
+
+    <!--FORMULÁRIO SENHA-->
+    <label>Senha:</label>
+    <input type="password" placeholder="Senha" />
+
+    <!--BOTÃO LOGAR-->
+    <input type="submit" value="Entrar" />
+  </form>
+
+  <!--NÃO POSSUI CONTA-->
+  <p>Ainda não tem conta? <a href="">Cadastre-se</a></p>
+</body>
+```
+
 &nbsp;
 Note que o `<p>` na penúltima linha é filho direto de `<body>`, mas o “olá” e o “Seja bem-vindo!” não são
 &nbsp;
 
-![](../assets/image30.png)  
+```css
+body > p {
+  background-color: aquamarine;
+}
+```
+
 &nbsp;
 Selecionando apenas o filho direto de `<body>`
 &nbsp;
@@ -19,7 +52,12 @@ Selecionando apenas o filho direto de `<body>`
 
 Também é possível usar esse seletor com uma classe. Veja:
 
-![](../assets/image15.png)  
+```css
+.div-login > p {
+  background-color: aquamarine;
+}
+```
+
 &nbsp;
 Estilizando o “olá”, que é filho direto da div login
 &nbsp;

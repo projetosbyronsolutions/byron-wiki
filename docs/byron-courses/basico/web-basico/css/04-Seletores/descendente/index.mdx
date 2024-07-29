@@ -1,16 +1,31 @@
 ---
-title: "Seletor de Descendente"
+title: "Seletor Descendente"
 sidebar_position: 6
 ---
 
 Este seletor é formado por um ou mais elementos (seletores) separados por um espaço em branco. No caso do exemplo abaixo, perceba que todos os filhos `<p>` da div serão estilizados com o _background-color_
 
-![](../assets/image53.png)  
+```html
+<!--TÍTULO-->
+<div>
+  <h1 class="titulo-login">Login</h1>
+  <p>olá</p>
+  <div>
+    <p class="paragrafo-do-login">Seja bem-vindo!</p>
+  </div>
+</div>
+```
+
 &nbsp;
 Arquivo HTML
 &nbsp;
 
-![](../assets/image20.png)  
+```css
+div p {
+  background-color: aquamarine;
+}
+```
+
 &nbsp;
 Arquivo CSS
 &nbsp;
@@ -19,12 +34,27 @@ Arquivo CSS
 
 O modelo mostrado acima é funcional, mas para um código com muitas divs não seria. Por esse motivo, é importante adicionar classes às divs. Exemplo:
 
-![](../assets/image3.png)  
+```html
+<!--TÍTULO-->
+<div class="div-login">
+  <h1 class="titulo-login">Login</h1>
+  <p>olá</p>
+  <div>
+    <p class="paragrafo-do-login">Seja bem-vindo!</p>
+  </div>
+</div>
+```
+
 &nbsp;
 Arquivo HTML
 &nbsp;
 
-![](../assets/image43.png)  
+```css
+.div-login p {
+  background-color: aquamarine;
+}
+```
+
 &nbsp;
 Arquivo CSS
 &nbsp;

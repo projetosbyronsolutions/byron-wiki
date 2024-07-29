@@ -1,16 +1,32 @@
 ---
-title: "Seletor de Irmão-Adjacente"
+title: "Seletor Irmão-Adjacente"
 sidebar_position: 8
 ---
 
 É colocado um (+) entre dois seletores. Esse seletor é responsável por aplicar a estilização apenas ao irmão adjacente, ou seja, o irmão mais próximo a ele. Por exemplo:
 
-![](../assets/image24.png)  
+```html
+<!--TÍTULO-->
+<div class="div-login">
+  <h1 class="titulo-login">Login</h1>
+  <p>olá</p>
+  <p>hello</p>
+  <div>
+    <p class="paragrafo-do-login">Seja bem-vindo!</p>
+  </div>
+</div>
+```
+
 &nbsp;
-Observe que o “olá” e o “hello” são irmãos de `<h1>`, porém apenas o “olá” é irmão-adjacentemas o “olá” e o “Seja bem-vindo!” não são
+Observe que o “olá” e o “hello” são irmãos de `<h1>`, porém apenas o “olá” é irmão-adjacente.
 &nbsp;
 
-![](../assets/image51.png)  
+```css
+h1 + p {
+  background-color: aquamarine;
+}
+```
+
 &nbsp;
 Estilizando o “olá”
 &nbsp;

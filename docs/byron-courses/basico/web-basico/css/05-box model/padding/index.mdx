@@ -18,3 +18,42 @@ ou usar a sintaxe abreviada:
 > padding: 20px 30px 5px 10px;
 
 A sintaxe é idêntica àquela para a propriedade _margin_ e a declaração abreviada também admite as variações mostradas para tal propriedade.
+
+---
+
+import Quiz from "@site/src/components/Quiz";
+
+## Perguntas
+
+<Quiz
+  question="1. Qual é a função da propriedade padding em CSS?"
+  answers={[
+    "Definir a largura das bordas",
+    "Definir o espaço entre o conteúdo e a borda de um elemento",
+    "Definir a cor das bordas",
+    "Definir o estilo das bordas",
+  ]}
+  correctIndex={1}
+/>
+
+<Quiz
+  question="2. Qual das seguintes opções representa a sintaxe abreviada correta para definir um padding de 20px no topo, 30px à direita, 5px na parte inferior e 10px à esquerda?"
+  answers={[
+    "padding: 20px 5px 30px 10px;",
+    "padding: 20px 10px 5px 30px;",
+    "padding: 20px 30px 5px 10px;",
+    "padding: 10px 30px 5px 20px;",
+  ]}
+  correctIndex={2}
+/>
+
+<Quiz
+  question="3. Para definir um preenchimento superior de 10px e preenchimentos iguais de 20px nos outros três lados, qual sintaxe abreviada deve ser usada?"
+  answers={[
+    "padding: 10px 20px 20px 20px;",
+    "padding: 10px 20px;",
+    "padding: 20px 10px;",
+    "padding: 20px 10px 20px 20px;",
+  ]}
+  correctIndex={0}
+/>

@@ -1,0 +1,95 @@
+---
+title: "Seletor de Classe"
+sidebar_position: 5
+---
+
+### Classe
+
+O seletor de classe começa com um caractere de ponto (.). Ele selecionará tudo no documento HTML com essa classe aplicada a ele. A classe deve ser colocada dentro da tag e tem o formato class=”nome”. Veja o exemplo:
+
+```html
+<body>
+  <!--TÍTULO-->
+  <h1>Login</h1>
+  <p class="paragrafo">Seja bem-vindo!</p>
+
+  <form>
+    <!--FORMULÁRIO EMAIL-->
+    <label>Email:</label>
+    <input type="email" placeholder="byron@byronsolutions.com" />
+
+    <!--FORMULÁRIO SENHA-->
+    <label>Senha:</label>
+    <input type="password" placeholder="Senha" />
+
+    <!--BOTÃO LOGAR-->
+    <input type="submit" value="Entrar" />
+  </form>
+
+  <!--NÃO POSSUI CONTA-->
+  <p class="paragrafo">Ainda não tem conta? <a href="">Cadastre-se</a></p>
+</body>
+```
+
+Arquivo HTML
+
+```css
+.paragrafo {
+  font-size: large;
+}
+```
+
+&nbsp;
+Arquivo CSS
+&nbsp;
+
+---
+
+A classe pode conter mais de uma palavra e deverá seguir o seguinte modelo:
+
+```html
+<!--TÍTULO-->
+<h1>Login</h1>
+<p class="paragrafo-do-login">Seja bem-vindo!</p>
+```
+
+&nbsp;
+Arquivo HTML
+&nbsp;
+
+```css
+.paragrafo-do-login {
+  font-size: xx-large;
+}
+```
+
+&nbsp;
+Arquivo CSS
+&nbsp;
+
+---
+
+Também é possível aplicar o mesmo conjunto de regras a duas ou mais classes. Veja:
+
+```html
+<!--TÍTULO-->
+<h1 class="titulo-login">Login</h1>
+<p class="paragrafo-do-login">Seja bem-vindo!</p>
+```
+
+&nbsp;
+Arquivo HTML
+&nbsp;
+
+```css
+.paragrafo-do-login,
+.titulo-login {
+  font-size: x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: aquamarine;
+}
+```
+
+&nbsp;
+Arquivo CSS
+&nbsp;
