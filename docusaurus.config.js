@@ -87,13 +87,6 @@ const config = {
             position: "left",
             label: "Capacitações",
           },
-          {
-            href: "http://mattermost.byronsolutions.com/",
-            label: "Mattermost",
-            position: "right",
-            className: "header-github-link",
-            "aria-label": "Mattermost",
-          },
         ],
       },
       footer: {
