@@ -1,12 +1,12 @@
 ---
-title: "Objetos"
+title: 'Objetos'
 sidebar_position: 7
 ---
 
 ## Links de apoio
 
-- [Objects (mozilla)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object);
-- [Trabalhando com objetos (mozilla)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Working_with_objects).
+-   [Objects (mozilla)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object);
+-   [Trabalhando com objetos (mozilla)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Working_with_objects).
 
 ## O que é?
 
@@ -18,9 +18,9 @@ A estrutura de um objeto é inicialmente semelhante a qualquer outro tipo de var
 
 ```js
 let user = {
-  nome: "Livianu",
-  idade: 19,
-  telefone: "901091910",
+	nome: 'Livianu',
+	idade: 19,
+	telefone: '901091910',
 };
 ```
 
@@ -29,7 +29,7 @@ Outra maneira de declarar o nome da chave é:
 
 ```js
 let user = {
-  ["nome"]: "Livianu",
+	['nome']: 'Livianu',
 };
 ```
 
@@ -39,21 +39,21 @@ As propriedades podem receber qualquer tipo de valor: string, number, array ou a
 
 ```js
 let user = {
-  nome: "Livianu",
-  idade: 19,
-  telefone: "901091910",
-  irmaos: [
-    {
-      nome: "Ricardo",
-      idade: 10,
-      gênero: "Masculino",
-    },
-    {
-      nome: "Bellagio",
-      idade: 2,
-      gênero: "Cachorro",
-    },
-  ],
+	nome: 'Livianu',
+	idade: 19,
+	telefone: '901091910',
+	irmaos: [
+		{
+			nome: 'Ricardo',
+			idade: 10,
+			genero: 'Masculino',
+		},
+		{
+			nome: 'Bellagio',
+			idade: 2,
+			genero: 'Cachorro',
+		},
+	],
 };
 ```
 
@@ -80,20 +80,20 @@ Agora, utilizando esses outros métodos para recriar o nosso objeto `usuário`, 
 ```js
 var user = new Object();
 
-user.nome = "Livianu";
+user.nome = 'Livianu';
 user.idade = 19;
-user.telefone = "901091910";
+user.telefone = '901091910';
 user.irmaos = [];
 
 user.irmaos[0] = new Object(); // Cria objeto do irmão na posição 0
-user.irmaos[0].nome = "Ricardo";
+user.irmaos[0].nome = 'Ricardo';
 user.irmaos[0].idade = 10;
-user.irmaos[0].genero = "Masculino";
+user.irmaos[0].genero = 'Masculino';
 
 user.irmaos[1] = new Object(); // Cria objeto do irmão com na posição 1
-user.irmaos[1].nome = "Bellagio";
+user.irmaos[1].nome = 'Bellagio';
 user.irmaos[1].idade = 2;
-user.irmaos[1].genero = "Cachorro";
+user.irmaos[1].genero = 'Cachorro';
 ```
 
 ## Manipulando o nosso Objeto
@@ -108,8 +108,8 @@ console.log(user.irmãos[0].nome); // Retorna "Ricardo"
 Além disso, podemos criar ou atualizar qualquer propriedade do nosso objeto a qualquer momento no nosso código, utilizando a mesma forma que usamos anteriormente. Caso seja uma propriedade nova, ela deve conter uma chave ainda não existente e, se desejarmos alterar alguma propriedade, devemos atribuir à chave um novo valor. Por exemplo, primeiro criamos e depois mudamos a localização da residência do nosso usuário.
 
 ```js
-user.residencia = "São Paulo"; // Cria propriedade
-user.residencia = "Itajubá"; // Atualiza propriedade
+user.residencia = 'São Paulo'; // Cria propriedade
+user.residencia = 'Itajubá'; // Atualiza propriedade
 ```
 
 Agora que já sabemos como criar, ler e atualizar nosso objeto, vamos aprender como apagar uma propriedade ou o objeto inteiro. Para isso, utilizamos o operador delete, por exemplo:
@@ -160,44 +160,44 @@ $ npm run dev
 
 ---
 
-import Quiz from "@site/src/components/Quiz";
+import Quiz from '@site/src/components/Quiz';
 
 ## Quiz
 
 As questões abaixo fazem menção ao que você aprendeu no conteúdo escrito e o vídeo sobre "objeto" em JS.
 
 <Quiz
-  question="1. O que é um objeto em JavaScript?"
-  answers={[
-    "Uma variável de um bem material.",
-    "Uma variável que armazena um conjunto de informações através de propriedades.",
-    "Uma identificação para um item da vida real.",
-    "Uma variável que funciona como uma lista.",
-    "Uma variável que armazena diversas informações, desde que sejam strings.",
-  ]}
-  correctIndex={1}
+	question="1. O que é um objeto em JavaScript?"
+	answers={[
+		'Uma variável de um bem material.',
+		'Uma variável que armazena um conjunto de informações através de propriedades.',
+		'Uma identificação para um item da vida real.',
+		'Uma variável que funciona como uma lista.',
+		'Uma variável que armazena diversas informações, desde que sejam strings.',
+	]}
+	correctIndex={1}
 />
 
 <Quiz
-  question="2. Como são compostas as propriedades de um objeto?"
-  answers={[
-    "Somente por números.",
-    "Exclusivamente por arrays.",
-    "Apenas por strings.",
-    "Por uma chave de identificação e um valor.",
-    "Por chaves e arrays.",
-  ]}
-  correctIndex={3}
+	question="2. Como são compostas as propriedades de um objeto?"
+	answers={[
+		'Somente por números.',
+		'Exclusivamente por arrays.',
+		'Apenas por strings.',
+		'Por uma chave de identificação e um valor.',
+		'Por chaves e arrays.',
+	]}
+	correctIndex={3}
 />
 
 <Quiz
-  question="3. Como se cria um objeto utilizando a função `new Object()` e se adiciona a propriedade 'time' com valor ”Corinthians”?"
-  answers={[
-    "let user = Object.new(); user.time = ”Corinthians”;",
-    "var user = new Object(); user.time = ”Corinthians”;",
-    "let user = new Object(); user.addTime(”Corinthians”);",
-    "var user = Object(); user.time = ”Corinthians”;",
-    "let user = new Object(); time.user = ”Corinthians”",
-  ]}
-  correctIndex={1}
+	question="3. Como se cria um objeto utilizando a função `new Object()` e se adiciona a propriedade 'time' com valor ”Corinthians”?"
+	answers={[
+		'let user = Object.new(); user.time = ”Corinthians”;',
+		'var user = new Object(); user.time = ”Corinthians”;',
+		'let user = new Object(); user.addTime(”Corinthians”);',
+		'var user = Object(); user.time = ”Corinthians”;',
+		'let user = new Object(); time.user = ”Corinthians”',
+	]}
+	correctIndex={1}
 />

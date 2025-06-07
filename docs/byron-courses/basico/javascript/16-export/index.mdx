@@ -1,15 +1,15 @@
 ---
-title: "Import e Export"
+title: 'Import e Export'
 sidebar_position: 16
 ---
 
 Import e Export
 Vamos ver mais duas funções muito interessantes do JS que nos possibilitam acessar qualquer informação do nosso projeto (seja uma função, uma variável ou um componente), mesmo que ela não esteja no mesmo diretório. Essas funções trazem vários benefícios para o nosso projeto, além de ajudar a nos organizar evitando repetições desnecessárias de código, elas fazem com que seja possível usar outras bibliotecas e frameworks criadas por outros desenvolvedores ou por nós mesmos. As funções que nos possibilitam fazer isso são o `import` e o `export`, vamos entender melhor como cada uma delas funciona, mas antes vamos ver alguns exemplos práticos da utilização dessas funções:
 
-- Ter um arquivo no nosso projeto contendo funções matemáticas que serão exportadas para serem utilizadas em outras partes do nosso programa;
-- Uma pasta cheia de componentes que se repetem durante o projeto;
-- Um arquivo com requisições para o backend.
-  Agora que já sabemos o que pode ser feito com esses métodos e a importância deles, vamos aprender como eles fazem isso.
+-   Ter um arquivo no nosso projeto contendo funções matemáticas que serão exportadas para serem utilizadas em outras partes do nosso programa;
+-   Uma pasta cheia de componentes que se repetem durante o projeto;
+-   Um arquivo com requisições para o backend.
+    Agora que já sabemos o que pode ser feito com esses métodos e a importância deles, vamos aprender como eles fazem isso.
 
 ## Export
 
@@ -40,7 +40,7 @@ Vamos usar um exemplo de um arquivo criado com nome `biblioteca.js`, que possui 
 
 // Função que calcula a área de um triângulo
 function areaTriangulo(base, altura) {
-  return (base * altura) / 2;
+	return (base * altura) / 2;
 }
 
 // Constante com o valor de duas vezes o pi
@@ -48,15 +48,15 @@ const PIx2 = Math.PI * 2;
 
 // Um objeto com:
 const estilo = {
-  msg() {
-    // Função que retorna uma mensagem no console
-    console.log("Estilo pré-definido no arquivo biblioteca.js");
-  },
-  options: {
-    // Outro objeto com alguns estilos de CSS
-    color: "slateBlue",
-    fontSize: "7em",
-  },
+	msg() {
+		// Função que retorna uma mensagem no console
+		console.log('Estilo pré-definido no arquivo biblioteca.js');
+	},
+	options: {
+		// Outro objeto com alguns estilos de CSS
+		color: 'slateBlue',
+		fontSize: '7em',
+	},
 };
 
 export { areaTriangulo, PIx2, estilo }; // Exportando todas as informações
@@ -67,8 +67,8 @@ export { areaTriangulo, PIx2, estilo }; // Exportando todas as informações
 Agora que já exportamos as nossas informações, vamos aprender como utilizá-las em outro arquivo usando o método [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import). Este método tem como função chamar alguma informação de um arquivo externo. A sintaxe da importação do conteúdo varia de acordo com a condição de se este conteúdo é `default` ou não, da seguinte forma:
 
 ```js
-import info from "./caminho./arquivo.js"; // ➔ default
-import { info } from "./caminho./arquivo.js"; // ➔ não default
+import info from './caminho./arquivo.js'; // ➔ default
+import { info } from './caminho./arquivo.js'; // ➔ não default
 ```
 
 Após importar essas informações da outra pasta você está livre para usá-las nesse arquivo o quanto de vezes você quiser.
@@ -76,7 +76,7 @@ Após importar essas informações da outra pasta você está livre para usá-la
 ```js
 // main.js
 
-import { areaTriangulo, PIx2, estilo } from "./lib/biblioteca";
+import { areaTriangulo, PIx2, estilo } from './lib/biblioteca';
 
 console.log(areaTriangulo(5, 8)); // ⟹ 20
 
@@ -86,7 +86,7 @@ paragrafo1.style.cssText = `
   color: ${estilo.options.color}; 
   font-size: ${estilo.options.fontSize};
 `;
-console.log(paragrafo1.getAttribute("style")); // ⟹ color: slateblue; font-size: 7em;
+console.log(paragrafo1.getAttribute('style')); // ⟹ color: slateblue; font-size: 7em;
 ```
 
 ---
