@@ -1,5 +1,5 @@
 ---
-title: "Condicionais"
+title: 'Condicionais'
 sidebar_position: 4
 ---
 
@@ -9,9 +9,9 @@ Sintaxe básica:
 
 ```javascript
 if (condicao) {
-  codigo para executar caso a condição seja verdadeira
+	// codigo para executar caso a condição seja verdadeira
 } else {
-  senão, executar este código
+	// senão, executar este código
 }
 ```
 
@@ -29,10 +29,10 @@ Explicando:
 
 ```javascript
 if (condicao) {
-  codigo para executar se a condição for verdadeira
+	// codigo para executar se a condição for verdadeira
 }
 
-código a ser executado
+// código a ser executado independentemente da condição
 ```
 
 &nbsp;
@@ -45,8 +45,8 @@ Exemplo
 let idade1 = 20;
 let idade2 = 14;
 
-if(idade1 > idade2){
-	console.log(idade2 = idade2 + 2);
+if (idade1 > idade2) {
+	console.log((idade2 = idade2 + 2));
 } else {
 	console.log(idade1 - idade2);
 }
@@ -68,7 +68,9 @@ Veja o exemplo:
 let idade1 = 20;
 let idade2 = 14;
 
-console.log((idade1 > idade2) ? (idade2 = idade2 + 2) : (idade1 - idade2))
+let resultado = idade1 > idade2 ? (idade2 = idade2 + 2) : idade1 - idade2;
+
+console.log(resultado);
 ```
 
 &nbsp;
@@ -84,14 +86,14 @@ O `else if` permite que você verifique múltiplas condições em sequência. Ap
 ```javascript
 let idade = 9;
 
-if(idade < 10){
-	console.log("você é uma criança");
-} else if(idade >= 10 && idade <= 13){
-console.log("você é um pré adolescente");
-} else if(idade > 13 && idade < 18){
-	console.log("você é um adolescente");
+if (idade < 10) {
+	console.log('você é uma criança');
+} else if (idade >= 10 && idade <= 13) {
+	console.log('você é um pré adolescente');
+} else if (idade > 13 && idade < 18) {
+	console.log('você é um adolescente');
 } else {
-	console.log("você é um adulto");
+	console.log('você é um adulto');
 }
 ```
 
@@ -105,41 +107,41 @@ Sintaxe básica:
 
 ```javascript
 switch (expressão) {
-case valor1:
-  // bloco de código a ser executado
-  break;
-case valor2:
-  // bloco de código a ser executado
-  break;
-// mais cases...
-default:
-  // bloco de código a ser executado se nenhum case combinar
+	case valor1:
+		// bloco de código a ser executado
+		break;
+	case valor2:
+		// bloco de código a ser executado
+		break;
+	// mais cases...
+	default:
+	// bloco de código a ser executado se nenhum case combinar
 }
 ```
 
 Veja um exemplo de utilização:
 
 ```javascript
-let diasDaSemana = "quarta";
+let diasDaSemana = 'quarta';
 
-switch (diasDaSemana){
-	case "segunda":
-	console.log("mais café, por favor!");
-	break;
-case "terça":
-	console.log("dose de café em dobro!");
-	break;
-case "quarta":
-	console.log("ainda bem que já está na metade");
-	break;
-case "quinta":
-	console.log("quase sexta!!!");
-	break;
-case "sexta":
-	console.log("ufa, sextou :)");
-	break;
-default:
-	console.log("final de semana");
+switch (diasDaSemana) {
+	case 'segunda':
+		console.log('mais café, por favor!');
+		break;
+	case 'terça':
+		console.log('dose de café em dobro!');
+		break;
+	case 'quarta':
+		console.log('ainda bem que já está na metade');
+		break;
+	case 'quinta':
+		console.log('quase sexta!!!');
+		break;
+	case 'sexta':
+		console.log('ufa, sextou :)');
+		break;
+	default:
+		console.log('final de semana');
 }
 ```
 
@@ -149,30 +151,30 @@ Veja outro exemplo:
 let diasDaSemana = 6;
 let diaNome;
 
-switch (diasDaSemana){
+switch (diasDaSemana) {
 	case 1:
-	diaNome = "Domingo";
-	break;
-case 2:
-	diaNome = "Segunda";
-	break;
-case 3:
-	diaNome = "Terça";
-	break;
-case 4:
-	diaNome = "Quarta";
-	break;
-case 5:
-	diaNome = "Quinta";
-	break;
-case 6:
-	diaNome = "Sexta";
-	break;
-case 7:
-	diaNome = "Sábado";
-	break;
-default:
-	diaNome = "Inválido";
+		diaNome = 'Domingo';
+		break;
+	case 2:
+		diaNome = 'Segunda';
+		break;
+	case 3:
+		diaNome = 'Terça';
+		break;
+	case 4:
+		diaNome = 'Quarta';
+		break;
+	case 5:
+		diaNome = 'Quinta';
+		break;
+	case 6:
+		diaNome = 'Sexta';
+		break;
+	case 7:
+		diaNome = 'Sábado';
+		break;
+	default:
+		diaNome = 'Inválido';
 }
 
 console.log(diaNome);
@@ -186,7 +188,7 @@ console.log(diaNome);
 
 ---
 
-import Quiz from "@site/src/components/Quiz";
+import Quiz from '@site/src/components/Quiz';
 
 ## Quizz
 
@@ -195,69 +197,69 @@ let temperatura = 30;
 let clima;
 
 if (temperatura > 35) {
-    clima = "Muito quente";
+	clima = 'Muito quente';
 } else if (temperatura >= 25 && temperatura <= 35) {
-    clima = "Quente";
+	clima = 'Quente';
 } else if (temperatura >= 15 && temperatura < 25) {
-    clima = "Agradável";
+	clima = 'Agradável';
 } else {
-    clima = "Frio";
+	clima = 'Frio';
 }
 
 console.log(clima);
 ```
 
 <Quiz
-  question="1. O que será impresso no console quando este código for executado?"
-  answers={["Muito quente", "Quente", "Agradável", "Frio"]}
-  correctIndex={1}
+	question="1. O que será impresso no console quando este código for executado?"
+	answers={['Muito quente', 'Quente', 'Agradável', 'Frio']}
+	correctIndex={1}
 />
 
 ```javascript
 let idade = 20;
 if (idade >= 18) {
-    console.log("Você é maior de idade");
+	console.log('Você é maior de idade');
 } else {
-    console.log("Você é menor de idade");
+	console.log('Você é menor de idade');
 }
 ```
 
 <Quiz
-  question="2. Qual será a saída desse código?"
-  answers={[
-    "Você é maior de idade",
-    "Erro de sintaxe",
-    "Nenhuma saída",
-    "Você é menor de idade",
-  ]}
-  correctIndex={0}
+	question="2. Qual será a saída desse código?"
+	answers={[
+		'Você é maior de idade',
+		'Erro de sintaxe',
+		'Nenhuma saída',
+		'Você é menor de idade',
+	]}
+	correctIndex={0}
 />
 
 ```javascript
 let fruta = 'maçã';
 
 switch (fruta) {
-    case 'banana':
-        console.log('Banana é boa!');
-        break;
-    case 'maçã':
-        console.log('Maçã é deliciosa!');
-        break;
-    case 'laranja':
-        console.log('Laranja é saudável!');
-        break;
-    default:
-        console.log('Fruta desconhecida');
+	case 'banana':
+		console.log('Banana é boa!');
+		break;
+	case 'maçã':
+		console.log('Maçã é deliciosa!');
+		break;
+	case 'laranja':
+		console.log('Laranja é saudável!');
+		break;
+	default:
+		console.log('Fruta desconhecida');
 }
 ```
 
 <Quiz
-  question="3. Qual será a saída desse código?"
-  answers={[
-    "Banana é boa!",
-    "Laranja é saudável!",
-    "Fruta desconhecida",
-    "Maçã é deliciosa!",
-  ]}
-  correctIndex={3}
+	question="3. Qual será a saída desse código?"
+	answers={[
+		'Banana é boa!',
+		'Laranja é saudável!',
+		'Fruta desconhecida',
+		'Maçã é deliciosa!',
+	]}
+	correctIndex={3}
 />
