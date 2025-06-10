@@ -1,9 +1,9 @@
 ---
-title: "Variáveis"
+title: 'Variáveis'
 sidebar_position: 2
 ---
 
-Uma variável é um container para um valor, como um número que podemos usar em uma operação de adição, ou uma sequência de texto que possamos usar como parte de uma oração.
+Uma variável é um container para um valor, como um número que podemos usar em uma operação de adição, ou uma sequência de texto que possamos usar como parte de uma frase.
 Uma coisa especial sobre as variáveis é que elas podem conter praticamente qualquer coisa — não apenas cadeias de texto e números. Variáveis também podem conter dados complexos e até mesmo funções completas para fazer coisas incríveis.
 
 #### Observe a sintaxe da declaração de uma variável
@@ -12,9 +12,11 @@ Uma coisa especial sobre as variáveis é que elas podem conter praticamente qua
 let | var [ identificador ] [ = valor | expressão ]
 ```
 
+Isso indica que a linha de códig será iniciada com as palavras `let` ou `var`, seguida pelo **identificador**, um **sinal de igual** e um **valor** ou **expressão**.
+
 **identificador:** nome da variável  
 &nbsp;
-**valor:** valor inicial da variável, que pode ser uma string, um número, um boolean ou uma expressão.
+**valor ou expressão:** valor inicial que será armazenado dentro daquela variável.
 &nbsp;
 
 ---
@@ -37,11 +39,13 @@ Quando não possuem valor, são containers vazios, como o que foi feito acima. S
 #### Declarando uma variável e adicionando valor
 
 ```javascript
-var nome = "Bianca";
-var faculdade = "Unifei";
+var nome = 'Bianca';
+var faculdade = 'Unifei';
 
-console.log(nome,faculdade)
+console.log(nome, faculdade);
 ```
+
+Nesse caso, as variáveis contêm valores dentro. Ou seja, a variável `nome` contém o valor `'Bianca'` e a variável `faculdade` contém valor `'Unifei'`.
 
 &nbsp;
 O console.log serve para mostrar o valor das variáveis no terminal e o valor da variável deve ser entre aspas quando for uma string
@@ -58,7 +62,7 @@ Retire os valores das variáveis e execute, dessa forma:
 var nome;
 var faculdade;
 
-console.log(nome,faculdade)
+console.log(nome, faculdade);
 ```
 
 &nbsp;
@@ -67,8 +71,10 @@ Note que a saída do terminal será `undefined`, uma vez que não possuem mais v
 
 **Importante:** O nome das variáveis deve ser separado por vírgulas dentro do console.log, como foi feito anteriormente. Além disso, deve ser utilizado o camelcase para nomes com mais de uma palavra.
 
+Camelcase é uma convenção de nomenclatura de variáveis utilizada em algumas linguagens de programação, como o próprio JavaScript. Ela consiste em escrever cada palavra no nome de uma variável com a letra inicial maiúscula, com exceção da primeira palavra da frase.
+
 ```javascript
-var nomeSobrenome = "Bianca Rossi";
+var nomeSobrenome = 'Bianca Rossi';
 ```
 
 &nbsp;
@@ -82,14 +88,14 @@ Para explicar a diferença entre declaração de tipo let e de tipo var, explica
 **Escopo global:** é possível chamar a variável fora e dentro de funções, observe:
 
 ```javascript
-var nome = "Bianca";
+var nome = 'Bianca';
 
-function func1(){
-    console.log("ola" + " " + nome)
+function func1() {
+	console.log('ola' + ' ' + nome);
 }
 
-console.log(nome)
-func1()
+console.log(nome);
+func1();
 ```
 
 ![](./assets/img12.jpg)
@@ -97,15 +103,15 @@ func1()
 **Escopo local:** a variável é definida dentro de uma função e só aquela função poderá chamá-la. Se for chamada em outro lugar, dará erro.
 
 ```javascript
-var nome = "Bianca";
+var nome = 'Bianca';
 
-function fun1 (){
-    var sobrenome = "Rossi";
-    console.log ("ola" + " " + nome + " " + sobrenome)
+function fun1() {
+	var sobrenome = 'Rossi';
+	console.log('ola' + ' ' + nome + ' ' + sobrenome);
 }
 
-console.log(sobrenome)
-func1()
+console.log(sobrenome);
+func1();
 ```
 
 **Escopo de bloco:** bloco é definido por abre e fecha chaves ( { } ). A variável é contida dentro do bloco, veja:
@@ -114,9 +120,9 @@ func1()
 let a = 10;
 let validar = true;
 
-if(validar){
-    let b = 15
-    console.log(a+b)
+if (validar) {
+	let b = 15;
+	console.log(a + b);
 }
 ```
 
@@ -126,8 +132,8 @@ Nesse caso, a variável a foi chamada dentro do if
 
 Dito tudo isso, a diferença é:
 
-- `let` funciona em escopo global, local e de bloco
-- `var` só funciona em global e local
+-   `let` funciona em escopo global, local e de bloco
+-   `var` só funciona em global e local
 
 Ademais, também sabe-se que a declaração do tipo var pode ser atualizada e declarada novamente dentro do escopo global, enquanto a declaração do tipo let podem ser atualizadas, mas não podem ser redeclaradas.
 
@@ -135,7 +141,7 @@ Ademais, também sabe-se que a declaração do tipo var pode ser atualizada e de
 let a = 30;
 let a = 15;
 
-console.log(a)
+console.log(a);
 ```
 
 &nbsp;
@@ -146,7 +152,7 @@ Execute e perceba que dará erro, porque foi feita a redeclaração da variável
 let a = 30;
 a = 15;
 
-console.log(a)
+console.log(a);
 ```
 
 &nbsp;
@@ -156,9 +162,9 @@ E assim funcionará porque o valor está apenas sendo atualizado
 **Importante:**
 
 ```javascript
-console.log(a)
+console.log(a);
 let a = 10;
-console.log(a)
+console.log(a);
 ```
 
 &nbsp;
@@ -193,7 +199,7 @@ São sequências de textos. Quando você dá a uma variável um valor em texto, 
 &nbsp;
 
 ```javascript
-let linguagem = "Estamos aprendendo JavaScript!";
+let linguagem = 'Estamos aprendendo JavaScript!';
 ```
 
 **Booleans**  
@@ -205,9 +211,9 @@ São valores verdadeiro/falso (true/false). São geralmente usados para verifica
 let a = true;
 let b = 10;
 
-if(a){
-let c = 12;
-console.log(b + c);
+if (a) {
+	let c = 12;
+	console.log(b + c);
 }
 ```
 
@@ -220,12 +226,12 @@ Um array é um único objeto que contém valores múltiplos inseridos entre colc
 let numeros = [15, 30, 45];
 ```
 
-Caso queira exibir apenas um número no terminal, dê o console.log dessa forma:
+Caso queira exibir apenas um número no terminal, dê o console.log da forma mostrada a seguir. O número entre colchetes, no caso, o 0, indica a posição do elemento no vetor. Logo, será exibido o primeiro elemento do vetor.
 
 ```javascript
 let numeros = [15, 30, 45];
 
-console.log(numeros[0])
+console.log(numeros[0]);
 ```
 
 &nbsp;
@@ -239,12 +245,12 @@ Em programação, um objeto é uma estrutura de código que representa um objeto
 
 ```javascript
 let aluno = {
-    nome: "Bianca",
-    idade: 21,
-    seFormou: false,
-}
+	nome: 'Bianca',
+	idade: 21,
+	seFormou: false,
+};
 
-console.log(aluno)
+console.log(aluno);
 ```
 
 &nbsp;
@@ -253,12 +259,12 @@ Teste com as suas informações
 
 ```javascript
 let aluno = {
-    nome: "Bianca",
-    idade: 21,
-    seFormou: false,
-}
+	nome: 'Bianca',
+	idade: 21,
+	seFormou: false,
+};
 
-console.log(aluno.idade)
+console.log(aluno.idade);
 ```
 
 &nbsp;
@@ -275,7 +281,7 @@ Para extrair algo específico do objeto utilize essa estrutura
 
 ---
 
-import Quiz from "@site/src/components/Quiz";
+import Quiz from '@site/src/components/Quiz';
 
 ## Quizz
 
@@ -290,34 +296,34 @@ console.log(b);
 ```
 
 <Quiz
-  question="1. Qual será o resultado da execução do código acima?"
-  answers={[
-    " undefined, 10, undefined, 20",
-    "undefined, 10, ReferenceError, 20",
-    "undefined, 10, ReferenceError",
-    "10, 10, 20, 20",
-  ]}
-  correctIndex={2}
+	question="1. Qual será o resultado da execução do código acima?"
+	answers={[
+		' undefined, 10, undefined, 20',
+		'undefined, 10, ReferenceError, 20',
+		'undefined, 10, ReferenceError',
+		'10, 10, 20, 20',
+	]}
+	correctIndex={2}
 />
 
 <Quiz
-  question="2. Assinale a alternativa verdadeira"
-  answers={[
-    "Ambas as palavras-chave `var` e `let` têm escopo de bloco, mas var permite redeclarar variáveis no mesmo escopo, enquanto `let` não permite",
-    "`var` tem escopo de bloco, enquanto let tem escopo de função",
-    "Variáveis declaradas com `var` podem ser redeclaradas dentro do mesmo escopo, enquanto variáveis declaradas com `let` não podem ser redeclaradas no mesmo escopo",
-    "A palavra-chave `var` é usada para declarar variáveis de valor constante, enquanto `let` é usada para variáveis cujo valor pode ser alterado durante a execução do programa",
-  ]}
-  correctIndex={2}
+	question="2. Assinale a alternativa verdadeira"
+	answers={[
+		'Ambas as palavras-chave `var` e `let` têm escopo de bloco, mas var permite redeclarar variáveis no mesmo escopo, enquanto `let` não permite',
+		'`var` tem escopo de bloco, enquanto let tem escopo de função',
+		'Variáveis declaradas com `var` podem ser redeclaradas dentro do mesmo escopo, enquanto variáveis declaradas com `let` não podem ser redeclaradas no mesmo escopo',
+		'A palavra-chave `var` é usada para declarar variáveis de valor constante, enquanto `let` é usada para variáveis cujo valor pode ser alterado durante a execução do programa',
+	]}
+	correctIndex={2}
 />
 
 <Quiz
-  question="3. Assinale a alternativa verdadeira"
-  answers={[
-    "`const` é usada para declarar uma variável cujo valor pode ser alterado durante a execução do programa",
-    "Uma vez que uma variável é declarada com `const`, seu valor não pode ser alterado",
-    "`const` só pode ser usada para declarar variáveis numéricas",
-    "`const` é uma forma abreviada de `constant`, mas não é uma palavra-chave reservada em JavaScript",
-  ]}
-  correctIndex={1}
+	question="3. Assinale a alternativa verdadeira"
+	answers={[
+		'`const` é usada para declarar uma variável cujo valor pode ser alterado durante a execução do programa',
+		'Uma vez que uma variável é declarada com `const`, seu valor não pode ser alterado',
+		'`const` só pode ser usada para declarar variáveis numéricas',
+		'`const` é uma forma abreviada de `constant`, mas não é uma palavra-chave reservada em JavaScript',
+	]}
+	correctIndex={1}
 />

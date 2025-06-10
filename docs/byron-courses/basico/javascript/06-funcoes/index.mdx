@@ -1,5 +1,5 @@
 ---
-title: "Funções"
+title: 'Funções'
 sidebar_position: 6
 ---
 
@@ -7,9 +7,9 @@ Outro conceito essencial em código é a função, que permite que você armazen
 
 A definição da função (também chamada de declaração de função) consiste no uso da palavra chave `function`, seguida por:
 
-- Nome da Função.
-- Lista de parâmetros para a função, entre parênteses e separados por vírgulas.
-- Declarações JavaScript que definem a função, entre chaves { }.
+-   Nome da Função.
+-   Lista de parâmetros para a função, entre parênteses e separados por vírgulas.
+-   Declarações JavaScript que definem a função, entre chaves { }.
 
 ```javascript
 function nomeDaFuncao(parametro1, parametro2, ...) {
@@ -29,11 +29,11 @@ function nomeDaFuncao(parametro1, parametro2, ...) {
 Exemplo:
 
 ```javascript
-function n1(){
-	console.log("estou dentro da função")
+function n1() {
+	console.log('estou dentro da função');
 }
 
-n1() // chamando a função
+n1(); // chamando a função
 ```
 
 #### Função com parâmetros
@@ -42,15 +42,16 @@ n1() // chamando a função
 
 **Observação:** os parâmetros passados só podem ser utilizados dentro dessa função
 
-Exemplo:
+No exemplo a seguir, o parâmetro é a variável "nome", que é passada nos parênteses após o nome da função:
 
 ```javascript
-function mostraNome(nome){
-	console.log(nome)
+function mostraNome(nome) {
+	// aqui é declarado o parâmetro
+	console.log(nome);
 }
 
-mostraNome("Bianca")
-mostraNome("Rossi")
+mostraNome('Bianca');
+mostraNome('Rossi');
 ```
 
 &nbsp;
@@ -60,28 +61,30 @@ Note que é possível chamar a função mais de uma vez e passar parâmetros dif
 Outro exemplo:
 
 ```javascript
-function media(num1, num2){
-	let mediaAritm = (num1 + num2)/2
-	console.log(mediaAritm)
+function media(num1, num2) {
+	let mediaAritm = (num1 + num2) / 2;
+	console.log(mediaAritm);
 }
 
-media(10,8)
+media(10, 8);
 ```
 
-#### Função return
+#### Instrução return
 
 A instrução `return` é usada dentro de uma função para retornar um valor específico após a conclusão da execução da função. Essa instrução termina a execução da função e especifica o valor que será retornado à expressão que chamou a função, permitindo que esse valor seja utilizado em outras partes do código
 
 Exemplo:
 
 ```javascript
-function media(num1, num2){
-	let mediaAritm = (num1 + num2)/2
-	return mediaAritm
+function media(num1, num2) {
+	let mediaAritm = (num1 + num2) / 2;
+	return mediaAritm;
 }
 
-console.log(media(10,8))
+console.log(media(10, 8));
 ```
+
+No exemplo apresentado, a função retorna a média dos dois valores passados como parâmetros.
 
 #### Arrow function
 
@@ -89,52 +92,52 @@ console.log(media(10,8))
 
 ```javascript
 // Com um único parâmetro
-let nomeDaFuncao = parametro => {
-    // Corpo da função
-    // Código a ser executado
+let nomeDaFuncao = (parametro) => {
+	// Corpo da função
+	// Código a ser executado
 };
 
 // Com múltiplos parâmetros
 let nomeDaFuncao = (parametro1, parametro2) => {
-    // Corpo da função
-    // Código a ser executado
+	// Corpo da função
+	// Código a ser executado
 };
 ```
 
 &nbsp;
 
-- Se a função tiver apenas um parâmetro, os parênteses em torno do parâmetro são opcionais. Porém, se não houver parâmetros ou houver mais de um parâmetro, os parênteses são necessários.
-- O corpo da função é definido entre chaves {}, como em uma função tradicional
-  &nbsp;
+-   Se a função tiver apenas um parâmetro, os parênteses em torno do parâmetro são opcionais. Porém, se não houver parâmetros ou houver mais de um parâmetro, os parênteses são necessários.
+-   O corpo da função é definido entre chaves {}, como em uma função tradicional
+    &nbsp;
 
 Arrow function sem parâmetros:
 
 ```javascript
 let saudacao = () => {
-    return "Olá, mundo!"
-}
+	return 'Olá, mundo!';
+};
 
-console.log(saudacao())
+console.log(saudacao());
 ```
 
 Arrow function com um parâmetro:
 
 ```javascript
-let quadrado = x => {
-    return x * x
-}
+let quadrado = (x) => {
+	return x * x;
+};
 
-console.log(quadrado(5))
+console.log(quadrado(5));
 ```
 
 Arrow function com dois parâmetros:
 
 ```javascript
 let soma = (a, b) => {
-    return a + b
-}
+	return a + b;
+};
 
-console.log(soma(3, 7))
+console.log(soma(3, 7));
 ```
 
 ---
@@ -145,31 +148,31 @@ console.log(soma(3, 7))
 
 ---
 
-import Quiz from "@site/src/components/Quiz";
+import Quiz from '@site/src/components/Quiz';
 
 ## Quizz
 
 ```javascript
 function dobro(numero) {
-    return numero * 2
+	return numero * 2;
 }
 
-let resultado = dobro(5) + dobro(3)
-console.log(resultado)
+let resultado = dobro(5) + dobro(3);
+console.log(resultado);
 ```
 
 <Quiz
-  question="1. O que será impresso no console quando este código for executado?"
-  answers={["10", "12", "16", "30"]}
-  correctIndex={2}
+	question="1. O que será impresso no console quando este código for executado?"
+	answers={['10', '12', '16', '30']}
+	correctIndex={2}
 />
 
 ```javascript
-let nome = "João";
+let nome = 'João';
 
 function saudacao() {
-    let nome = "Maria";
-    return "Olá, " + nome + "!";
+	let nome = 'Maria';
+	return 'Olá, ' + nome + '!';
 }
 
 let mensagem = saudacao();
@@ -177,31 +180,31 @@ console.log(mensagem);
 ```
 
 <Quiz
-  question="2. Qual é a saída do código acima?"
-  answers={[
-    "Olá, João!",
-    "Olá, Maria!",
-    "Olá, undefined!",
-    "ReferenceError: nome is not defined",
-  ]}
-  correctIndex={1}
+	question="2. Qual é a saída do código acima?"
+	answers={[
+		'Olá, João!',
+		'Olá, Maria!',
+		'Olá, undefined!',
+		'ReferenceError: nome is not defined',
+	]}
+	correctIndex={1}
 />
 
 ```javascript
 let saudacao = (nome) => {
-    return "Olá, " + nome + "!"
-}
+	return 'Olá, ' + nome + '!';
+};
 
-console.log(saudacao(Carlos))
+console.log(saudacao(Carlos));
 ```
 
 <Quiz
-  question="3. Qual será a saída desse código?"
-  answers={[
-    "Olá, Carlos!",
-    "undefined",
-    "SyntaxError: Unexpected token =>",
-    "ReferenceError: Carlos is not defined",
-  ]}
-  correctIndex={3}
+	question="3. Qual será a saída desse código?"
+	answers={[
+		'Olá, Carlos!',
+		'undefined',
+		'SyntaxError: Unexpected token =>',
+		'ReferenceError: Carlos is not defined',
+	]}
+	correctIndex={3}
 />

@@ -1,5 +1,5 @@
 ---
-title: "Operadores"
+title: 'Operadores'
 sidebar_position: 3
 ---
 
@@ -13,7 +13,7 @@ São os operadores que utilizamos para fazer as operações aritiméticas básic
 let a = 10;
 let b = 5;
 
-console.log(a + b)
+console.log(a + b); //15
 ```
 
 **Subtraçao:** subtrai um número do outro
@@ -22,7 +22,7 @@ console.log(a + b)
 let a = 10;
 let b = 5;
 
-console.log(a - b)
+console.log(a - b); //5
 ```
 
 **Multiplicação:** multiplica um número pelo outro
@@ -31,7 +31,7 @@ console.log(a - b)
 let a = 10;
 let b = 5;
 
-console.log(a * b)
+console.log(a * b); //50
 ```
 
 **Divisão:** divide o número da esquerda pelo número da direita
@@ -40,7 +40,7 @@ console.log(a * b)
 let a = 10;
 let b = 5;
 
-console.log(a / b)
+console.log(a / b); //2
 ```
 
 **Resto:** retorna o resto da divisão em números inteiros do número da esquerda pelo número da direita
@@ -49,7 +49,16 @@ console.log(a / b)
 let a = 10;
 let b = 5;
 
-console.log(a & b)
+console.log(a & b); //0
+```
+
+**Exponencial:** retorna o resultado do valor à esquerda elevado ao valor à direita.
+
+```javascript
+let a = 10;
+let b = 5;
+
+console.log(a ** b); //100000
 ```
 
 ---
@@ -64,7 +73,7 @@ console.log(a & b)
 let a = 10;
 let b = 5;
 
-console.log(a === b)
+console.log(a === b); //false
 ```
 
 **Não igualdade estrita:** verifica se os valores não são idênticos entre si
@@ -73,7 +82,7 @@ console.log(a === b)
 let a = 10;
 let b = 5;
 
-console.log(a !== b)
+console.log(a !== b); //true
 ```
 
 **Menor que:** verifica se os valores não são idênticos entre si
@@ -82,7 +91,7 @@ console.log(a !== b)
 let a = 10;
 let b = 5;
 
-console.log(a < b)
+console.log(a < b); //false
 ```
 
 **Maior que:** verifica se o valor da esquerda é maior que o valor da direita
@@ -91,7 +100,7 @@ console.log(a < b)
 let a = 10;
 let b = 5;
 
-console.log(a > b)
+console.log(a > b); //true
 ```
 
 **Menor ou igual:** verifica se o valor da esquerda é menor que ou igual ao valor da direita
@@ -100,7 +109,7 @@ console.log(a > b)
 let a = 10;
 let b = 5;
 
-console.log(a <= b)
+console.log(a <= b); //false
 ```
 
 **Maior ou igual:** verifica se o valor da esquerda é maior que ou igual ao valor da direita
@@ -109,16 +118,16 @@ console.log(a <= b)
 let a = 10;
 let b = 5;
 
-console.log(a >= b)
+console.log(a >= b); //true
 ```
 
 **Importante:** a diferença entre `==` e `===` é que a primeira não compara o tipo de dado
 
 ```javascript
 let a = 5;
-let b = "5";
+let b = '5';
 
-console.log(a == b)
+console.log(a == b); //true
 ```
 
 &nbsp;
@@ -136,7 +145,7 @@ let a = 5;
 let b = 5;
 let c = 5;
 
-console.log(a == b && b == c)
+console.log(a == b && b == c); //true
 ```
 
 **Or:** exige que apenas uma das condições estejam corretas para que possa retornar true
@@ -146,24 +155,17 @@ let a = 5;
 let b = 5;
 let c = 2;
 
-console.log(a == b || b == c)
+console.log(a == b || b == c); //true
 ```
 
 **Not:** é usado para inverter o valor booleano de uma expressão. Se a expressão for verdadeira, o resultado será falso e vice versa
 
 ```javascript
-let fizCompras = false;
+let a = false;
 
-if(!fizCompras){
-	console.log("vá ao shopping!");
-} else {
-	console.log("vamos economizar?");
-}
+console.log(a); //false
+console.log(!a); //true
 ```
-
-&nbsp;
-Note que ao inverter a expressão dentro do parenteses ela se tornará verdadeira, portanto entrará no bloco do if. Caso fosse true na primeira linha, se tornaria false devido à inversão e entraria no bloco do else
-&nbsp;
 
 ---
 
@@ -179,14 +181,14 @@ Note que ao inverter a expressão dentro do parenteses ela se tornará verdadeir
 
 ---
 
-import Quiz from "@site/src/components/Quiz";
+import Quiz from '@site/src/components/Quiz';
 
 ## Quizz
 
 <Quiz
-  question="1. Qual operador em JavaScript é usado para atribuir um valor a uma variável?"
-  answers={["+", "=", "==", "==="]}
-  correctIndex={1}
+	question="1. Qual operador em JavaScript é usado para atribuir um valor a uma variável?"
+	answers={['+', '=', '==', '===']}
+	correctIndex={1}
 />
 
 ```javascript
@@ -199,18 +201,18 @@ console.log(resto);
 ```
 
 <Quiz
-  question="2. Qual será o valor da variável resto após a execução deste trecho de código?"
-  answers={["0", "2", "3", "1"]}
-  correctIndex={3}
+	question="2. Qual será o valor da variável resto após a execução deste trecho de código?"
+	answers={['0', '2', '3', '1']}
+	correctIndex={3}
 />
 
 <Quiz
-  question="3. Suponha que você tenha duas variáveis booleanas: temCartao e temCredito. Você deseja imprimir 'Você pode fazer a compra' apenas se ambas as variáveis forem verdadeiras. Qual expressão lógica abaixo atende a essa condição?"
-  answers={[
-    "temCartao || temCredito",
-    "temCartao && temCredito",
-    "!temCartao && !temCredito",
-    "temCartao && !temCredito",
-  ]}
-  correctIndex={1}
+	question="3. Suponha que você tenha duas variáveis booleanas: temCartao e temCredito. Você deseja imprimir 'Você pode fazer a compra' apenas se ambas as variáveis forem verdadeiras. Qual expressão lógica abaixo atende a essa condição?"
+	answers={[
+		'temCartao || temCredito',
+		'temCartao && temCredito',
+		'!temCartao && !temCredito',
+		'temCartao && !temCredito',
+	]}
+	correctIndex={1}
 />

@@ -1,13 +1,13 @@
 ---
-title: "Loopings"
+title: 'Loopings'
 sidebar_position: 5
 ---
 
 O loop consiste em fazer a mesma coisa repetidas vezes. Geralmente possui um ou mais dos seguintes itens:
 
-- O contador, que é inicializado com um certo valor (ponto inicial do loop)
-- A condição de saída, que é o critério no qual o loop irá parar. Normalmente quando o contador atinge um certo valor
-- Um iterador, que usualmente incrementa o contador em uma pequena quantidade a cada loop, sucessivamente, até atingir a condição de saída
+-   O contador, que é inicializado com um certo valor (ponto inicial do loop)
+-   A condição de saída, que é o critério no qual o loop irá parar. Normalmente quando o contador atinge um certo valor
+-   Um iterador, que usualmente incrementa o contador em uma pequena quantidade a cada loop, sucessivamente, até atingir a condição de saída
 
 ---
 
@@ -16,8 +16,8 @@ O loop consiste em fazer a mesma coisa repetidas vezes. Geralmente possui um ou 
 Sintaxe básica:
 
 ```javascript
-for (inicializador; condição-saída; expressão-final) {
-  // código para executar
+for (inicializador; condição - saída; expressão - final) {
+	// código para executar
 }
 ```
 
@@ -26,16 +26,16 @@ Explicação:
 
 1. A palavra-chave `for`, seguido por parênteses.
 2. Dentro do parênteses temos três itens, separados por ponto e vírgula:
-   - O inicializador— geralmente é uma variável configurada para um número, que é incrementado para contar o número de vezes que o loop foi executado. É também por vezes referido como uma variável de contador.
-   - A condição-saída — como mencionado anteriormente, aqui é definido quando o loop deve parar de executar. Geralmente, essa é uma expressão que apresenta um operador de comparação, um teste para verificar se a condição de saída foi atendida.
-   - A expressão-final — isso sempre é avaliado (ou executado) cada vez que o loop passou por uma iteração completa. Geralmente serve para incrementar/decrementar a variável do contador, aproximando-a do valor da condição de saída
+    - O inicializador— geralmente é uma variável configurada para um número, que é incrementado para contar o número de vezes que o loop foi executado. É também por vezes referido como uma variável de contador.
+    - A condição-saída — como mencionado anteriormente, aqui é definido quando o loop deve parar de executar. Geralmente, essa é uma expressão que apresenta um operador de comparação, um teste para verificar se a condição de saída foi atendida.
+    - A expressão-final — isso sempre é avaliado (ou executado) cada vez que o loop passou por uma iteração completa. Geralmente serve para incrementar/decrementar a variável do contador, aproximando-a do valor da condição de saída
 3. Algumas chaves contêm um bloco de código - esse código será executado toda vez que o loop for iterado.
    &nbsp;
 
 Exemplo:
 
 ```javascript
-for(i = 0; i < 10; i++){
+for (i = 0; i < 10; i++) {
 	console.log(i);
 }
 ```
@@ -54,10 +54,10 @@ Exemplo:
 ```javascript
 let sum = 0;
 
-for(let i = 1; i <= 10; i++){
-	if(i % 2 == 0) {
+for (let i = 1; i <= 10; i++) {
+	if (i % 2 == 0) {
 		sum += i;
-}
+	}
 }
 
 console.log(sum);
@@ -73,15 +73,15 @@ Vamos à explicação:
 5. Após a conclusão do laço `for`, o valor acumulado na variável `sum` é impresso no console
    Portanto, temos que a variável `sum` é a somatória dos números pares presentes no intervalo do 0 ao 10.
 
-   `sum = 2 + 4 + 6 + 8 + 10 = 30`
-   &nbsp;
+    `sum = 2 + 4 + 6 + 8 + 10 = 30`
+    &nbsp;
 
 Observação: Também é possível inicializar a variável e depois chamá-la, mas não é a maneira mais comum. Veja como funciona:
 
 ```javascript
 let i = 0;
 
-for(i; i < 10; i++){
+for (i; i < 10; i++) {
 	console.log(i);
 }
 ```
@@ -96,11 +96,11 @@ A maior diferença é que o `for` é utilizado quando você sabe a quantidade de
 Sintaxe básica:
 
 ```javascript
-inicializador
-while (condição-saída) {
-  // code to run
+inicializador;
+while (condição - saída) {
+	// code to run
 
-  expressão-final
+	expressão - final;
 }
 ```
 
@@ -114,12 +114,12 @@ Veja o exemplo:
 let n = 5;
 let fat = 1;
 
-while(n >= 1){
-	fat = fat*n;
-	n--
+while (n >= 1) {
+	fat = fat * n;
+	n--;
 }
 
-console.log(fat)
+console.log(fat);
 ```
 
 &nbsp;
@@ -133,13 +133,13 @@ No exemplo, estamos buscando o fatorial de 5, que é 120. Temos que enquanto o q
 Sintaxe básica:
 
 ```javascript
-inicializador
+inicializador;
 
 do {
 	// código para executar
 
-expressão-final
-} while (condição-saída)
+	expressão - final;
+} while (condição - saída);
 ```
 
 &nbsp;
@@ -148,24 +148,24 @@ Nesse caso, o inicializador novamente vem em primeiro lugar, antes que o loop se
 
 O diferencial aqui é que a condição de saída vem depois de todo o resto, envolvida em parênteses e precedida por uma palavra-chave `while`. Em um loop `do ... while`, o código dentro das chaves é sempre executado uma vez antes da verificação ser feita para ver se deve ser executada novamente. Em suma, o `while` executa o loop enquanto a condição for verdadeira, já o `do..while` executa o loop primeiro e depois verifica a condição.
 
-**Importante:** Com `while` e `do ... while` - como em todos os loops - você deve certificar-se de que o inicializador esteja iterado para que ele atinja a condição de saída. Caso contrário, o loop continuará indefinidamente e o navegador irá forçá-lo a parar ou falhar. Isso é chamado de loop infinito
-
 Exemplo:
 
 ```javascript
 let n = 10;
 
-do{
-	console.log("olá");
-	n++
-} while(n < 1)
+do {
+	console.log('olá');
+	n++;
+} while (n < 1);
 
-console.log("tchau")
+console.log('tchau');
 ```
 
 &nbsp;
 Note que, por mais que o `n` não satisfaça a condição, o olá aparece uma vez no terminal. Isso ocorre porque a verificação é feita depois e, caso o `n` não passe na verificação, irá sair do laço de repetição
 &nbsp;
+
+**Importante:** Com `while` e `do ... while` - como em todos os loops - você deve certificar-se de que o inicializador esteja iterado para que ele atinja a condição de saída. Caso contrário, o loop continuará indefinidamente e o navegador irá forçá-lo a parar ou falhar. Isso é chamado de loop infinito
 
 ---
 
@@ -175,56 +175,56 @@ Note que, por mais que o `n` não satisfaça a condição, o olá aparece uma ve
 
 ---
 
-import Quiz from "@site/src/components/Quiz";
+import Quiz from '@site/src/components/Quiz';
 
 ## Quizz
 
 ```javascript
 let count = 0;
 while (count < 5) {
-    console.log(count);
-    count++;
+	console.log(count);
+	count++;
 }
 ```
 
 <Quiz
-  question="1. O que será impresso no console quando este código for executado?"
-  answers={[
-    "0 1 2 3 4",
-    "1 2 3 4 5",
-    "0 1 2 3 4 5",
-    "Nenhuma das alternativas anteriores",
-  ]}
-  correctIndex={0}
+	question="1. O que será impresso no console quando este código for executado?"
+	answers={[
+		'0 1 2 3 4',
+		'1 2 3 4 5',
+		'0 1 2 3 4 5',
+		'Nenhuma das alternativas anteriores',
+	]}
+	correctIndex={0}
 />
 
 ```javascript
 let num = 5;
 let resultado = 1;
 for (let i = num; i > 1; i--) {
-    resultado *= i;
+	resultado *= i;
 }
 console.log(resultado);
 ```
 
 <Quiz
-  question="2. Qual será a saída desse código?"
-  answers={["5", "10", "20", "120"]}
-  correctIndex={3}
+	question="2. Qual será a saída desse código?"
+	answers={['5', '10', '20', '120']}
+	correctIndex={3}
 />
 
 ```javascript
 let num = 5;
 let resultado = 0;
 do {
-    resultado += num;
-    num--;
+	resultado += num;
+	num--;
 } while (num > 0);
 console.log(resultado);
 ```
 
 <Quiz
-  question="3. Qual será a saída desse código?"
-  answers={["12", "15", "20", "120"]}
-  correctIndex={1}
+	question="3. Qual será a saída desse código?"
+	answers={['12', '15', '20', '120']}
+	correctIndex={1}
 />
